@@ -317,35 +317,30 @@ return [
             'url'         => Admin::PATH,
             'icon'        => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Admin Module'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Pages',
+            'url'  => Admin::PATH . '/pages',
+            'icon' => 'fas fa-fw fa-circle',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
+        // [
+        //     'text'    => 'Pages',
+        //     'icon'    => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'About Us',
+        //             'url'  => 'pages/about-us',
+        //         ],
+        //         [
+        //             'text'    => 'level_one',
+        //             'url'     => '#',
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //     ],
+        // ],
     ],
 
     /*
