@@ -40,13 +40,11 @@
                     <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Exhibition Desciption (long)">{{ old('title', $data['exhibition']['description']) }}</textarea>
                     @error('description')<p class="text-danger">Please Add Desciption</p>@enderror
                 </div>
-                <div class="form-group">
-                    <label>Start Date</label>
-                    <input type="date" name="start_date" class="form-control" placeholder="Enter Start Date" value="{{ old('start_date', $data['exhibition']['start_date']) }}" required>
-                </div>
-                <div class="form-group">
-                    <label>End Date</label>
-                    <input type="date" name="end_date" class="form-control" placeholder="Enter End Date" value="{{ old('end_date', $data['exhibition']['end_date']) }}" required>
+                <label>Start-End Date</label>
+                <div class="form-group input-group">
+                    <input type="text" name="start_date" class="form-control datepicker" placeholder="Enter Start Date" value="{{ old('start_date', $data['exhibition']['start_date']) }}" required>
+                    <span class="input-group-addon">-</span>
+                    <input type="text" name="end_date" class="form-control datepicker" placeholder="Enter End Date" value="{{ old('end_date', $data['exhibition']['end_date']) }}" required>
                 </div>
                 <div class="form-group">
                     <label>Page Status</label>
@@ -71,9 +69,19 @@
 </div>
 @stop
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+@stop
+
 @section('js')
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+    });
+
     ClassicEditor.create( document.querySelector( '#editor' ) )
     .catch( error => {
         console.error( error );
