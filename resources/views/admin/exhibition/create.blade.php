@@ -37,7 +37,8 @@
                 </div>
                  <div class="form-group">
                     <label>Exhibition Desciption (long)</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Exhibition Desciption (long)" required>{{ old('title', $data['exhibition']['description']) }}</textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Exhibition Desciption (long)">{{ old('title', $data['exhibition']['description']) }}</textarea>
+                    @error('description')<p class="text-danger">Please Add Desciption</p>@enderror
                 </div>
                 <div class="form-group">
                     <label>Start Date</label>
@@ -70,6 +71,12 @@
 </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+@section('js')
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#editor' ) )
+    .catch( error => {
+        console.error( error );
+    });
+</script>
 @stop

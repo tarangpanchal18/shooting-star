@@ -32,7 +32,7 @@
                     </tr>
                     <tr>
                         <th>Description</th>
-                        <td>{{ $exhibition['description'] }}</td>
+                        <td>{!! $exhibition['description'] !!}</td>
                     </tr>
                     <tr>
                         <th>Exhibition Starts On</th>

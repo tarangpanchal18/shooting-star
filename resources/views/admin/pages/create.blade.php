@@ -22,16 +22,16 @@
                     <input type="text" name="title" class="form-control" placeholder="Enter Page Title" value="{{ old('title', $data['page']['title']) }}" required>
                 </div>
                 <div class="form-group">
-                    <label>Page Description</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Enter Page Description" required>{{ old('title', $data['page']['description']) }}</textarea>
-                </div>
-                <div class="form-group">
                     <label>Page SEO Keywords</label>
                     <input type="text" name="seo_keywords" class="form-control" placeholder="Enter SEO Desciption" value="{{ old('seo_keywords', $data['page']['seo_keywords']) }}" required>
                 </div>
                 <div class="form-group">
                     <label>Page SEO Description</label>
                     <input type="text" name="seo_description" class="form-control" placeholder="Enter SEO Keywords" value="{{ old('seo_description', $data['page']['seo_description']) }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Page Description</label>
+                    <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Enter Page Description">{{ old('title', $data['page']['description']) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Page Status</label>
@@ -56,6 +56,12 @@
 </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+@section('js')
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#editor' ) )
+    .catch( error => {
+        console.error( error );
+    });
+</script>
 @stop

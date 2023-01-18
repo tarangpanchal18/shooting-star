@@ -74,10 +74,6 @@
 </div>
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
 @section('js')
 <script>
     let text = "Are you sure you want to delete this ?";
@@ -87,6 +83,6 @@
             var formId = 'submit-form-' + $(this).data("id");
             document.getElementById(formId).submit();
         }
-    })
+    } );
 </script>
 @stop
