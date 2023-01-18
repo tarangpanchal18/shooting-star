@@ -12,12 +12,11 @@ class Admin extends Authenticatable
     const PATH = 'webadmin';
 
     protected $fillable = [
-        'name',
-        'email',
-        'phonecode',
-        'phone',
-        'password',
-        'logo',
-        'status',
+        'title' => 'required',
+        'description' => 'required',
+        'seo_description' => 'required',
+        'seo_keywords' => 'required',
+        'page_image' => 'image',
+        'status' => 'required',
     ];
 }

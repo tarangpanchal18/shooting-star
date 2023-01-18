@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\ProfileController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth:admin')->prefix(Admin::PATH)->name(Admin::PATH . '.')->group(function () {
+Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(function () {
     Route::get('', [DashboardController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('pages', PageController::class);
 });
 
 require __DIR__.'/auth.php';
