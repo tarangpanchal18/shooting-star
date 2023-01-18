@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ExhibitionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::get('', [DashboardController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('pages', PageController::class);
+    Route::resource('exhibition', ExhibitionController::class);
 });
 
 require __DIR__.'/auth.php';

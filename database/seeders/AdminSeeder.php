@@ -16,9 +16,10 @@ class AdminSeeder extends Seeder
     public function run(Generator $faker)
     {
         Admin::updateOrCreate(
+            ['email' => 'demo@demo.com'],
             [
                 'name' => 'Super Admin',
-                'email' => rand(0,1000) . 'demo@demo.com',
+                'email' => 'demo@demo.com',
                 'phonecode' => '91',
                 'phone' => $faker->numerify('##########'),
                 'password' => \Hash::make('123456'),

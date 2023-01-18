@@ -323,6 +323,11 @@ return [
             'url'  => Admin::PATH . '/pages',
             'icon' => 'fas fa-fw fa-circle',
         ],
+        [
+            'text' => 'Exhibition',
+            'url'  => Admin::PATH . '/exhibition',
+            'icon' => 'fas fa-fw fa-circle',
+        ],
         // [
         //     'text'    => 'Pages',
         //     'icon'    => 'fas fa-fw fa-share',

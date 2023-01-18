@@ -1,7 +1,7 @@
 @extends('adminlte::page')
-@section('title', 'Pages Module')
+@section('title', 'Exhibition Module')
 @section('content_header')
-    <h1>Pages List</h1>
+    <h1>Exhibitions List</h1>
 @stop
 
 @section('content')
@@ -10,7 +10,7 @@
         @include('admin.component.alert_msg')
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Pages List</h3>
+                <h3 class="card-title">Exhibition List</h3>
                 <div class="card-tools">
                     {{-- <div class="input-group input-group-sm" style="width: 250px;">
                         <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
@@ -20,7 +20,7 @@
                             </button>
                         </div>
                     </div> --}}
-                    <a href="{{ route('admin.pages.create') }}" class="btn btn-sm btn-info">+ Add Pages</a>
+                    <a href="{{ route('admin.exhibition.create') }}" class="btn btn-sm btn-info">+ Add Exhibition</a>
                 </div>
             </div>
 
@@ -29,8 +29,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Updated On</th>
-                            <th>Page Title</th>
+                            <th>Category</th>
+                            <th>Exhibition Title</th>
+                            <th>Exhibition Date</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -39,18 +40,19 @@
                         @forelse($data as $page)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $page['updated_at'] }}</td>
+                            <td>{{ $page->category->name }}</td>
                             <td>{{ $page['title'] }}</td>
+                            <td>{{ $page['start_date']  ." - ". $page['end_date'] }}</td>
                             <td>
                                 <span class="badge badge-{{$page['status'] == "Active" ? 'success' : 'danger'}}">{{ $page['status'] }}</span>
                             </td>
                             <td>
-                                <a href="{{ route('admin.pages.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>
-                                <a href="{{ route('admin.pages.edit', $page['id']) }}" class="btn btn-sm btn-default">Edit</a>
-                                <a href="{{ route('admin.pages.destroy', $page['id']) }}" onclick="event.preventDefault();" class="btn btn-sm btn-default delete-item" data-id="{{ $page['id'] }}">Delete</a>
+                                <a href="{{ route('admin.exhibition.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>
+                                <a href="{{ route('admin.exhibition.edit', $page['id']) }}" class="btn btn-sm btn-default">Edit</a>
+                                <a href="{{ route('admin.exhibition.destroy', $page['id']) }}" onclick="event.preventDefault();" class="btn btn-sm btn-default delete-item" data-id="{{ $page['id'] }}">Delete</a>
 
                                  <!-- Form For Delete -->
-                                <form id="submit-form-{{ $page['id'] }}" action="{{ route('admin.pages.destroy',$page['id']) }}" method="POST" class="hidden">
+                                <form id="submit-form-{{ $page['id'] }}" action="{{ route('admin.exhibition.destroy',$page['id']) }}" method="POST" class="hidden">
                                     @csrf
                                     @method('DELETE')
                                 </form>
