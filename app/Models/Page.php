@@ -23,4 +23,25 @@ class Page extends Model
         'page_image',
         'status',
     ];
+
+    /**
+     * Format the CreatedAt Date
+     *
+     * @return date
+     */
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d-m-Y', strtotime($value));
+    }
+
+    /**
+     * Format the UpdatedAt Date
+     *
+     * @return date
+     */
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('d-m-Y', strtotime($value));
+    }
+
 }

@@ -16,7 +16,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $data = Page::where('status', 'Active')->get();
+        $data = Page::orderBy('title', 'ASC')->paginate(10);
         return view('admin.pages.index', compact('data'));
     }
 
@@ -27,7 +27,10 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.create');
+        $data['action'] = "Add";
+        $data['method'] = "POST";
+        $data['formUrl'] = route('admin.pages.store');
+        return view('admin.pages.create', compact('data'));
     }
 
     /**
@@ -38,7 +41,8 @@ class PageController extends Controller
      */
     public function store(CreatePage $request)
     {
-        dd($request->validated());
+        Page::create($request->validated());
+        return redirect()->route('admin.pages.index')->with('success', 'Data Added Successfully !');
     }
 
     /**
@@ -49,7 +53,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('admin.pages.show', compact('page'));
     }
 
     /**
@@ -60,19 +64,24 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        $data['action'] = "Edit";
+        $data['method'] = "PUT";
+        $data['formUrl'] = route('admin.pages.update', $page['id']);
+        $data['page'] = $page;
+        return view('admin.pages.create', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CreatePage  $request
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(CreatePage $request, Page $page)
     {
-        //
+        $page->update($request->validated());
+        return redirect()->route('admin.pages.index')->with('success', 'Data Updated Successfully !');
     }
 
     /**
@@ -83,6 +92,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return redirect()->route('admin.pages.index')->with('success', 'Data Updated Successfully !');
     }
 }

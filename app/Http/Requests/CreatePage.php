@@ -24,13 +24,12 @@ class CreatePage extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'requried',
-            'phonecode' => 'requried',
-            'phone' => 'requried',
-            'password' => 'requried',
-            'logo' => 'requried',
-            'status' => 'requried',
+            'title' => 'required|min:3|max:50',
+            'description' => 'required|min:10|max:5000',
+            'seo_description' => 'required|min:3|max:1000',
+            'seo_keywords' => 'required|min:3|max:500',
+            'page_image' => 'image',
+            'status' => 'required',
         ];
     }
 }
