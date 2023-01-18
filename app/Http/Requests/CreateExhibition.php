@@ -26,8 +26,8 @@ class CreateExhibition extends FormRequest
         return [
             'title' => 'required|min:3|max:50',
             'category_id' => 'required|int',
-            'short_description' => 'required|min:3|max:50',
-            'description' => 'required|min:10|max:5000',
+            'short_description' => 'required|min:3|max:500',
+            'description' => 'required|min:10|max:10000',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'cover_image' => 'image',

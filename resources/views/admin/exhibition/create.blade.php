@@ -37,7 +37,7 @@
                 </div>
                  <div class="form-group">
                     <label>Exhibition Desciption (long)</label>
-                    <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Exhibition Desciption (long)">{{ old('title', $data['exhibition']['description']) }}</textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Exhibition Desciption (long)">{{ old('description', $data['exhibition']['description']) }}</textarea>
                     @error('description')<p class="text-danger">Please Add Desciption</p>@enderror
                 </div>
                 <label>Start-End Date</label>
