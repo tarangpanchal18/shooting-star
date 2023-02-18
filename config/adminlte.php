@@ -315,32 +315,30 @@ return [
         [
             'text'        => 'Dashboard',
             'url'         => Admin::PATH,
-            'icon'        => 'fas fa-fw fa-lock',
+            'icon'        => 'fas fa-fw fa-cogs',
         ],
         ['header' => 'Admin Module'],
         [
-            'text' => 'Pages',
-            'url'  => Admin::PATH . '/pages',
-            'icon' => 'fas fa-fw fa-circle',
+            'text'    => 'Content Pages',
+            'icon'    => 'fas fa-fw fa-file',
+            'url'     => Admin::PATH . '/pages',
         ],
-        // [
-        //     'text'    => 'Pages',
-        //     'icon'    => 'fas fa-fw fa-share',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'About Us',
-        //             'url'  => 'pages/about-us',
-        //         ],
-        //         [
-        //             'text'    => 'level_one',
-        //             'url'     => '#',
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url'  => '#',
-        //         ],
-        //     ],
-        // ],
+        [
+            'text'    => 'Exhibition',
+            'icon'    => 'fas fa-fw fa-inbox',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Exhibiton',
+                    'url'  => Admin::PATH . '/exhibition/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Exhibiton',
+                    'url'     => Admin::PATH . '/exhibition',
+                ],
+            ],
+        ],
     ],
 
     /*
