@@ -62,7 +62,7 @@
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-success">{{ $data['action'] }} Page</button>
-                <a href="{{ route('admin.pages.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('admin.exhibition.index') }}" class="btn btn-default">Cancel</a>
             </div>
         </form>
     </div>
