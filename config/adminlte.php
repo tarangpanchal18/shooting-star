@@ -339,6 +339,22 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Open Calls',
+            'icon'    => 'fas fa-fw fa-circle',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Open Calls',
+                    'url'  => Admin::PATH . '/opencall/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Open Calls',
+                    'url'     => Admin::PATH . '/opencall',
+                ],
+            ],
+        ],
     ],
 
     /*

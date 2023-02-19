@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label>Page Description</label>
-                    <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Enter Page Description">{{ old('title', $data['page']['description']) }}</textarea>
+                    <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Enter Page Description">{{ old('description', $data['page']['description']) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Page Status</label>
