@@ -48,7 +48,9 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.opencall.show', $page['id']) }}"
-                                    class="btn btn-sm btn-default">View</a>
+                                class="btn btn-sm btn-default">Add Form Fields</a>
+                                <a href="{{ route('admin.opencall.show', $page['id']) }}"
+                                    class="btn btn-sm btn-primary">View</a>
                                 <a href="{{ route('admin.opencall.edit', $page['id']) }}"
                                     class="btn btn-sm btn-warning">Edit</a>
                                 <a href="{{ route('admin.opencall.destroy', $page['id']) }}"

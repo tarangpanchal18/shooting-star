@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(function () {
     Route::get('', [DashboardController::class, 'index']);
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('pages', PageController::class);
     Route::resource('exhibition', ExhibitionController::class);
     Route::resource('opencall', OpenCallController::class);

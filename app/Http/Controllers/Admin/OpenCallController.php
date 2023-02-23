@@ -51,9 +51,9 @@ class OpenCallController extends Controller
      * @param  \App\Models\OpenCall  $openCall
      * @return \Illuminate\Http\Response
      */
-    public function show(OpenCall $openCall)
+    public function show(OpenCall $opencall)
     {
-        return view('admin.opencall.show', compact('openCall'));
+        return view('admin.opencall.show', compact('opencall'));
     }
 
     /**
@@ -62,12 +62,12 @@ class OpenCallController extends Controller
      * @param  \App\Models\OpenCall  $openCall
      * @return \Illuminate\Http\Response
      */
-    public function edit(OpenCall $openCall)
+    public function edit(OpenCall $opencall)
     {
         $data['action'] = "Edit";
         $data['method'] = "PUT";
-        $data['opencall'] = $openCall;
-        $data['formUrl'] = route('admin.opencall.update', $openCall['id']);
+        $data['opencall'] = $opencall;
+        $data['formUrl'] = route('admin.opencall.update', $opencall['id']);
 
         return view('admin.opencall.create', compact('data'));
     }
@@ -79,9 +79,9 @@ class OpenCallController extends Controller
      * @param  \App\Models\OpenCall  $openCall
      * @return \Illuminate\Http\Response
      */
-    public function update(CreateOpenCall $request, OpenCall $openCall)
+    public function update(CreateOpenCall $request, OpenCall $opencall)
     {
-        $openCall->update($request->validated());
+        $opencall->update($request->validated());
         return redirect()->route('admin.opencall.index')->with('success', 'Data Updated Successfully !');
     }
 
@@ -91,9 +91,9 @@ class OpenCallController extends Controller
      * @param  \App\Models\OpenCall  $openCall
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OpenCall $openCall)
+    public function destroy(OpenCall $opencall)
     {
-        $openCall->delete();
+        $opencall->delete();
         return redirect()->route('admin.opencall.index')->with('success', 'Data Updated Successfully !');
     }
 }
