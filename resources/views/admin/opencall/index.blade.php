@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Open Calls Module')
 @section('content_header')
-<h1>Exhibitions List</h1>
+<h1>Open Calls List</h1>
 @stop
 
 @section('content')
