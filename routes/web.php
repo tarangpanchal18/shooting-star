@@ -39,7 +39,7 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::resource('pages', PageController::class);
     Route::resource('exhibition', ExhibitionController::class);
     Route::resource('opencall', OpenCallController::class);
-    Route::resource('opencall-form-field', [OpenCallFormFieldController::class, 'index']);
+    Route::resource('opencall-form', OpenCallFormController::class);
 });
 
 require __DIR__.'/auth.php';

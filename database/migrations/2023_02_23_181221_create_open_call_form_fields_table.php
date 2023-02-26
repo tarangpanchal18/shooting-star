@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('open_call_form_fields', function (Blueprint $table) {
             $table->id();
-            $table->foreign('open_call_id')->references('id')->on('users');
+            $table->foreignId('open_call_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('field_label');
             $table->string('field_name');
             $table->string('field_type');
