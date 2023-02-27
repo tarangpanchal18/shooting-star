@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExhibitionController;
+use App\Http\Controllers\Admin\OpenCallController;
+use App\Http\Controllers\Admin\OpenCallFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +36,11 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(function () {
     Route::get('', [DashboardController::class, 'index']);
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('pages', PageController::class);
     Route::resource('exhibition', ExhibitionController::class);
+    Route::resource('opencall', OpenCallController::class);
+    Route::resource('opencall.opencall-form', OpenCallFormController::class);
 });
 
 require __DIR__.'/auth.php';
