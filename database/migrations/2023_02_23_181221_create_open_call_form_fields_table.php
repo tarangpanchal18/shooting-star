@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('field_type');
             $table->string('field_description')->nullable();
             $table->enum('status', ['Active', 'InActive'])->default('InActive');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

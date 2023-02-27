@@ -47,7 +47,7 @@
                                 <span class="badge badge-{{($page['status'] == "Active") ? 'success' : 'danger' }}"> {{ $page['status'] }} </span>
                             </td>
                             <td>
-                                <a href="{{ route('admin.opencall-form.index', $page['id']) }}"
+                                <a href="{{ route('admin.opencall.opencall-form.index', $page['id']) }}"
                                 class="btn btn-sm btn-default">Add Form Fields</a>
                                 <a href="{{ route('admin.opencall.show', $page['id']) }}"
                                     class="btn btn-sm btn-primary">View</a>

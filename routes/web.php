@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExhibitionController;
 use App\Http\Controllers\Admin\OpenCallController;
+use App\Http\Controllers\Admin\OpenCallFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::resource('pages', PageController::class);
     Route::resource('exhibition', ExhibitionController::class);
     Route::resource('opencall', OpenCallController::class);
-    Route::resource('opencall-form', OpenCallFormController::class);
+    Route::resource('opencall.opencall-form', OpenCallFormController::class);
 });
 
 require __DIR__.'/auth.php';
