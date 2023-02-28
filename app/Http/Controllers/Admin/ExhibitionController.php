@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateExhibition;
 use App\Models\Category;
 use App\Models\Exhibition;
 use Illuminate\Http\Request;
+use App\Models\ExhibitionImage;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateExhibition;
 
 class ExhibitionController extends Controller
 {
@@ -97,5 +98,86 @@ class ExhibitionController extends Controller
     {
         $exhibition->delete();
         return redirect()->route('admin.exhibition.index')->with('success', 'Data Updated Successfully !');
+    }
+
+    /**
+     * Return the page for upload images.
+     *
+     * @param App\Models\Exhibition $exhibition
+     * @return \Illuminate\Http\Response
+     */
+    public function gallery(Exhibition $exhibition)
+    {
+        $data['exhibition'] = $exhibition;
+        return view('admin.exhibition.gallery.index', compact('data'));
+    }
+
+    /**
+     * Upload images.
+     *
+     * @param App\Models\Exhibition $exhibition
+     * @return json
+     */
+    public function upload(Request $request, Exhibition $exhibition)
+    {
+        $image = $request->file('file');
+        $imageSize = $request->file('file')->getSize();
+        $imageName = $this->generateFileName('exhibition', $image->extension(), $exhibition->id);
+        $path = public_path('images/' . $exhibition->id . '/original');
+        $image->move($path, $imageName);
+
+        $imageUpload = new ExhibitionImage();
+        $imageUpload->exhibition_id = $exhibition->id;
+        $imageUpload->filename = $imageName;
+        $imageUpload->file_size = $imageSize;
+        $imageUpload->save();
+
+        return response()->json([
+            'success'=>$imageName
+        ]);
+    }
+
+    /**
+     * Delete Upload images.
+     *
+     * @param App\Models\Exhibition $exhibition
+     * @return json
+     */
+    public function removeUpload(Request $request, Exhibition $exhibition)
+    {
+        $data = ExhibitionImage::where('filename', $request->file_name);
+        $data->delete();
+
+        $path = public_path('images/'. $exhibition->id .'/original/');
+        unlink($path . $request->file_name);
+
+        return response()->json([
+            'success' => $request->file_name
+        ]);
+    }
+
+    /**
+     * Generate File Name.
+     *
+     * @param string $module
+     * @param string $extension
+     * @param int $id
+     * @return json
+     */
+    public function generateFileName($module, $extension, $id = null)
+    {
+        $fileName = match ($module) {
+            'exhibition' => 'exhibition',
+        };
+
+        if ($id) {
+            $fileName = $fileName . " " . $id;
+        }
+
+        $fileName = $fileName . " " . time();
+        $fileName = $fileName . " " . rand(1000,9999);
+        $fileName = str_replace(' ', '_', $fileName);
+
+        return $fileName . "." . $extension;
     }
 }

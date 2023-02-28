@@ -38,7 +38,12 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::get('', [DashboardController::class, 'index']);
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('pages', PageController::class);
+
     Route::resource('exhibition', ExhibitionController::class);
+    Route::get('exhibition/{exhibition}/gallery', [ExhibitionController::class, 'gallery'])->name('exhibition.gallery');
+    Route::post('exhibition/{exhibition}/upload', [ExhibitionController::class, 'upload'])->name('exhibition.upload');
+    Route::post('exhibition/{exhibition}/doremove', [ExhibitionController::class, 'removeUpload'])->name('exhibition.removeUpload');
+
     Route::resource('opencall', OpenCallController::class);
     Route::resource('opencall.opencall-form', OpenCallFormController::class);
 });
