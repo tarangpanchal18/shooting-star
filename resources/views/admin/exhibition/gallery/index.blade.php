@@ -49,9 +49,13 @@
                 </div>
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> add : exhibition image module
+=======
+
+>>>>>>> image remove functionality
         </div>
     </div>
 </div>
