@@ -20,11 +20,11 @@ class Exhibition extends Model
         'status',
     ];
 
-    /**
-     * Defines the relationship between Exhibtion and Categories
-     *
-     */
     public function category() {
         return $this->belongsTo(Category::class);
+    }
+
+    public function images() {
+        return $this->hasMany(ExhibitionImage::class);
     }
 }

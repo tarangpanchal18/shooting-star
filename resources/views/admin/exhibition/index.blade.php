@@ -47,7 +47,8 @@
                                 <span class="badge badge-{{$page['status'] == "Active" ? 'success' : 'danger'}}">{{ $page['status'] }}</span>
                             </td>
                             <td>
-                                <a href="{{ route('admin.exhibition.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>
+                                <a href="{{ route('admin.exhibition.gallery', $page['id']) }}" class="btn btn-sm btn-default">Add Images</a>
+                                <a href="{{ route('admin.exhibition.show', $page['id']) }}" class="btn btn-sm btn-primary">View</a>
                                 <a href="{{ route('admin.exhibition.edit', $page['id']) }}" class="btn btn-sm btn-warning">Edit</a>
                                 <a href="{{ route('admin.exhibition.destroy', $page['id']) }}" onclick="event.preventDefault();" class="btn btn-sm btn-danger delete-item" data-id="{{ $page['id'] }}">Delete</a>
 
