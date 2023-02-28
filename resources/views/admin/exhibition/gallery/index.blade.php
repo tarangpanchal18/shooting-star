@@ -48,7 +48,10 @@
                     <a href="{{ route('admin.exhibition.index') }}" class="btn btn-sm btn-info">Cancel</a>
                 </div>
             </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> add : exhibition image module
         </div>
     </div>
 </div>
