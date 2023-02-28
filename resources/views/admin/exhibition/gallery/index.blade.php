@@ -18,7 +18,28 @@
                 <h3 class="card-title">{{ $data['exhibition']['title'] }} >> Upload Gallery Images</h3>
             </div>
 
-            <div class="card-body">
+            <div class="card-footer bg-white">
+                <h4>Uploaded Images</h4>
+                <div class="row" style="width: 100%;overflow:scroll;margin-bottom:10px;">
+                    <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
+                    @forelse($data['exhibition']->images as $val)
+                    <li>
+                        <span class="mailbox-attachment-icon">
+                            <img style="height: 150px" class="img-thumbnail" src="{{ asset('images/'.$data['exhibition']['id'].'/original/'.$val['filename']) }}" alt="">
+                        </span>
+                        <div class="mailbox-attachment-info"><br>
+                            <a class="mailbox-attachment-name">{{ $val['filename'] }}</a>
+                            <span class="mailbox-attachment-size clearfix mt-1">
+                                <span>{{ $val['file_size'] }} B</span>
+                                <a class="btn btn-default btn-sm float-right removeImage" data-fileName="{{ $val['filename'] }}"><i class="fas fa-trash"></i></a>
+                            </span>
+                        </div>
+                    </li>
+                    @empty
+                    <p>No Images Uploaded Yet !</p>
+                    @endforelse
+                </div>
+
                 <form method="post" enctype="multipart/form-data" class="dropzone" id="exhibitionGallery">
                     @csrf
                 </form>
@@ -27,6 +48,7 @@
                     <a href="{{ route('admin.exhibition.index') }}" class="btn btn-sm btn-info">Cancel</a>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -59,23 +81,9 @@
                 });
             });
 
-            this.on("removedfile", function(file) {
-                $.post("{{ route('admin.exhibition.removeUpload', $data['exhibition']['id']) }}", {
-                    "_token": "{{ csrf_token() }}",
-                    file_name: file.name
-                });
+            this.on('queuecomplete', function () {
+                location.reload();
             });
-
-            @forelse($data['exhibition']->images as $val)
-                var mockFile = {
-                    name: '{{ $val['filename'] }}',
-                    size: '{{ $val['file_size'] }}',
-                };
-                var imgFile = "{{ asset('images/'. $data['exhibition']['id'] .'/original/' . $val['filename']) }}";
-                myDropzone.options.addedfile.call(myDropzone, mockFile);
-                myDropzone.options.thumbnail.call(myDropzone, mockFile, imgFile);
-            @empty
-            @endforelse
 
             $("#processDropZone").click(function (e) {
                 e.preventDefault();
@@ -83,5 +91,19 @@
             });
         }
     }
+
+    $(".removeImage").click(function () {
+        var fileName = $(this).data("filename");
+        var formUrl = "{{ route('admin.exhibition.removeUpload', $data['exhibition']['id']) }}";
+
+        if(confirm('Are you sure you want to remove ?')) {
+            $.post(formUrl, {
+                'file_name' : fileName,
+                '_token' : '{{ csrf_token() }}',
+            });
+
+            location.reload();
+        }
+    });
 </script>
 @stop
