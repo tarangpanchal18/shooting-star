@@ -25,7 +25,7 @@
                     @forelse($data['exhibition']->images as $val)
                     <li>
                         <span class="mailbox-attachment-icon">
-                            <img style="height: 150px" class="img-thumbnail" src="{{ asset('images/'.$data['exhibition']['id'].'/original/'.$val['filename']) }}" alt="">
+                            <img style="height: 150px" class="img-thumbnail" src="{{ asset('images/exhibition/'.$data['exhibition']['id'].'/'.$val['filename']) }}" alt="{{$val['filename']}}">
                         </span>
                         <div class="mailbox-attachment-info"><br>
                             <a class="mailbox-attachment-name">{{ $val['filename'] }}</a>
@@ -48,7 +48,6 @@
                     <a href="{{ route('admin.exhibition.index') }}" class="btn btn-sm btn-info">Cancel</a>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

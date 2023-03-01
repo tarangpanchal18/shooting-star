@@ -8,9 +8,21 @@ use Illuminate\Http\Request;
 use App\Models\ExhibitionImage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateExhibition;
+use App\Repositories\UploadFileRepository;
 
 class ExhibitionController extends Controller
 {
+
+    /**
+     * Constructor Function
+     *
+     * @param App\Repositories\UploadFileRepository $uploadFileRepository
+     */
+    public function __construct(public UploadFileRepository $uploadFileRepository)
+    {
+        $this->uploadFileRepository = $uploadFileRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -120,11 +132,12 @@ class ExhibitionController extends Controller
      */
     public function upload(Request $request, Exhibition $exhibition)
     {
-        $image = $request->file('file');
         $imageSize = $request->file('file')->getSize();
-        $imageName = $this->generateFileName('exhibition', $image->extension(), $exhibition->id);
-        $path = public_path('images/' . $exhibition->id . '/original');
-        $image->move($path, $imageName);
+        $imageName = $this->uploadFileRepository->uploadFile(
+            'exhibition',
+            $request->file('file'),
+            $exhibition->id
+        );
 
         $imageUpload = new ExhibitionImage();
         $imageUpload->exhibition_id = $exhibition->id;
@@ -145,39 +158,13 @@ class ExhibitionController extends Controller
      */
     public function removeUpload(Request $request, Exhibition $exhibition)
     {
+        $path = public_path(Exhibition::UPLOAD_PATH.$exhibition->id);
+        unlink($path.'/'.$request->file_name);
         $data = ExhibitionImage::where('filename', $request->file_name);
         $data->delete();
-
-        $path = public_path('images/'. $exhibition->id .'/original/');
-        unlink($path . $request->file_name);
 
         return response()->json([
             'success' => $request->file_name
         ]);
-    }
-
-    /**
-     * Generate File Name.
-     *
-     * @param string $module
-     * @param string $extension
-     * @param int $id
-     * @return json
-     */
-    public function generateFileName($module, $extension, $id = null)
-    {
-        $fileName = match ($module) {
-            'exhibition' => 'exhibition',
-        };
-
-        if ($id) {
-            $fileName = $fileName . " " . $id;
-        }
-
-        $fileName = $fileName . " " . time();
-        $fileName = $fileName . " " . rand(1000,9999);
-        $fileName = str_replace(' ', '_', $fileName);
-
-        return $fileName . "." . $extension;
     }
 }

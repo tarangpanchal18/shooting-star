@@ -10,6 +10,8 @@ class Exhibition extends Model
 {
     use HasFactory, SoftDeletes;
 
+    const UPLOAD_PATH = 'images/exhibition/';
+
     protected $fillable = [
         'title',
         'category_id',
