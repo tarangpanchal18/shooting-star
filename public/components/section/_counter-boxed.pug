@@ -1,0 +1,30 @@
+include ../counter/_counter
+
+// Counter Boxed
+section.section.section-md.bg-transparent
+	.container
+		.row.row-30
+			.col-6.col-md-3
+				+counter-boxed({
+					value: 150,
+					postfix: '+',
+					title: 'Photo Shoots'
+				})
+
+			.col-6.col-md-3
+				+counter-boxed({
+					value: 118,
+					title: 'Awards'
+				})
+
+			.col-6.col-md-3
+				+counter-boxed({
+					value: 380,
+					title: 'Clients'
+				})
+
+			.col-6.col-md-3
+				+counter-boxed({
+					value: 480,
+					title: 'Partners'
+				})

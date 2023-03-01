@@ -1,0 +1,362 @@
+/* Custom Css */
+
+.title_style {
+  position: relative;
+  padding: 5px 0;
+  color: #142656;
+}
+
+.title_style::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0 auto;
+  width: 30%;
+  height: 2px;
+  background-color: #142656cc;
+}
+
+.title_style::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 30%;
+  height: 2px;
+  background-color: #142656cc;
+}
+
+/* ----------- Header Designe ----------- */
+.rd-navbar-wrap .navbar-logo {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+header .navbar-section.nav_2 .navbar-logo {
+  display: none;
+}
+
+header nav.rd-navbar.rd-navbar--is-stuck .navbar-section.nav_2 .navbar-logo {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* ----------- Home Page ----------- */
+section.hero_slider {
+  height: calc(100vh - 100px);
+  margin-top: 20px;
+}
+
+section.hero_slider .exhibutionImages,
+section.hero_slider .slick-list,
+section.hero_slider .slick-track {
+  height: 100%;
+}
+
+section.hero_slider .exhibution_Image {
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+section.hero_slider .slick-arrow img {
+  height: 100%;
+}
+
+section.hero_slider .slick-arrow {
+  position: absolute;
+  z-index: 1;
+  right: 50px;
+  bottom: calc(50% - 30px);
+  height: 30px;
+  width: 30px;
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+section.hero_slider .slick-arrow:hover {
+  opacity: 1;
+}
+
+section.hero_slider .prevArrow.slick-arrow {
+  right: calc(100% - 80px);
+}
+
+.artSection img.image {
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 1199.98px) {
+  section.hero_slider {
+    height: 500px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  section.hero_slider {
+    height: 400px;
+  }
+
+  section.hero_slider .prevArrow.slick-arrow {
+    right: calc(100% - 60px);
+  }
+
+  section.hero_slider .nextArrow.slick-arrow {
+    right: 30px;
+  }
+}
+
+/* ----------- Artists Page ----------- */
+.artistsPage .herosection .image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.artistsPage .artistsArt .listItem:nth-child(n + 4) {
+  margin-top: 20px;
+}
+
+.artistsPage .artistsArt .listItem img {
+  transition: all 1s;
+}
+
+.artistsPage .artistsArt .listItem .imageBlock {
+  overflow: hidden;
+}
+
+.artistsPage .artistsArt .listItem img:hover {
+  transform: scale(1.4);
+}
+
+.artistsPage .artistsArt .listItem .artistsName {
+  font-size: 18px;
+}
+
+@media (max-width: 991.98px) {
+  .artistsPage .artistsArt .listItem:nth-child(n + 3) {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .artistsPage .artistsArt .listItem:nth-child(n + 2) {
+    margin-top: 30px;
+  }
+}
+
+/* ----------- Artists Details Page ----------- */
+.artistsDetailsPage h1 {
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.works .card-title {
+  font-size: 22px;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  display: block;
+}
+
+.works .subtitle {
+  margin: 0;
+  font-size: 14px;
+}
+
+.works .date {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ----------- Exhibition Page ----------- */
+.exhibitionPage .currentexhibition .subtitle {
+  font-size: 14px;
+  display: block;
+  line-height: initial;
+  margin: 10px 0 5px;
+}
+
+.exhibitionPage .currentexhibition .date {
+  font-size: 14px;
+  line-height: inherit;
+  margin: 0;
+}
+
+.exhibitionPage .pastexhibition {
+  margin-top: 70px;
+}
+
+.exhibitionPage .pastexhibition .card-title {
+  font-size: 22px;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.exhibitionPage .pastexhibition .subtitle {
+  margin: 0;
+  font-size: 14px;
+}
+
+.exhibitionPage .pastexhibition .date {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ----------- Exhibution Detailes Page ----------- */
+.exhibutionDetailesPage .exhibutionDetailes .exhibutionTitle {
+  margin: 0;
+  font-size: 22px;
+}
+
+.exhibutionDetailesPage .exhibutionDetailes .exhibutionDate {
+  font-size: 14px;
+  margin: 15px 0;
+}
+
+.exhibutionOverview .nav-line-vertical .nav-link {
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+@media (max-width: 767.98px) {
+  .exhibutionDetailes .nav.nav-line-vertical {
+    flex-wrap: wrap;
+  }
+}
+
+/* ----------- Exhibution Overview ----------- */
+.exhibutionOverview {
+  margin: 30px 0;
+}
+
+.exhibutionOverview .exhibutionTitle {
+  font-size: 18px;
+}
+
+.exhibutionOverview .exhibutionDate {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.exhibutionOverview .navlinks {
+  margin-top: 20px;
+  padding: 0;
+  display: inline-block;
+}
+
+.exhibutionOverview .navlinks li {
+  margin-bottom: 10px;
+}
+
+.exhibutionOverview .navlinks li a {
+  font-size: 18px;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.exhibutionOverview .navlinks li a:hover {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+
+.exhibutionOverview .description {
+  font-size: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.exhibutionOverview .exhibutionLink {
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 14px;
+  border-bottom: 1px solid;
+}
+
+.exhibutionOverview .overviewImage {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.exhibutionOverview div#exhibutionGallery img.thumbnail-img {
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.exhibutionOverview div#exhibutionGallery .isotope .isotope-item:nth-child(-n + 2) {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 991.98px) {
+  .exhibutionOverview .navlinks {
+    margin: 0;
+    display: flex;
+    margin-left: 30px;
+  }
+
+  .exhibutionOverview .navlinks li {
+    margin-bottom: 0;
+  }
+
+  .exhibutionOverview .navlinks li:not(:first-child) {
+    margin-left: 20px;
+  }
+
+  .exhibutionOverview .exhibutionDescription {
+    order: 1;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .exhibutionOverview .exhibutionData {
+    text-align: center;
+  }
+
+  .exhibutionDetailesPage .exhibutionDetailes .exhibutionTitle,
+  .exhibutionDetailesPage .exhibutionDetailes .exhibutionDate {
+    width: 100%;
+  }
+
+  .nav-line-vertical .nav-item:last-child {
+    margin: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .exhibutionOverview .navlinks {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+/* ----------- Conatct Page ----------- */
+.contactPage .contactDetails p:not(:last-child) {
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.contactPage .contactDetails .siteLogo {
+  margin-bottom: 25px;
+}
+
+/* ----------- Open To Call Page ----------- */
+.openCallPage .herosection .image {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
