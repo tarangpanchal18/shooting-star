@@ -10,6 +10,8 @@ class Artist extends Model
 {
     use HasFactory, SoftDeletes;
 
+    const UPLOAD_PATH = 'images/artist/';
+
     protected $fillable = [
         'artist_name',
         'artist_title',
