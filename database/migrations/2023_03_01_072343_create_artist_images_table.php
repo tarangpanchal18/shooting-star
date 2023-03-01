@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('artist_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
-            $table->string('short_description');
-            $table->string('other_short_description');
+            $table->string('short_description')->nullable();
+            $table->string('other_short_description')->nullable();
             $table->text('filename');
             $table->string('file_size');
             $table->text('filename_md')->nullable();

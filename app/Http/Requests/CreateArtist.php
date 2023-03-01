@@ -28,8 +28,8 @@ class CreateArtist extends FormRequest
             'artist_title' => 'required|min:3|max:50',
             'artist_location' => 'required|min:3|max:50',
             'artist_description' => 'required|min:10|max:10000',
-            'artist_cover_image' => 'required|min:3|max:5000',
-            'artist_video_url' => 'required|min:3|max:5000',
+            'artist_cover_image' => 'image',
+            'artist_video_url' => 'min:5|max:5000',
             'status' => 'required',
         ];
     }

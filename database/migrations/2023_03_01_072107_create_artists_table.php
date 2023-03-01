@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('artist_title');
             $table->string('artist_location');
             $table->longText('artist_description');
-            $table->text('artist_cover_image');
-            $table->text('artist_video_url');
+            $table->text('artist_cover_image')->nullable();
+            $table->text('artist_video_url')->nullable();
             $table->enum('status', ['Active', 'InActive'])->default('Active');
             $table->softDeletes();
             $table->timestamps();
