@@ -48,8 +48,8 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.artist.gallery', $row['id']) }}" class="btn btn-sm btn-default">Add Artwork</a>
-                                <a href="{{ route('admin.artist.edit', $row['id']) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <a href="{{ route('admin.artist.destroy', $row['id']) }}" onclick="event.preventDefault();"  class="btn btn-sm btn-danger delete-item" data-id="{{ $row['id'] }}">Delete</a>
+                                <a href="{{ route('admin.artist.edit', $row['id']) }}" class="btn btn-sm btn-default">Edit</a>
+                                <a href="{{ route('admin.artist.destroy', $row['id']) }}" onclick="event.preventDefault();"  class="btn btn-sm btn-default delete-item" data-id="{{ $row['id'] }}">Delete</a>
                                 <!-- Form For Delete -->
                                 <form id="submit-form-{{ $row['id'] }}"
                                     action="{{ route('admin.artist.destroy', $row['id']) }}" method="POST"
