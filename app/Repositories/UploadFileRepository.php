@@ -49,7 +49,7 @@ class UploadFileRepository
     {
         return match ($module) {
             'exhibition' => ($parentId) ? public_path(Exhibition::UPLOAD_PATH.$parentId) : public_path(Exhibition::UPLOAD_PATH),
-            'shop' => ($parentId) ? public_path(Shop::UPLOAD_PATH.$parentId) : public_path(Shop::UPLOAD_PATH)
+            'shop' => ($parentId) ? public_path(Shop::UPLOAD_PATH.$parentId) : public_path(Shop::UPLOAD_PATH),
             'artist' => ($parentId) ? public_path(Artist::UPLOAD_PATH.$parentId) : public_path(Artist::UPLOAD_PATH)
         };
     }

@@ -8,8 +8,9 @@
     <div class="container">
         <div class="justify-content-center row">
             <div class="col-md-10 col-lg-8">
+                <form action="">
                 <div class="row row-30">
-                    <div class="col-md-6">
+                    {{-- <div class="col-md-6">
                         <div class="form-group">
                             <div class="form-control-wrap">
                                 <select class="form-control form-control-last-child" name="cars">
@@ -20,16 +21,16 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
+                    </div> --}}
+                    <div class="col-md-11">
                         <div class="form-group">
                             <div class="form-control-wrap">
-                                <input class="form-control form-control-last-child" type="text" name="Search"
-                                    placeholder="Search in shop">
+                                <input name="search" class="form-control form-control-last-child" type="text" name="Search" value="{{$search}}" placeholder="Search in shop">
                             </div>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -38,84 +39,28 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="row col-12 col-md-10">
+
+                @forelse($pageData as $item)
                 <div class="col-12 col-md-4 mb-4 card animated fadeIn"
                     data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title" href="#">
-                        <img src="images/images19.jpg" class="card-img-top" alt="...">
+                        <img src="{{asset('images/shop_item/'.$item->item_filename)}}" class="card-img-top" alt="{{$item->item_title}}">
                     </a>
                     <div class="card-body py-2 px-2">
                         <a class="card-title" href="#">
-                            <b>The Dark Side</b>
+                            <b>{{$item->item_title}}</b>
                         </a>
-                        <p class="subtitle">Rosemary Cullum: The Dark Side</p>
-                        <p class="date">£100.00</p>
+                        <p class="subtitle">{{$item->item_description}}</p>
+                        <p class="date">£{{number_format($item->item_price, 2)}}</p>
+                        <p onclick="alert('Coming soon')" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">Buy Now</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images20.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>Life Force</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: Life Force</p>
-                        <p class="date">£150.00</p>
-                    </div>
+                @empty
+                <div style="text-align: center;color: #839799;margin-bottom: 5em;">
+                    <h4>No Data Found !</h4>
                 </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images21.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>The Journey</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: The Journey</p>
-                        <p class="date">£200.00</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images19.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>The Dark Side</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: The Dark Side</p>
-                        <p class="date">£100.00</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images20.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>Life Force</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: Life Force</p>
-                        <p class="date">£150.00</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images21.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>The Journey</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: The Journey</p>
-                        <p class="date">£200.00</p>
-                    </div>
-                </div>
+                @endforelse
+
             </div>
         </div>
     </div>

@@ -24,42 +24,20 @@
     <div class="container">
         <div class="row justify-content-center artistsArtList">
             <div class="col-12 col-md-10 row">
-                <a href="artists-details.html" class="col-xs-6 col-lg-4 text-center listItem">
+
+                @forelse($pageData as $artist)
+                <a href="#" class="col-xs-6 col-lg-4 text-center listItem">
                     <div class="imageBlock">
-                        <img src="./images/images14.jpg" />
+                        <img src="{{asset('images/artist/'.$artist->id.'/'.$artist->images[0]->filename)}}" alt="{{$artist->artist_name}}" />
                     </div>
-                    <h3 class="artistsName">Karel Appel</h3>
+                    <h3 class="artistsName">{{$artist->artist_name}}</h3>
+                    <p style="margin:0px;" class="artistsName">{{$artist->artist_title}}</p>
                 </a>
-                <a href="artists-details.html" class="col-xs-6 col-lg-4 text-center listItem">
-                    <div class="imageBlock">
-                        <img src="./images/images14.jpg" />
-                    </div>
-                    <h3 class="artistsName">Karel Appel</h3>
-                </a>
-                <a href="artists-details.html" class="col-xs-6 col-lg-4 text-center listItem">
-                    <div class="imageBlock">
-                        <img src="./images/images14.jpg" />
-                    </div>
-                    <h3 class="artistsName">Karel Appel</h3>
-                </a>
-                <a href="artists-details.html" class="col-xs-6 col-lg-4 text-center listItem">
-                    <div class="imageBlock">
-                        <img src="./images/images14.jpg" />
-                    </div>
-                    <h3 class="artistsName">Karel Appel</h3>
-                </a>
-                <a href="artists-details.html" class="col-xs-6 col-lg-4 text-center listItem">
-                    <div class="imageBlock">
-                        <img src="./images/images14.jpg" />
-                    </div>
-                    <h3 class="artistsName">Karel Appel</h3>
-                </a>
-                <a href="artists-details.html" class="col-xs-6 col-lg-4 text-center listItem">
-                    <div class="imageBlock">
-                        <img src="./images/images14.jpg" />
-                    </div>
-                    <h3 class="artistsName">Karel Appel</h3>
-                </a>
+                @empty
+                <div style="text-align: center;color: #839799;margin-bottom: 5em;">
+                    <h4>No Data Found !</h4>
+                </div>
+                @endforelse
             </div>
         </div>
     </div>

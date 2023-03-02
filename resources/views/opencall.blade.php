@@ -19,90 +19,26 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="row col-12 col-md-10">
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
+
+                @forelse($pageData as $call)
+                <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title" href="#">
-                        <img src="images/images19.jpg" class="card-img-top" alt="...">
+                        <img src="https://source.unsplash.com/random/400x300?sig={{$loop->iteration}}" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body py-2 px-2">
                         <a class="card-title" href="#">
-                            <b>The Dark Side</b>
+                            <b>{{$call->title}}</b>
                         </a>
-                        <p class="subtitle">Rosemary Cullum: The Dark Side</p>
-                        <p class="date">£100.00</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Buy Now</a>
+                        <p class="subtitle">{{$call->short_description}}</p>
+                        <a class="btn btn-outline mt-3 p-2" href="#">Apply Now</a>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images20.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>Life Force</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: Life Force</p>
-                        <p class="date">£150.00</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Buy Now</a>
-                    </div>
+                @empty
+                <div style="text-align: center;color: #839799;margin-bottom: 5em;">
+                    <h4>No Data Found !</h4>
                 </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images21.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>The Journey</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: The Journey</p>
-                        <p class="date">£200.00</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Buy Now</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images19.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>The Dark Side</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: The Dark Side</p>
-                        <p class="date">£100.00</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Buy Now</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images20.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>Life Force</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: Life Force</p>
-                        <p class="date">£150.00</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Buy Now</a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
-                        <img src="images/images21.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
-                            <b>The Journey</b>
-                        </a>
-                        <p class="subtitle">Rosemary Cullum: The Journey</p>
-                        <p class="date">£200.00</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Buy Now</a>
-                    </div>
-                </div>
+                @endforelse
+
             </div>
         </div>
     </div>

@@ -35,81 +35,26 @@
         <h6 class="text-uppercase fs-4 text-center title_style">Past</h6>
         <div class="row justify-content-center mt-3">
             <div class="row col-12 col-md-10 mt-3">
+
+                @forelse($pageData as $exhibition)
                 <div class="col-12 col-md-4 mb-4 card animated fadeIn"
                     data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title" href="exhibution-overview.html">
-                        <img src="images/images6.jpg" class="card-img-top" alt="...">
+                        <img class="card-img-top" src="{{asset('images/exhibition/'.$exhibition->id.'/'.$exhibition->images[0]->filename)}}" alt="{{$exhibition->title}}" />
                     </a>
-                    <div class="card-body py-2 px-4">
+                    <div class="card-body">
                         <a class="card-title" href="exhibution-overview.html">
-                            <b>Card title</b>
+                            <b>{{$exhibition->title}}</b>
                         </a>
-                        <p class="subtitle">Afterglow</p>
-                        <p class="date">1 - 25 Sep 2022</p>
+                        <p class="subtitle">{{$exhibition->short_description}}</p>
+                        <p class="date">{{date('d', strtotime($exhibition->start_date))}} - {{date('d-M', strtotime($exhibition->end_date))}}</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="exhibution-overview.html">
-                        <img src="images/images6.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-4">
-                        <a class="card-title" href="exhibution-overview.html">
-                            <b>Card title</b>
-                        </a>
-                        <p class="subtitle">Afterglow</p>
-                        <p class="date">1 - 25 Sep 2022</p>
-                    </div>
+                @empty
+                <div style="text-align: center;color: #839799;margin-bottom: 5em;">
+                    <h4>No Data Found !</h4>
                 </div>
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
-                    data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="exhibution-overview.html">
-                        <img src="images/images6.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-4">
-                        <a class="card-title" href="exhibution-overview.html">
-                            <b>Card title</b>
-                        </a>
-                        <p class="subtitle">Afterglow</p>
-                        <p class="date">1 - 25 Sep 2022</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="exhibution-overview.html">
-                        <img src="images/images6.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-4">
-                        <a class="card-title" href="exhibution-overview.html">
-                            <b>Card title</b>
-                        </a>
-                        <p class="subtitle">Afterglow</p>
-                        <p class="date">1 - 25 Sep 2022</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="exhibution-overview.html">
-                        <img src="images/images6.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-4">
-                        <a class="card-title" href="exhibution-overview.html">
-                            <b>Card title</b>
-                        </a>
-                        <p class="subtitle">Afterglow</p>
-                        <p class="date">1 - 25 Sep 2022</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 mb-4 card" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="exhibution-overview.html">
-                        <img src="images/images6.jpg" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body py-2 px-4">
-                        <a class="card-title" href="exhibution-overview.html">
-                            <b>Card title</b>
-                        </a>
-                        <p class="subtitle">Afterglow</p>
-                        <p class="date">1 - 25 Sep 2022</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </div>
