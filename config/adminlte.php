@@ -355,6 +355,22 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Shop Items',
+            'icon'    => 'fas fa-fw fa-shopping-cart',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Shop Items',
+                    'url'  => Admin::PATH . '/shop/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Shop Items',
+                    'url'     => Admin::PATH . '/shop',
+                ],
+            ],
+        ],
     ],
 
     /*
