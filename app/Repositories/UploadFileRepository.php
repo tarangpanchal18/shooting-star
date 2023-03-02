@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Shop;
 use App\Models\Exhibition;
 
 class UploadFileRepository
@@ -21,6 +22,7 @@ class UploadFileRepository
 
         $fileName = match ($module) {
             'exhibition' => 'exhibition',
+            'shop' => 'shop',
         };
 
         if ($extraParmeter) {
@@ -44,7 +46,8 @@ class UploadFileRepository
     public function getUploadPath($module, $parentId = null)
     {
         return match ($module) {
-            'exhibition' => ($parentId) ? public_path(Exhibition::UPLOAD_PATH.$parentId) : public_path(Exhibition::UPLOAD_PATH)
+            'exhibition' => ($parentId) ? public_path(Exhibition::UPLOAD_PATH.$parentId) : public_path(Exhibition::UPLOAD_PATH),
+            'shop' => ($parentId) ? public_path(Shop::UPLOAD_PATH.$parentId) : public_path(Shop::UPLOAD_PATH)
         };
     }
 
