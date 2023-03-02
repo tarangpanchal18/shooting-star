@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ArtistController;
+use App\Http\Controllers\Admin\ArtistImageController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -44,6 +46,11 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::get('exhibition/{exhibition}/gallery', [ExhibitionController::class, 'gallery'])->name('exhibition.gallery');
     Route::post('exhibition/{exhibition}/upload', [ExhibitionController::class, 'upload'])->name('exhibition.upload');
     Route::post('exhibition/{exhibition}/doremove', [ExhibitionController::class, 'removeUpload'])->name('exhibition.removeUpload');
+
+    Route::resource('artist', ArtistController::class);
+    Route::get('artist/{artist}/gallery', [ArtistController::class, 'gallery'])->name('artist.gallery');
+    Route::post('artist/{artist}/upload', [ArtistController::class, 'upload'])->name('artist.upload');
+    Route::post('artist/{artist}/doremove', [ArtistController::class, 'removeUpload'])->name('artist.removeUpload');
 
     Route::resource('opencall', OpenCallController::class);
     Route::resource('opencall.opencall-form', OpenCallFormController::class);

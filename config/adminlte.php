@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Shootin Star',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -341,7 +341,7 @@ return [
         ],
         [
             'text'    => 'Open Calls',
-            'icon'    => 'fas fa-fw fa-circle',
+            'icon'    => 'fas fa-fw fa-user-tie',
             'submenu' => [
                 [
                     'icon'    => 'fas fa-fw fa-arrow-right',
@@ -368,6 +368,22 @@ return [
                     'icon'    => 'fas fa-fw fa-arrow-right',
                     'text'    => 'View Shop Items',
                     'url'     => Admin::PATH . '/shop',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Artist',
+            'icon'    => 'fas fa-fw fa-brush',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Artist',
+                    'url'  => Admin::PATH . '/artist/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Artist',
+                    'url'     => Admin::PATH . '/artist',
                 ],
             ],
         ],

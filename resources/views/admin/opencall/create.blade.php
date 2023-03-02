@@ -36,10 +36,10 @@
                 </div>
                 <label>Start-End Date</label>
                 <div class="form-group input-group">
-                    <input type="text" name="start_date" class="form-control datepicker" placeholder="Enter Start Date"
+                    <input type="text" name="start_date" autocomplete="off" class="form-control datepicker" placeholder="Enter Start Date"
                         value="{{ old('start_date', $data['opencall']['start_date']) }}" required>
                     <span class="input-group-addon">-</span>
-                    <input type="text" name="end_date" class="form-control datepicker" placeholder="Enter End Date"
+                    <input type="text" name="end_date" autocomplete="off" class="form-control datepicker" placeholder="Enter End Date"
                         value="{{ old('end_date', $data['opencall']['end_date']) }}" required>
                 </div>
                 <div class="form-group">
