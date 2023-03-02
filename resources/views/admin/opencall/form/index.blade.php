@@ -44,12 +44,12 @@
                                 <a href="{{ route('admin.opencall.opencall-form.edit', [
                                     $data['openCallId'],
                                     $row['id']
-                                ]) }}" class="btn btn-sm btn-warning">Edit</a>
+                                ]) }}" class="btn btn-sm btn-default">Edit</a>
 
                                 <a href="{{ route('admin.opencall.opencall-form.destroy', [
                                     $data['openCallId'],
                                     $row['id']
-                                ]) }}" onclick="event.preventDefault();" class="btn btn-sm btn-danger delete-item" data-id="{{ $row['id'] }}">Delete</a>
+                                ]) }}" onclick="event.preventDefault();" class="btn btn-sm btn-default delete-item" data-id="{{ $row['id'] }}">Delete</a>
                                 <!-- Form For Delete -->
                                 <form id="submit-form-{{ $row['id'] }}"
                                     action="{{ route('admin.opencall.opencall-form.destroy', [

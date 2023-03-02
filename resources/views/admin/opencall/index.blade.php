@@ -47,15 +47,10 @@
                                 <span class="badge badge-{{($page['status'] == "Active") ? 'success' : 'danger' }}"> {{ $page['status'] }} </span>
                             </td>
                             <td>
-                                <a href="{{ route('admin.opencall.opencall-form.index', $page['id']) }}"
-                                class="btn btn-sm btn-default">Add Form Fields</a>
-                                <a href="{{ route('admin.opencall.show', $page['id']) }}"
-                                    class="btn btn-sm btn-primary">View</a>
-                                <a href="{{ route('admin.opencall.edit', $page['id']) }}"
-                                    class="btn btn-sm btn-warning">Edit</a>
-                                <a href="{{ route('admin.opencall.destroy', $page['id']) }}"
-                                    onclick="event.preventDefault();" class="btn btn-sm btn-danger delete-item"
-                                    data-id="{{ $page['id'] }}">Delete</a>
+                                <a href="{{ route('admin.opencall.opencall-form.index', $page['id']) }}" class="btn btn-sm btn-default">Add Form Fields</a>
+                                <a href="{{ route('admin.opencall.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>
+                                <a href="{{ route('admin.opencall.edit', $page['id']) }}" class="btn btn-sm btn-default">Edit</a>
+                                <a href="{{ route('admin.opencall.destroy', $page['id']) }}" onclick="event.preventDefault();" class="btn btn-sm btn-default delete-item" data-id="{{ $page['id'] }}">Delete</a>
 
                                 <!-- Form For Delete -->
                                 <form id="submit-form-{{ $page['id'] }}"
