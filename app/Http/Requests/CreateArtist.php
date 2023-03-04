@@ -23,14 +23,20 @@ class CreateArtist extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules =  [
             'artist_name' => 'required|min:3|max:50',
             'artist_title' => 'required|min:3|max:50',
             'artist_location' => 'required|min:3|max:50',
             'artist_description' => 'required|min:10|max:10000',
-            'artist_cover_image' => 'image',
+            'cover_image' => 'required|mimes:jpg,png,jpeg,gif',
             'artist_video_url' => 'min:5|max:5000',
             'status' => 'required',
         ];
+
+        if($this->method() != 'POST') {
+            $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif';
+        }
+
+        return $rules;
     }
 }

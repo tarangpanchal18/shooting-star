@@ -26,9 +26,9 @@
             <div class="col-12 col-md-10 row">
 
                 @forelse($pageData as $artist)
-                <a href="#" class="col-xs-6 col-lg-4 text-center listItem">
+                <a href="{{ route('artist.detail', $artist) }}" class="col-xs-6 col-lg-4 text-center listItem">
                     <div class="imageBlock">
-                        <img src="{{asset('images/artist/'.$artist->id.'/'.$artist->images[0]->filename)}}" alt="{{$artist->artist_name}}" />
+                        <img src="{{asset('images/artist/cover_images/'.$artist->artist_cover_image)}}" alt="{{$artist->artist_name}}" />
                     </div>
                     <h3 class="artistsName">{{$artist->artist_name}}</h3>
                     <p style="margin:0px;" class="artistsName">{{$artist->artist_title}}</p>

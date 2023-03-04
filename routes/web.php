@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\ShopController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('artist', [HomeController::class, 'artist'])->name('artist');
+Route::get('artist/{artist}', [HomeController::class, 'artist_detail'])->name('artist.detail');
 Route::get('exhibition', [HomeController::class, 'exhibition'])->name('exhibition');
 Route::get('shop', [HomeController::class, 'shop'])->name('shop');
 Route::get('opencall', [HomeController::class, 'opencall'])->name('opencall');

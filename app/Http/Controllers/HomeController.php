@@ -31,6 +31,13 @@ class HomeController extends Controller
         ]);
     }
 
+    public function artist_detail(Artist $artist) {
+        return view('artists_detail', [
+            'pageName' => $artist->artist_name,
+            'pageData' => $artist,
+        ]);
+    }
+
     public function exhibition() {
 
         $pageData = Exhibition::where('status', 'Active')->orderBy('start_date', 'desc')->get();

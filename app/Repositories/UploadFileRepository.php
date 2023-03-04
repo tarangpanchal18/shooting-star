@@ -27,6 +27,7 @@ class UploadFileRepository
             'exhibition_cover' => 'exhibition_cover',
             'shop' => 'shop',
             'artist' => 'aritst',
+            'artist_cover' => 'artist_cover',
             'opencall' => 'opencall',
         };
 
@@ -52,9 +53,10 @@ class UploadFileRepository
     {
         return match ($module) {
             'exhibition' => ($parentId) ? public_path(Exhibition::UPLOAD_PATH.$parentId) : public_path(Exhibition::UPLOAD_PATH),
-            'exhibition_cover' => public_path(Exhibition::UPLOAD_PATH.'cover_images'),
+            'exhibition_cover' => public_path(Exhibition::UPLOAD_COVER_PATH),
             'shop' => ($parentId) ? public_path(Shop::UPLOAD_PATH.$parentId) : public_path(Shop::UPLOAD_PATH),
             'artist' => ($parentId) ? public_path(Artist::UPLOAD_PATH.$parentId) : public_path(Artist::UPLOAD_PATH),
+            'artist_cover' => public_path(Artist::UPLOAD_COVER_PATH),
             'opencall' => ($parentId) ? public_path(OpenCall::UPLOAD_PATH.$parentId) : public_path(OpenCall::UPLOAD_PATH),
         };
     }

@@ -12,6 +12,8 @@ class Artist extends Model
 
     const UPLOAD_PATH = 'images/artist/';
 
+    const UPLOAD_COVER_PATH = 'images/artist/cover_images/';
+
     protected $fillable = [
         'artist_name',
         'artist_title',

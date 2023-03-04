@@ -11,8 +11,8 @@
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('components/base/base.css')}}">
     <link rel="stylesheet" href="{{asset('components/base/custom.css')}}">
-    <script src="/components/base/core.min.js"></script>
-    <script src="/components/base/script.js"></script>
+    <script src="{{asset('components/base/core.min.js')}}"></script>
+    <script src="{{asset('components/base/script.js')}}"></script>
 </head>
 
 <body>
