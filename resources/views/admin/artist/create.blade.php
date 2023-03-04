@@ -35,7 +35,7 @@
                 </div> --}}
                 <div class="form-group">
                     <label>Artist Video Url</label>
-                    <input type="text" name="artist_video_url" class="form-control" placeholder="Enter Artist video url" value="{{ old('artist_video_url', $artist['artist_video_url']) }}" required>
+                    <input type="text" name="artist_video_url" class="form-control" placeholder="Enter Artist video url" value="{{ old('artist_video_url', $artist['artist_video_url']) }}">
                 </div>
                 @if($artist['artist_cover_image'])
                 <div class="form-group">

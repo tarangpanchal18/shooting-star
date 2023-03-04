@@ -21,9 +21,14 @@
                 </div>
               </div>
               <div class="col-md-10 col-lg-4">
+
+                @if($pageData->artist_cover_image)
                 <div class="widget">
                   <img class="image mb-4" src="{{asset('images/artist/cover_images/'.$pageData->artist_cover_image)}}" alt="{{$artist->artist_name}}" />
                 </div>
+                @endif
+
+                @if($pageData->artist_video_url)
                 <div class="widget">
                     <video width="320" height="240" controls>
                         <source src="{{$pageData->artist_video_url}}" type="video/mp4">
@@ -31,6 +36,7 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
+                @endif
               </div>
             </div>
           </div>

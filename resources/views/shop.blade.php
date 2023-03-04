@@ -4,7 +4,7 @@
 @section('class', 'artistsDetailsPage')
 
 @section('content')
-<section class="bg-transparent section text-center">
+<section class="bg-transparent section text-center" style="margin-top:1.5em">
     <div class="container">
         <div class="justify-content-center row">
             <div class="col-md-10 col-lg-8">
