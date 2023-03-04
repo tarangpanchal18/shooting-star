@@ -4,7 +4,14 @@
         case 'email':
         case 'number':
         case 'password':
-            $input = '<input class="form-control" type="'. $type .'" name="'.$name.'" placeholder="'.ucfirst($label).'" '.$required.'>';
+            $input = '<input
+                        class="form-control"
+                        type="'. $type .'"
+                        name="'.$name.'"
+                        placeholder="'.ucfirst($label).'"
+                        '.$required.'
+                        value="'.old($name).'"
+                    >';
             break;
 
         case 'textarea':
@@ -22,7 +29,7 @@
             break;
 
         default:
-            $input = '<input class="form-control" type="'. $type .'" name="'.$name.'" placeholder="'.ucfirst($label).'" '.$required.'>';
+            abort(500, 'Form Error');
             break;
     }
 @endphp
@@ -35,5 +42,8 @@
             <small style="font-size:11px;margin:0;padding:0;">{{$extraLabel}}</small>
         </p>
         @endif
+        @error($name)
+        <p class="errorMsg">{{ $message }}</p>
+        @enderror
     </div>
 </div>

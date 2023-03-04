@@ -8,9 +8,14 @@
     margin-bottom: 1em;
 }
 .opencall-p {
-    margin-top: 0.75em;
+    margin: 0.75em 0 0.75em 0;
     font-size: 16px;
     text-align: left;
+}
+.errorMsg {
+    color: red;
+    font-size: 16px;
+    margin: 0px;
 }
 @endsection
 
@@ -85,7 +90,7 @@
                             col="12"
                             label="Any Other Comment"
                             type="textarea"
-                            name="instagram"
+                            name="comment"
                             required=""
                         ></x-form-element>
 
