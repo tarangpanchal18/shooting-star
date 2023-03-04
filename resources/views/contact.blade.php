@@ -14,7 +14,7 @@
 
                         {!! $pageData->description !!}
                         {{-- <div class="siteLogo">
-                            <img class="navbar-logo-default" src="images/logo-default-322x127.png" alt="Pixel"
+                            <img class="navbar-logo-default" src="/site_data/logo-default-322x127.png" alt="Pixel"
                                 width="100" height="100%">
                         </div>
                         <p>

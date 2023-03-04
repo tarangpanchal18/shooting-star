@@ -7,16 +7,16 @@
     <section class="hero_slider">
         <div class="exhibutionImages">
             <div class="slide-content">
-                <div class="exhibution_Image" style="background-image: url('{{asset('images/images8.jpg')}}');"></div>
+                <div class="exhibution_Image" style="background-image: url('{{asset('/site_data/images8.jpg')}}');"></div>
             </div>
             <div class="slide-content">
-                <div class="exhibution_Image" style="background-image: url('{{asset('images/images7.jpg')}}');"></div>
+                <div class="exhibution_Image" style="background-image: url('{{asset('/site_data/images7.jpg')}}');"></div>
             </div>
             <div class="slide-content">
-                <div class="exhibution_Image" style="background-image: url('{{asset('images/images10.jpg')}}');"></div>
+                <div class="exhibution_Image" style="background-image: url('{{asset('/site_data/images10.jpg')}}');"></div>
             </div>
             <div class="slide-content">
-                <div class="exhibution_Image" style="background-image: url('{{asset('images/images11.jpg')}}');"></div>
+                <div class="exhibution_Image" style="background-image: url('{{asset('/site_data/images11.jpg')}}');"></div>
             </div>
         </div>
     </section>
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row justify-content-center mb-3">
                 <div class="col-12 col-md-10 m-0 p-4">
-                    <img class="image mb-4" src="images/images24.jpg" alt="">
+                    <img class="image mb-4" src="/site_data/images24.jpg" alt="">
                     <a href="javascript:void(0)">
                         <h4 class="text-uppercase">Full-day or half-day photo shoots with all</h4>
                     </a>
@@ -45,7 +45,7 @@
         <div class="container">
             <div class="row justify-content-center mb-3">
                 <div class="col-12 col-md-10 m-0 p-4">
-                    <img class="image mb-4 mx-auto" src="images/images25.jpg" alt="">
+                    <img class="image mb-4 mx-auto" src="/site_data/images25.jpg" alt="">
                     <a href="javascript:void(0)">
                         <h4 class="text-uppercase">Full-day or half-day photo shoots with all</h4>
                     </a>

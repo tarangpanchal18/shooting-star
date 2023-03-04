@@ -31,9 +31,9 @@
                             <th>#</th>
                             <th>Artist Name</th>
                             <th>Artist Title</th>
-                            <th>Artist Artwork Count</th>
                             <th>Artist Location</th>
                             <th>Status</th>
+                            <th>Artwork Count</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -43,11 +43,11 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row['artist_name'] }}</td>
                             <td>{{ $row['artist_title'] }}</td>
-                            <td>{{ $row->images->count() }} Artwork Uploaded</td>
                             <td>{{ $row['artist_location'] }}</td>
                             <td>
                                 <span class="badge badge-{{($row['status'] == "Active") ? 'success' : 'danger' }}"> {{ $row['status'] }} </span>
                             </td>
+                            <td>{{ $row->images->count() }}</td>
                             <td>
                                 <a href="{{ route('admin.artist.gallery', $row['id']) }}" class="btn btn-sm btn-default">Add Artwork</a>
                                 <a href="{{ route('admin.artist.edit', $row['id']) }}" class="btn btn-sm btn-default">Edit</a>

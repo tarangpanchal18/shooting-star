@@ -13,8 +13,8 @@ $(document).ready(function () {
 		draggable: false,
 		fade: true,
     prevArrow:
-      '<div class="prevArrow"><img src="images/arrow_previous.png"></div>',
+      '<div class="prevArrow"><img src="/site_data/arrow_previous.png"></div>',
     nextArrow:
-      '<div class="nextArrow"><img src="images/arrow_next.png"></div>',
+      '<div class="nextArrow"><img src="/site_data/arrow_next.png"></div>',
   });
 });

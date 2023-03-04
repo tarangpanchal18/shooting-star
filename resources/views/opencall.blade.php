@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 m-0 p-4">
-                <img class="image mx-auto w-100" src="images/images28.jpg" alt="">
+                <img class="image mx-auto w-100" src="/site_data/images28.jpg" alt="">
                 <h2 class="fs-3 text-center text-uppercase">Open Calls</h2>
             </div>
         </div>
@@ -30,6 +30,7 @@
                             <b>{{$call->title}}</b>
                         </a>
                         <p class="subtitle">{{$call->short_description}}</p>
+                        <p class="subtitle">{{date('d M', strtotime($call->start_date))}} - {{date('d M Y', strtotime($call->end_date))}}</p>
                         <a class="btn btn-outline mt-3 p-2" href="#">Apply Now</a>
                     </div>
                 </div>

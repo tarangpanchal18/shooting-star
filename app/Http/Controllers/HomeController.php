@@ -83,8 +83,9 @@ class HomeController extends Controller
     }
 
     public function opencall() {
-        $data = OpenCall::where('status', 'Active');
-        $data = $data->whereDate('start_date', '>=', date('Y-m-d'))->get();
+        $data = OpenCall::where('end_date', '>=', date('Y-m-d'))
+            ->where('status', 'Active')
+            ->get();
 
         return view('opencall', [
             'pageName' => 'Open Call',

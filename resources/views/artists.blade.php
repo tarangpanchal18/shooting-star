@@ -8,7 +8,7 @@
 <section class="herosection container mt-0 mt-xl-3">
     <div class="row justify-content-center overflow-hidden px-3">
         <div class="col-12 col-md-10">
-            <img class="image mb-4 mx-auto image" src="images/images11.jpg" alt="">
+            <img class="image mb-4 mx-auto image" src="/site_data/images11.jpg" alt="">
             <div class="mb-3 mt-0">
                 <h4 class="text-uppercase">The standard Lorem Ipsum passage, used since the 1500s</h4>
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

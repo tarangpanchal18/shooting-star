@@ -8,15 +8,13 @@
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="text-block text-center col-12 col-md-10 px-4">
-                <h4 class="text-uppercase">About Us</h4>
 
-                <hr>
+                <h4 style="margin: 1.5em 0" class="text-uppercase">About Us</h4>
 
                 <div class="page-content">
                     {!! $pageData['description'] !!}
                 </div>
 
-                {{-- <img class="image" src="images/images30.jpg"> --}}
             </div>
         </div>
     </div>

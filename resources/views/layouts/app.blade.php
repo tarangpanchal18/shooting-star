@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:title" content="Template Monster Admin Template">
     <meta property="og:description" content="">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/site_data/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('components/base/base.css')}}">
     <link rel="stylesheet" href="{{asset('components/base/custom.css')}}">
     <script src="{{asset('components/base/core.min.js')}}"></script>
@@ -29,9 +29,9 @@
                                     data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
                                 <div class="navbar-logo">
                                     <a class="navbar-logo-link" href="{{ route('home') }}">
-                                        <img class="navbar-logo-default" src="/images/Logo_Blue.png" alt="Pixel"
+                                        <img class="navbar-logo-default" src="/site_data/Logo_Blue.png" alt="Pixel"
                                             width="161" height="63" />
-                                        <img class="navbar-logo-inverse" src="/images/logo-inverse-322x127.png"
+                                        <img class="navbar-logo-inverse" src="/site_data/logo-inverse-322x127.png"
                                             alt="Pixel" width="161" height="63" />
                                     </a>
                                 </div>
@@ -42,9 +42,9 @@
                 <div class="navbar-section nav_2">
                     <div class="navbar-logo">
                         <a class="navbar-logo-link" href="{{ route('home') }}">
-                            <img class="navbar-logo-default" src="/images/Logo_Blue.png" alt="Pixel" width="161"
+                            <img class="navbar-logo-default" src="/site_data/Logo_Blue.png" alt="Pixel" width="161"
                                 height="63" />
-                            <img class="navbar-logo-inverse" src="/images/logo-inverse-322x127.png" alt="Pixel"
+                            <img class="navbar-logo-inverse" src="/site_data/logo-inverse-322x127.png" alt="Pixel"
                                 width="161" height="63" />
                         </a>
                     </div>
@@ -88,7 +88,7 @@
                     <div class="col-lg-5 col-xs-12 about-company">
                         <div class="logo">
                             <a class="logo-link" href="{{ route('home') }}">
-                                <img class="logo-image-default" src="/images/Logo_White.png" alt="Pixel" width="100"
+                                <img class="logo-image-default" src="/site_data/Logo_White.png" alt="Pixel" width="100"
                                     height="auto">
                             </a>
                         </div>
