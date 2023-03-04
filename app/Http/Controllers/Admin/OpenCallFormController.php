@@ -7,10 +7,11 @@ use App\Http\Requests\CreateOpenCallForm;
 use App\Models\OpenCall;
 use App\Models\OpenCallFormField;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class OpenCallFormController extends Controller
 {
-    protected $fieldType = ['text', 'textarea', 'image', 'file'];
+    protected $fieldType = ['text', 'number', 'email', 'password', 'textarea', 'image', 'file'];
 
     /**
      * Display a listing of the resource.
@@ -59,6 +60,7 @@ class OpenCallFormController extends Controller
     public function store(CreateOpenCallForm $request, $openCallId)
     {
         $data = array_merge(['open_call_id' => $openCallId], $request->validated());
+        $data['field_name'] = Str::slug($data['field_name']);
         OpenCallFormField::create($data);
 
         return redirect()->route('admin.opencall.opencall-form.index', $openCallId)
@@ -101,6 +103,7 @@ class OpenCallFormController extends Controller
     {
         $opencallFormField = OpenCallFormField::findOrFail($openCallFormId);
         $data = array_merge(['open_call_id' => $id], $request->validated());
+        $data['field_name'] = Str::slug($data['field_name']);
         $opencallFormField->update($data);
 
         return redirect()->route('admin.opencall.opencall-form.index', $id)

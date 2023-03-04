@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{asset('components/base/custom.css')}}">
     <script src="{{asset('components/base/core.min.js')}}"></script>
     <script src="{{asset('components/base/script.js')}}"></script>
+    <style>
+    @yield('internalcss')
+    </style>
 </head>
 
 <body>

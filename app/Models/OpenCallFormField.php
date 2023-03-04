@@ -16,6 +16,7 @@ class OpenCallFormField extends Model
         'field_name',
         'field_type',
         'field_description',
+        'field_is_required',
         'status',
     ];
 

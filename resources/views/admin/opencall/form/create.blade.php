@@ -32,15 +32,20 @@
                     <select name="field_type" class="form-control" required>
                         <option value="">Select Value</option>
                         @foreach ($data['field_type'] as $row)
-                        <option {{$data['opencallForm']['field_type'] == $row ? 'selected' : ''  }} value="{{ $row }}">{{ strtoupper($row) }}</option>
+                        <option {{$data['opencallForm']['field_type'] == $row ? 'selected' : ''  }} value="{{ $row }}">{{ ucfirst($row) }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Field Description</label>
-                    <input type="text" name="field_description" class="form-control"
-                        placeholder="field_description"
-                        value="{{ old('field_description', $data['opencallForm']['field_description']) }}">
+                    <input type="text" name="field_description" class="form-control" placeholder="field_description" value="{{ old('field_description', $data['opencallForm']['field_description']) }}">
+                </div>
+                <div class="form-group">
+                    <label>Is Required ?</label>
+                    <select name="field_is_required" class="form-control" required>
+                        <option {{($data['opencallForm']['field_is_required'] === 1 ? 'selected' : '' )}} value="1">Yes</option>
+                        <option {{($data['opencallForm']['field_is_required'] === 0 ? 'selected' : '' )}} value="0">No</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Field Status</label>
