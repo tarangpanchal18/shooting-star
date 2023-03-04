@@ -33,6 +33,7 @@
                             <th>Open Call Description</th>
                             <th>Open Call Date</th>
                             <th>Status</th>
+                            <th>Custom Fields</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,10 +43,11 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $page['title'] }}</td>
                             <td>{{ $page['short_description'] }}</td>
-                            <td>{{ $page['start_date'] ." - ". $page['end_date'] }}</td>
+                            <td>{{date('d M', strtotime($page->start_date))}} - {{date('d M (Y)', strtotime($page->end_date))}}</td>
                             <td>
                                 <span class="badge badge-{{($page['status'] == "Active") ? 'success' : 'danger' }}"> {{ $page['status'] }} </span>
                             </td>
+                            <td>{{ $page->formfield->count() }}</td>
                             <td>
                                 <a href="{{ route('admin.opencall.opencall-form.index', $page['id']) }}" class="btn btn-sm btn-default">Add Form Fields</a>
                                 <a href="{{ route('admin.opencall.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>

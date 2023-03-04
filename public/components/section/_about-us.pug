@@ -1,0 +1,34 @@
+include ../thumbnail/_thumbnail
+
+// About us
+section.section.section-md.bg-transparent.text-center.text-xs-start( data-lightgallery )
+	.container
+		.row.row-40.justify-content-lg-between.flex-xs-row-reverse
+			.col-xs-6.col-xxl-5
+				.row.row-40.row-xl-100.row-xxl-130
+					.col-xs-12
+						+thumbnail({
+							img: 'image-02-845x425',
+							imgOriginal: 'image-02-1200x800'
+						}).thumbnail-1
+					.col-xs-12.col-xl-10.offset-xl-2
+						.image-responsive
+							+thumbnail({
+								img: 'image-03-470x660',
+								imgOriginal: 'image-03-800x1200'
+							}).thumbnail-2
+
+			.col-xs-6
+				.row.row-40.row-lg-60.row-xxl-130
+					.col-xs-12
+						.image-responsive
+							+thumbnail({
+								img: 'image-01-470x660',
+								imgOriginal: 'image-01-800x1200'
+							})
+					.col-xs-12.col-xl-10.offset-xl-2( data-animate!={ class: 'fadeIn' } )
+						h4.text-uppercase About
+						p I take inspiration from the innovative styles of photography. I capture natural but refined moments in a relaxed and stylish way, always looking for the perfect available light. I love emotive, natural photography and want you to feel as though you could be in a magazine.
+						a.btn.btn-outline( href='about-me.html' )
+							span More
+							span.btn-icon.mdi-arrow-right

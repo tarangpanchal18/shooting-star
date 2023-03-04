@@ -10,12 +10,19 @@ class OpenCall extends Model
 {
     use HasFactory, SoftDeletes;
 
+    const UPLOAD_PATH = 'images/opencall/';
+
     protected $fillable = [
         'title',
         'short_description',
         'description',
+        'cover_image',
         'start_date',
         'end_date',
         'status',
     ];
+
+    public function formfield() {
+        return $this->hasMany(OpenCallFormField::class);
+    }
 }

@@ -1,0 +1,29 @@
+include ../counter/_counter
+
+// Counter simple
+section.section.section-md.bg-transparent
+	.container
+		.row.row-30
+			.col-6.col-sm-3
+				+counter-simple({
+					value: 150,
+					title: 'Photo Shoots'
+				})
+
+			.col-6.col-sm-3
+				+counter-simple({
+					value: 118,
+					title: 'Awards'
+				})
+
+			.col-6.col-sm-3
+				+counter-simple({
+					value: 380,
+					title: 'Clients'
+				})
+
+			.col-6.col-sm-3
+				+counter-simple({
+					value: 480,
+					title: 'Partners'
+				})

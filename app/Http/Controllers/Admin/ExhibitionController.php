@@ -45,6 +45,7 @@ class ExhibitionController extends Controller
         $data['method'] = "POST";
         $data['category'] = Category::where('status', 'Active')->get();
         $data['formUrl'] = route('admin.exhibition.store');
+
         return view('admin.exhibition.create', compact('data'));
     }
 
@@ -56,8 +57,14 @@ class ExhibitionController extends Controller
      */
     public function store(CreateExhibition $request)
     {
-        Exhibition::create($request->validated());
-        return redirect()->route('admin.exhibition.index')->with('success', 'Data Added Successfully !');
+        $data = $request->validated();
+        if ($file = $request->file('cover_image')) {
+            $data['cover_image'] = $this->uploadFileRepository->uploadFile('exhibition_cover', $file, );
+        }
+        Exhibition::create($data);
+
+        return redirect()->route('admin.exhibition.index')
+            ->with('success', 'Data Added Successfully !');
     }
 
     /**
@@ -84,6 +91,7 @@ class ExhibitionController extends Controller
         $data['exhibition'] = $exhibition;
         $data['category'] = Category::where('status', 'Active')->get();
         $data['formUrl'] = route('admin.exhibition.update', $exhibition['id']);
+
         return view('admin.exhibition.create', compact('data'));
     }
 
@@ -96,8 +104,15 @@ class ExhibitionController extends Controller
      */
     public function update(CreateExhibition $request, Exhibition $exhibition)
     {
-        $exhibition->update($request->validated());
-        return redirect()->route('admin.exhibition.index')->with('success', 'Data Updated Successfully !');
+        $data = $request->validated();
+        if ($file = $request->file('cover_image')) {
+            unlink(Exhibition::UPLOAD_COVER_PATH.$exhibition->cover_image);
+            $data['cover_image'] = $this->uploadFileRepository->uploadFile('exhibition_cover', $file);
+        }
+        $exhibition->update($data);
+
+        return redirect()->route('admin.exhibition.index')
+            ->with('success', 'Data Updated Successfully !');
     }
 
     /**
@@ -108,8 +123,12 @@ class ExhibitionController extends Controller
      */
     public function destroy(Exhibition $exhibition)
     {
+        $path = public_path(Exhibition::UPLOAD_COVER_PATH);
+        unlink($path.'/'.$exhibition->cover_image);
         $exhibition->delete();
-        return redirect()->route('admin.exhibition.index')->with('success', 'Data Updated Successfully !');
+
+        return redirect()->route('admin.exhibition.index')
+            ->with('success', 'Data Updated Successfully !');
     }
 
     /**

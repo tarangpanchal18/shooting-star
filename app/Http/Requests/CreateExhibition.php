@@ -23,15 +23,21 @@ class CreateExhibition extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules =  [
             'title' => 'required|min:3|max:50',
             'category_id' => 'required|int',
             'short_description' => 'required|min:3|max:500',
             'description' => 'required|min:10|max:10000',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'cover_image' => 'image',
+            'cover_image' => 'required|mimes:jpg,png,jpeg,gif',
             'status' => 'required',
         ];
+
+        if($this->method() != 'POST') {
+            $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif';
+        }
+
+        return $rules;
     }
 }

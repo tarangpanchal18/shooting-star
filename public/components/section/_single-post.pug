@@ -1,0 +1,65 @@
+include ../person/_person
+include ../comment/_comment
+
+// Single post
+section.section.section-md.bg-transparent
+	.container
+		.row.row-50.justify-content-center
+			.col-md-10.col-lg-3
+				+person-1({
+					img: 'person-01-125x125',
+					title: 'By Adam Smith',
+					text: 'Professional photographer with more than 10-year experience and dozens of awards from various photographer contests.',
+					meta: [ 'August 30, 2020', '2 COMMENT(S)' ]
+				}).text-center.text-lg-start
+
+			.col-md-10.col-lg-6
+				.blog-post
+					.blog-post-item
+						h4.blog-post-title Black & white: which equipment to use in such cases
+						+img( 'image-21-570x625' )
+						p Amet dignissim nibh diam facilisis sit ac. Sed enim risus dictum nulla. Amet pellentesque ipsum praesent sed nulla enim nam. Consectetur porta at massa leo commodo ultrices leo quam non.
+						p Amet pellentesque ipsum praesent sed nulla enim nam. Consectetur porta at massa leo commodo.
+						.row.row-30.row-text
+							.col-6: +img( 'image-22-270x296' )
+							.col-6: +img( 'image-23-270x365' ).image.image-3
+						p Mattis orci in nunc, consequat mattis mauris arcu. Venenatis viverra elementum libero ultrices tristique vitae vivamus congue ipsum. Mattis pellentesque aenean eget eu sollicitudin non netus euismod.
+						p Dapibus vitae cras vestibulum donec sem platea nunc vestibulum. Accumsan eu id nec aliquam pretium.
+
+					.blog-post-item
+						h4.text-uppercase 2 Comment(s)
+						+comment-simple({
+							img: 'person-10-60x60',
+							meta: ['James Peters', 'September 16, 2020'],
+							comment: 'Amet dignissim nibh diam facilisis sit ac. Sed enim risus dictum nulla. Amet pellentesque ipsum praesent sed nulla enim nam. Consectetur porta at massa leo commodo ultrices.'
+						})
+							+comment-simple({
+								img: 'person-07-60x60',
+								meta: [ 'Adam Smith', 'September 16, 2020' ],
+								comment: 'Amet dignissim nibh diam facilisis sit ac. Sed enim risus dictum nulla. Amet pellentesque ipsum praesent sed nulla enim nam.'
+							})
+
+					.blog-post-item
+						h4.text-uppercase Leave a comment
+						form.rd-form
+							.row.row-30
+								.col-12
+									.form-group
+										.form-control-wrap
+											textarea.form-control.textarea-1( name='textarea', placeholder='Your comment', data-constraints='@Required' )
+								.col-md-6
+									.form-group
+										.form-control-wrap
+											input.form-control( type='text', name='name', placeholder='Your name*', data-constraints='@Required' )
+								.col-md-6
+									.form-group
+										.form-control-wrap
+											input.form-control( type='email', name='email', placeholder='Your email*', data-constraints='@Email @Required' )
+							.rd-form-btn
+								button.btn.btn-outline( type='submit' )
+									span Submit
+									span.btn-icon.mdi-arrow-right
+
+			.col-md-10.col-lg-3
+				include ../widget/_widget-category
+				include ../widget/_widget-recent-posts

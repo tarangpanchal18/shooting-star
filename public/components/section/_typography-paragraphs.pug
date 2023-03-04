@@ -1,0 +1,17 @@
+// Typography paragraphs
+section.section.section-md.bg-transparent
+	.container
+		.row
+			.col-lg-11
+				h4.text-uppercase HTML Text Elements
+				p.text-block
+					strong.text-dark= 'Bold text '
+					mark= 'This is a highlighted text'
+					span.text-strike= ' This is a strikethrough text'
+					u= ' This is an underlined text.'
+					span= ' Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. '
+					a.link( href='#' ) Link
+					= ' '
+					a.link.link-active( href='#' ).link-active Press link
+					span= '. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page. '
+					span.tooltip-custom.text-400( data-tooltip!= {placement: 'top', title: 'Default text'} ) Tooltip

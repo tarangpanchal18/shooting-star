@@ -1,0 +1,12 @@
+// Mailchimp
+section.section.section-md.bg-transparent
+	.container.text-center
+		.row.justify-content-center
+			.col-md-8.col-lg-7.col-xxl-6
+				h4.text-uppercase Mailchimp
+				p Sign up to our newsletter and be the first to know about the latest news, special offers, events, and discounts.
+				form.rd-form.rd-form-inline.mailchimp-mailform( data-form-output='mailchimp-output', action='https://templatemonster.us1.list-manage.com/subscribe/post?u=1e39a6d114a4cc130a4edbe43&id=9fc9ef194a', method='post' )
+					.form-group
+						input.form-control( type='email', name='email', placeholder='E-mail', data-constraints='@Email @Required' )
+					button.btn( type='submit' ) Send Message
+				#mailchimp-output.form-output.snackbar.snackbar-primary

@@ -10,7 +10,7 @@
         <div class="card-header">
             <h3 class="card-title">{{ $data['action'] . " " . $data['page']['title'] }} Exhibition Data</h3>
         </div>
-        <form action="{{ $data['formUrl'] }}" method="POST">
+        <form action="{{ $data['formUrl'] }}" method="POST" enctype="multipart/form-data">
             @if($data['method'] != 'POST')
             <input type="hidden" name="_method" value="PUT" />
             @endif
@@ -39,6 +39,16 @@
                     <label>Exhibition Desciption (long)</label>
                     <textarea name="description" id="editor" cols="30" rows="10" class="form-control" placeholder="Exhibition Desciption (long)">{{ old('description', $data['exhibition']['description']) }}</textarea>
                     @error('description')<p class="text-danger">Please Add Desciption</p>@enderror
+                </div>
+                @if($data['exhibition']['cover_image'])
+                <div class="form-group">
+                    <label>Preview Image</label>
+                    <p><img style="height:100px;width:100px;" class="img-thumbnail" src="{{asset('images/exhibition/cover_images/'. $data['exhibition']['cover_image'])}}"></p>
+                </div>
+                @endif
+                <div class="form-group">
+                    <label>Cover Image</label>
+                    <input type="file" name="cover_image" class="form-control">
                 </div>
                 <label>Start-End Date</label>
                 <div class="form-group input-group">

@@ -1,0 +1,2 @@
+.divider {	display: block;	font-size: 0;	line-height: 0;}.divider:before {	display: inline-block;	width: 100%;	margin-top: 0;	margin-bottom: 0;	content: "";	border-top: 1px solid #ababab;}.divider-1:before {	width: 42px;	border-top: 6px solid #fff8ee;}.divider-2:before {	width: 130px;}.divider-3:before {	width: 99px;	border-top: 4px solid #f7f7f7;}.context-dark .divider:before {	border-top-color: rgba(255, 255, 255, 0.3);}
+/*# sourceMappingURL=divider.css.map */

@@ -1,0 +1,24 @@
+// Tab horizontal
+section.section.section-md.bg-transparent
+	.container
+		.row.justify-content-center
+			.col-md-10.col-xl-9
+				h4.text-uppercase.text-center Tabs horizontal
+				.tab
+					ul.nav.nav-line( role='tablist' )
+						li.nav-item: a.nav-link.title-1.active( data-bs-toggle='tab', href='#navLine1-1', role='tab', aria-selected='true' ) Tab 1
+						li.nav-item: a.nav-link.title-1( data-bs-toggle='tab', href='#navLine1-2', role='tab', aria-selected='false' ) Tab 2
+						li.nav-item: a.nav-link.title-1( data-bs-toggle='tab', href='#navLine1-3', role='tab', aria-selected='false' ) Tab 3
+						li.nav-item: a.nav-link.title-1( data-bs-toggle='tab', href='#navLine1-4', role='tab', aria-selected='false' ) Tab 4
+					.tab-content
+						#navLine1-1.tab-pane.fade.show.active( role='tabpanel' )
+							include ../tab/_tab-content-1
+
+						#navLine1-2.tab-pane.fade( role='tabpanel' )
+							include ../tab/_tab-content-2
+
+						#navLine1-3.tab-pane.fade( role='tabpanel' )
+							include ../tab/_tab-content-3
+
+						#navLine1-4.tab-pane.fade( role='tabpanel' )
+							include ../tab/_tab-content-4

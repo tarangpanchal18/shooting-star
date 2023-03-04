@@ -10,7 +10,7 @@
         <div class="card-header">
             <h3 class="card-title">{{ $action }} Artist Data</h3>
         </div>
-        <form action="{{ $formUrl }}" method="POST">
+        <form action="{{ $formUrl }}" method="POST" enctype="multipart/form-data">
             @if($method != 'POST')
             <input type="hidden" name="_method" value="PUT" />
             @endif
@@ -35,7 +35,17 @@
                 </div> --}}
                 <div class="form-group">
                     <label>Artist Video Url</label>
-                    <input type="text" name="artist_video_url" class="form-control" placeholder="Enter Artist video url" value="{{ old('artist_video_url', $artist['artist_video_url']) }}" required>
+                    <input type="text" name="artist_video_url" class="form-control" placeholder="Enter Artist video url" value="{{ old('artist_video_url', $artist['artist_video_url']) }}">
+                </div>
+                @if($artist['artist_cover_image'])
+                <div class="form-group">
+                    <label>Preview Image</label>
+                    <p><img style="height:100px;width:100px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image'])}}"></p>
+                </div>
+                @endif
+                <div class="form-group">
+                    <label>Cover Image</label>
+                    <input type="file" name="cover_image" class="form-control">
                 </div>
                 <div class="form-group">
                     <label>Artist Desciption</label>

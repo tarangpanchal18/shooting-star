@@ -33,6 +33,7 @@
                             <th>Exhibition Title</th>
                             <th>Exhibition Date</th>
                             <th>Status</th>
+                            <th>Images</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@
                             <td>
                                 <span class="badge badge-{{$page['status'] == "Active" ? 'success' : 'danger'}}">{{ $page['status'] }}</span>
                             </td>
+                            <td>{{ $page->images->count() }}</td>
                             <td>
                                 <a href="{{ route('admin.exhibition.gallery', $page['id']) }}" class="btn btn-sm btn-default">Add Images</a>
                                 <a href="{{ route('admin.exhibition.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>
