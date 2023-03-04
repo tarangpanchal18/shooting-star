@@ -44,7 +44,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row['item_title'] }}</td>
                             <td>{{ $row['item_description'] }}</td>
-                            <td>{{ $row['item_price'] }}</td>
+                            <td>{{ number_format($row['item_price'],2) }}</td>
                             <td>
                                 <span class="badge badge-{{$row['status'] == "Active" ? 'success' : 'danger'}}">{{ $row['status'] }}</span>
                             </td>

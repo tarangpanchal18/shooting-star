@@ -31,6 +31,7 @@
                             <th>#</th>
                             <th>Category</th>
                             <th>Exhibition Title</th>
+                            <th>Exhibition Images</th>
                             <th>Exhibition Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -42,6 +43,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $page->category->name }}</td>
                             <td>{{ $page['title'] }}</td>
+                            <td>{{ $page->images->count() }} Images</td>
                             <td>{{ $page['start_date']  ." - ". $page['end_date'] }}</td>
                             <td>
                                 <span class="badge badge-{{$page['status'] == "Active" ? 'success' : 'danger'}}">{{ $page['status'] }}</span>

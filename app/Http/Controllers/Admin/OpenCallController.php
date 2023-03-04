@@ -5,9 +5,20 @@ namespace App\Http\Controllers\Admin;
 use App\Models\OpenCall;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateOpenCall;
+use App\Repositories\UploadFileRepository;
 
 class OpenCallController extends Controller
 {
+    /**
+     * Constructor Function
+     *
+     * @param App\Repositories\UploadFileRepository $uploadFileRepository
+     */
+    public function __construct(public UploadFileRepository $uploadFileRepository)
+    {
+        $this->uploadFileRepository = $uploadFileRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,8 +52,14 @@ class OpenCallController extends Controller
      */
     public function store(CreateOpenCall $request)
     {
-        OpenCall::create($request->validated());
-        return redirect()->route('admin.opencall.index')->with('success', 'Data Added Successfully !');
+        $data = $request->validated();
+        if ($file = $request->file('cover_image')) {
+            $data['cover_image'] = $this->uploadFileRepository->uploadFile('opencall', $file);
+        }
+        OpenCall::create($data);
+
+        return redirect()->route('admin.opencall.index')
+            ->with('success', 'Data Added Successfully !');
     }
 
     /**
@@ -81,8 +98,15 @@ class OpenCallController extends Controller
      */
     public function update(CreateOpenCall $request, OpenCall $opencall)
     {
-        $opencall->update($request->validated());
-        return redirect()->route('admin.opencall.index')->with('success', 'Data Updated Successfully !');
+        $data = $request->validated();
+        if ($file = $request->file('cover_image')) {
+            unlink(Opencall::UPLOAD_PATH.$opencall->cover_image);
+            $data['cover_image'] = $this->uploadFileRepository->uploadFile('opencall', $file);
+        }
+        $opencall->update($data);
+
+        return redirect()->route('admin.opencall.index')
+            ->with('success', 'Data Updated Successfully !');
     }
 
     /**
@@ -93,7 +117,10 @@ class OpenCallController extends Controller
      */
     public function destroy(OpenCall $opencall)
     {
+        $path = public_path(OpenCall::UPLOAD_PATH);
+        unlink($path.'/'.$opencall->cover_image);
         $opencall->delete();
+
         return redirect()->route('admin.opencall.index')->with('success', 'Data Updated Successfully !');
     }
 }

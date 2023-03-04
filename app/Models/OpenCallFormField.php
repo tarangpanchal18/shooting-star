@@ -18,4 +18,8 @@ class OpenCallFormField extends Model
         'field_description',
         'status',
     ];
+
+    public function form() {
+        return $this->belongsTo(OpenCall::class);
+    }
 }

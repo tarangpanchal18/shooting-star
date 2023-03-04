@@ -59,6 +59,7 @@ class ShopController extends Controller
             $data['item_filename'] = $this->uploadFileRepository->uploadFile('shop', $file);
         }
         Shop::create($data);
+
         return redirect()->route('admin.shop.index')
             ->with('success', 'Data Added Successfully !');
     }
@@ -94,6 +95,7 @@ class ShopController extends Controller
             $data['item_filename'] = $this->uploadFileRepository->uploadFile('shop', $file);
         }
         $shop->update($data);
+
         return redirect()->route('admin.shop.index')
             ->with('success', 'Data Updated Successfully !');
     }
@@ -106,7 +108,10 @@ class ShopController extends Controller
      */
     public function destroy(Shop $shop)
     {
+        $path = public_path(Shop::UPLOAD_PATH);
+        unlink($path.'/'.$shop->item_filename);
         $shop->delete();
+
         return redirect()->route('admin.shop_item.index')
             ->with('success', 'Data Updated Successfully !');
     }

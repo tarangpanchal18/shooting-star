@@ -31,6 +31,7 @@
                             <th>#</th>
                             <th>Open Call Title</th>
                             <th>Open Call Description</th>
+                            <th>Custom Field Count</th>
                             <th>Open Call Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -42,6 +43,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $page['title'] }}</td>
                             <td>{{ $page['short_description'] }}</td>
+                            <td>{{ $page->formfield->count() }} Fields</td>
                             <td>{{ $page['start_date'] ." - ". $page['end_date'] }}</td>
                             <td>
                                 <span class="badge badge-{{($page['status'] == "Active") ? 'success' : 'danger' }}"> {{ $page['status'] }} </span>

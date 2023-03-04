@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 m-0 p-4">
                 <img class="image mx-auto w-100" src="images/images28.jpg" alt="">
-                <h2 class="fs-3 text-center text-uppercase">Open to Calls</h2>
+                <h2 class="fs-3 text-center text-uppercase">Open Calls</h2>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 @forelse($pageData as $call)
                 <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title" href="#">
-                        <img src="https://source.unsplash.com/random/400x300?sig={{$loop->iteration}}" class="card-img-top" alt="...">
+                        <img src="{{asset('images/opencall/'.$call->cover_image)}}" class="card-img-top" alt="{{$call->title}}">
                     </a>
                     <div class="card-body py-2 px-2">
                         <a class="card-title" href="#">

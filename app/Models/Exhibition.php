@@ -12,10 +12,13 @@ class Exhibition extends Model
 
     const UPLOAD_PATH = 'images/exhibition/';
 
+    const UPLOAD_COVER_PATH = 'images/exhibition/cover_images/';
+
     protected $fillable = [
         'title',
         'category_id',
         'short_description',
+        'cover_image',
         'description',
         'start_date',
         'end_date',

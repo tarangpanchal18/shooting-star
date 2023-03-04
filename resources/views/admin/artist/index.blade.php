@@ -31,6 +31,7 @@
                             <th>#</th>
                             <th>Artist Name</th>
                             <th>Artist Title</th>
+                            <th>Artist Artwork Count</th>
                             <th>Artist Location</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -42,6 +43,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row['artist_name'] }}</td>
                             <td>{{ $row['artist_title'] }}</td>
+                            <td>{{ $row->images->count() }} Artwork Uploaded</td>
                             <td>{{ $row['artist_location'] }}</td>
                             <td>
                                 <span class="badge badge-{{($row['status'] == "Active") ? 'success' : 'danger' }}"> {{ $row['status'] }} </span>

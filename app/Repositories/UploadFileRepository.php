@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Shop;
 use App\Models\Artist;
 use App\Models\Exhibition;
+use App\Models\OpenCall;
 
 class UploadFileRepository
 {
@@ -23,8 +24,10 @@ class UploadFileRepository
 
         $fileName = match ($module) {
             'exhibition' => 'exhibition',
+            'exhibition_cover' => 'exhibition_cover',
             'shop' => 'shop',
             'artist' => 'aritst',
+            'opencall' => 'opencall',
         };
 
         if ($extraParmeter) {
@@ -49,8 +52,10 @@ class UploadFileRepository
     {
         return match ($module) {
             'exhibition' => ($parentId) ? public_path(Exhibition::UPLOAD_PATH.$parentId) : public_path(Exhibition::UPLOAD_PATH),
+            'exhibition_cover' => public_path(Exhibition::UPLOAD_PATH.'cover_images'),
             'shop' => ($parentId) ? public_path(Shop::UPLOAD_PATH.$parentId) : public_path(Shop::UPLOAD_PATH),
-            'artist' => ($parentId) ? public_path(Artist::UPLOAD_PATH.$parentId) : public_path(Artist::UPLOAD_PATH)
+            'artist' => ($parentId) ? public_path(Artist::UPLOAD_PATH.$parentId) : public_path(Artist::UPLOAD_PATH),
+            'opencall' => ($parentId) ? public_path(OpenCall::UPLOAD_PATH.$parentId) : public_path(OpenCall::UPLOAD_PATH),
         };
     }
 

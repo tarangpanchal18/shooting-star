@@ -32,9 +32,26 @@ class HomeController extends Controller
     }
 
     public function exhibition() {
+
+        $pageData = Exhibition::where('status', 'Active')->orderBy('start_date', 'desc')->get();
+        $pageData->reject(function ($data) {
+            if ($data->start_date <= date('Y-m-d') && $data->end_date >= date('Y-m-d'))
+                return true;
+        })->map(function ($data) {
+            $data->isExpired = false;
+            if ($data->end_date < date('Y-m-d')) {
+                $data->isExpired = true;
+            }
+        });
+        $currentExhibition = Exhibition::where('start_date', '<=', date('Y-m-d'))
+            ->where('end_date', '>=', date('Y-m-d'))
+            ->where('status', 'Active')
+            ->first();
+
         return view('exhibition', [
             'pageName' => 'Exhibitions',
-            'pageData' => Exhibition::where('status', 'Active')->get(),
+            'pageData' => $pageData,
+            'activeExhibition' => $currentExhibition,
         ]);
     }
 
