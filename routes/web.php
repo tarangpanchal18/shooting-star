@@ -29,6 +29,7 @@ Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('artist', [HomeController::class, 'artist'])->name('artist');
 Route::get('artist/{artist}', [HomeController::class, 'artist_detail'])->name('artist.detail');
 Route::get('exhibition', [HomeController::class, 'exhibition'])->name('exhibition');
+Route::get('exhibition/{exhibition}', [HomeController::class, 'exhibition_detail'])->name('exhibition.detail');
 Route::get('shop', [HomeController::class, 'shop'])->name('shop');
 Route::get('opencall', [HomeController::class, 'opencall'])->name('opencall');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');

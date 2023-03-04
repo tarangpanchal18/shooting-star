@@ -4,7 +4,7 @@
 @section('class', 'artistsDetailsPage')
 
 @section('content')
-    <section class="section section-md bg-transparent pt-4">
+    <section class="section section-md bg-transparent pt-4" style="margin-top:2em;">
         <div class="container">
           <div class="row row-50 justify-content-center">
             <div class="row col-12 col-md-10 justify-content-center">
@@ -13,7 +13,7 @@
                   <div class="blog-post-item">
                     <h1>{{$pageData->artist_name}}</h1>
                     <p>{{$pageData->artist_title}}</p>
-                    <p>{{$pageData->artist_location}}</p>
+                    <p style="margin:2px 0 2em 0;">{{$pageData->artist_location}}</p>
                     <div>
                         {!! $pageData->artist_description !!}
                     </div>
@@ -22,13 +22,14 @@
               </div>
               <div class="col-md-10 col-lg-4">
                 <div class="widget">
-                  <img class="image mb-4" src="{{asset('images/artist/cover_images/'.$artist->artist_cover_image)}}" alt="{{$artist->artist_name}}" />
+                  <img class="image mb-4" src="{{asset('images/artist/cover_images/'.$pageData->artist_cover_image)}}" alt="{{$artist->artist_name}}" />
                 </div>
                 <div class="widget">
-                  <img class="image mb-4" src="/images/images12.jpg" alt="">
-                </div>
-                <div class="widget">
-                  <img class="image mb-4" src="/images/images22.jpg" alt="">
+                    <video width="320" height="240" controls>
+                        <source src="{{$pageData->artist_video_url}}" type="video/mp4">
+                        <source src="{{$pageData->artist_video_url}}" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
               </div>
             </div>
@@ -40,42 +41,26 @@
           <h6 class="text-uppercase fs-4 text-center title_style mb-4">Available works</h6>
           <div class="row justify-content-center mt-3">
             <div class="row col-12 col-md-10 mt-3">
-              <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                <a class="card-title" href="#">
-                  <img src="images/images19.jpg" class="card-img-top" alt="...">
+
+                @forelse($pageData->images as $artistWork)
+                <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
+                <a class="card-title">
+                    <img src="{{asset('images/artist/'.$pageData->id.'/'.$artistWork->filename)}}" class="card-img-top" alt="{{$pageData->artist_name}} Artwork">
                 </a>
                 <div class="card-body py-2 px-2">
-                  <a class="card-title" href="#">
-                    <b>The Dark Side</b>
-                  </a>
-                  <p class="subtitle">Rosemary Cullum: The Dark Side</p>
-                  <p class="date">Oil on canvas <br> 90cm x 105cm </p>
+                    <a class="card-title">
+                    <b>{{$artistWork->title}}</b>
+                    </a>
+                    {{-- <p class="subtitle">Rosemary Cullum: The Dark Side</p>
+                    <p class="date">Oil on canvas <br> 90cm x 105cm </p> --}}
                 </div>
-              </div>
-              <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                <a class="card-title" href="#">
-                  <img src="images/images20.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body py-2 px-2">
-                  <a class="card-title" href="#">
-                    <b>Life Force</b>
-                  </a>
-                  <p class="subtitle">Rosemary Cullum: Life Force</p>
-                  <p class="date">Oil on canvas <br> 42 x 58 cm </p>
                 </div>
-              </div>
-              <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                <a class="card-title" href="#">
-                  <img src="images/images21.jpg" class="card-img-top" alt="...">
-                </a>
-                <div class="card-body py-2 px-2">
-                  <a class="card-title" href="#">
-                    <b>The Journey</b>
-                  </a>
-                  <p class="subtitle">Rosemary Cullum: The Journey</p>
-                  <p class="date">Oil on canvas <br> 180cm x 120cm </p>
+                @empty
+                <div style="text-align: center;color: #839799;margin-bottom: 5em;">
+                    <h4>No Work available !</h4>
                 </div>
-              </div>
+                @endforelse
+
             </div>
           </div>
         </div>

@@ -39,7 +39,6 @@ class HomeController extends Controller
     }
 
     public function exhibition() {
-
         $pageData = Exhibition::where('status', 'Active')->orderBy('start_date', 'desc')->get();
         $pageData->reject(function ($data) {
             if ($data->start_date <= date('Y-m-d') && $data->end_date >= date('Y-m-d'))
@@ -59,6 +58,13 @@ class HomeController extends Controller
             'pageName' => 'Exhibitions',
             'pageData' => $pageData,
             'activeExhibition' => $currentExhibition,
+        ]);
+    }
+
+    public function exhibition_detail(Exhibition $exhibition) {
+        return view('exhibition_detail', [
+            'pageName' => $exhibition->title,
+            'exhibition' => $exhibition,
         ]);
     }
 

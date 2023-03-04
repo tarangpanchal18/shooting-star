@@ -13,13 +13,13 @@
             <div class="col-12 col-md-10 m-0">
                 <img class="image mb-4 mx-auto" src="{{asset('images/exhibition/cover_images/'.$activeExhibition->cover_image)}}" alt="{{$activeExhibition->title}}">
                 <div class="px-3">
-                    <a href="exhibution-overview.html">
+                    <a href="{{route('exhibition.detail', $activeExhibition->id)}}">
                         <h4 class="text-uppercase">{{$activeExhibition->title}}</h4>
                     </a>
                     <div class="subtitle">{{$activeExhibition->category->name}}</div>
                     <div class="date">{{date('d M Y', strtotime($activeExhibition->start_date))}} - {{date('d M Y', strtotime($activeExhibition->end_date))}}</div>
                     <p class="description mt-2 fs-6">{{$activeExhibition->short_description}}</p>
-                    <a class="btn btn-outline mt-3 p-3" href="exhibution-overview.html">
+                    <a class="btn btn-outline mt-3 p-3" href="{{route('exhibition.detail', $activeExhibition->id)}}">
                         <span>View More</span>
                         <span class="btn-icon mdi-arrow-right"></span>
                     </a>
@@ -43,11 +43,11 @@
                 @forelse($pageData as $exhibition)
                 <div class="col-12 col-md-4 mb-4 card animated fadeIn"
                     data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="exhibution-overview.html">
+                    <a class="card-title" href="{{route('exhibition.detail', $exhibition->id)}}">
                         <img style="{{($exhibition->isExpired ? 'opacity:0.2' : '')}}" class="card-img-top" src="{{asset('images/exhibition/'.$exhibition->id.'/'.$exhibition->images[0]->filename)}}" alt="{{$exhibition->title}}" />
                     </a>
                     <div class="card-body">
-                        <a class="card-title" href="exhibution-overview.html">
+                        <a class="card-title" href="{{route('exhibition.detail', $exhibition->id)}}">
                             <b>{{$exhibition->title}}</b>
                         </a>
                         <p class="subtitle">{{$exhibition->short_description}}</p>

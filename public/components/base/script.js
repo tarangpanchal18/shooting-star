@@ -5,12 +5,12 @@ let components = {};
 
 components.fontAwesome = {
   selector: '[class*="fa-"]',
-  styles: "./components/font-awesome/font-awesome.css",
+  styles: "/components/font-awesome/font-awesome.css",
 };
 
 components.mdi = {
   selector: '[class*="mdi-"]',
-  styles: "./components/mdi/mdi.css",
+  styles: "/components/mdi/mdi.css",
 };
 
 components.fontSpartan = {
@@ -39,170 +39,170 @@ components.pageReveal = {
 
 components.currentDevice = {
   selector: "html",
-  script: "./components/current-device/current-device.min.js",
+  script: "/components/current-device/current-device.min.js",
 };
 
 components.blogPost = {
   selector: ".blog-post",
-  styles: "./components/blog-post/blog-post.css",
+  styles: "/components/blog-post/blog-post.css",
 };
 
 components.box = {
   selector: ".box",
-  styles: "./components/box/box.css",
+  styles: "/components/box/box.css",
 };
 
 components.breadcrumb = {
   selector: ".breadcrumb",
-  styles: "./components/breadcrumb/breadcrumb.css",
+  styles: "/components/breadcrumb/breadcrumb.css",
 };
 
 components.button = {
   selector: ".btn",
-  styles: "./components/button/button.css",
+  styles: "/components/button/button.css",
 };
 
 components.comment = {
   selector: ".comment",
-  styles: "./components/comment/comment.css",
+  styles: "/components/comment/comment.css",
 };
 
 components.divider = {
   selector: ".divider",
-  styles: "./components/divider/divider.css",
+  styles: "/components/divider/divider.css",
 };
 
 components.footer = {
   selector: "footer",
-  styles: "./components/footer/footer.css",
+  styles: "/components/footer/footer.css",
 };
 
 components.grid = {
   selector: '.container, .container-fluid, .row, [class*="col-"]',
-  styles: "./components/grid/grid.css",
+  styles: "/components/grid/grid.css",
 };
 
 components.icon = {
   selector: ".icon",
-  styles: "./components/icon/icon.css",
+  styles: "/components/icon/icon.css",
 };
 
 components.image = {
   selector: ".image",
-  styles: "./components/image/image.css",
+  styles: "/components/image/image.css",
 };
 
 components.input = {
   selector:
     ".form-group, .input-group, .form-check, .custom-control, .form-control",
-  styles: "./components/input/input.css",
+  styles: "/components/input/input.css",
 };
 
 components.intro = {
   selector: ".intro",
-  styles: "./components/intro/intro.css",
+  styles: "/components/intro/intro.css",
 };
 
 components.link = {
   selector: ".link",
-  styles: "./components/link/link.css",
+  styles: "/components/link/link.css",
 };
 
 components.list = {
   selector: ".list",
-  styles: "./components/list/list.css",
+  styles: "/components/list/list.css",
 };
 
 components.logo = {
   selector: ".logo",
-  styles: "./components/logo/logo.css",
+  styles: "/components/logo/logo.css",
 };
 
 components.rdForm = {
   selector: ".rd-form",
-  styles: "./components/rd-form/rd-form.css",
+  styles: "/components/rd-form/rd-form.css",
 };
 
 components.rights = {
   selector: ".rights",
-  styles: "./components/rights/rights.css",
+  styles: "/components/rights/rights.css",
 };
 
 components.pag = {
   selector: ".pag",
-  styles: "./components/pag/pag.css",
+  styles: "/components/pag/pag.css",
 };
 
 components.person = {
   selector: ".person",
-  styles: "./components/person/person.css",
+  styles: "/components/person/person.css",
 };
 
 components.post = {
   selector: ".post",
-  styles: "./components/post/post.css",
+  styles: "/components/post/post.css",
 };
 
 components.postMeta = {
   selector: ".post-meta",
-  styles: "./components/post-meta/post-meta.css",
+  styles: "/components/post-meta/post-meta.css",
 };
 
 components.preloader = {
   selector: ".preloader",
-  styles: "./components/preloader/preloader.css",
+  styles: "/components/preloader/preloader.css",
 };
 
 components.section = {
   selector: "section",
-  styles: "./components/section/section.css",
+  styles: "/components/section/section.css",
 };
 
 components.snackbar = {
   selector: ".snackbar",
-  styles: "./components/snackbar/snackbar.css",
+  styles: "/components/snackbar/snackbar.css",
 };
 
 components.tab = {
   selector: ".tab",
-  styles: "./components/tab/tab.css",
+  styles: "/components/tab/tab.css",
 };
 
 components.table = {
   selector: ".table",
-  styles: "./components/table/table.css",
+  styles: "/components/table/table.css",
 };
 
 components.templateInfo = {
   selector: ".template-info",
-  styles: "./components/template-info/template-info.css",
+  styles: "/components/template-info/template-info.css",
 };
 
 components.termList = {
   selector: ".term-list",
-  styles: "./components/term-list/term-list.css",
+  styles: "/components/term-list/term-list.css",
 };
 
 components.textBlock = {
   selector: ".text-block",
-  styles: "./components/text-block/text-block.css",
+  styles: "/components/text-block/text-block.css",
 };
 
 components.thumbnail = {
   selector: ".thumbnail",
-  styles: "./components/thumbnail/thumbnail.css",
+  styles: "/components/thumbnail/thumbnail.css",
 };
 
 components.widget = {
   selector: ".widget",
-  styles: "./components/widget/widget.css",
+  styles: "/components/widget/widget.css",
 };
 
 // Script components
 components.animate = {
   selector: "[data-animate]",
-  styles: "./components/animate/animate.css",
-  script: "./components/current-device/current-device.min.js",
+  styles: "/components/animate/animate.css",
+  script: "/components/current-device/current-device.min.js",
   init: function (nodes) {
     if (window.xMode || device.macos()) {
       nodes.forEach(function (node) {
@@ -241,8 +241,8 @@ components.animate = {
 
 components.campaignMonitor = {
   selector: ".campaign-mailform",
-  styles: "./components/rd-mailform/rd-mailform.css",
-  script: "./components/jquery/jquery.min.js",
+  styles: "/components/rd-mailform/rd-mailform.css",
+  script: "/components/jquery/jquery.min.js",
   init: function (nodes) {
     /**
      * @desc Check if all elements pass validation
@@ -355,10 +355,10 @@ components.campaignMonitor = {
 
 components.counter = {
   selector: "[data-counter]",
-  styles: "./components/counter/counter.css",
+  styles: "/components/counter/counter.css",
   script: [
-    "./components/util/util.min.js",
-    "./components/counter/counter.min.js",
+    "/components/util/util.min.js",
+    "/components/counter/counter.min.js",
   ],
   init: function (nodes) {
     let observer = new IntersectionObserver(
@@ -402,11 +402,11 @@ components.counter = {
 
 components.countdown = {
   selector: "[ data-countdown ]",
-  styles: "./components/countdown/countdown.css",
+  styles: "/components/countdown/countdown.css",
   script: [
-    "./components/util/util.min.js",
-    "./components/progress-circle/progress-circle.min.js",
-    "./components/countdown/countdown.min.js",
+    "/components/util/util.min.js",
+    "/components/progress-circle/progress-circle.min.js",
+    "/components/countdown/countdown.min.js",
   ],
   init: function (nodes) {
     nodes.forEach(function (node) {
@@ -425,10 +425,10 @@ components.countdown = {
 
 components.isotope = {
   selector: ".isotope-wrap",
-  styles: "./components/isotope/isotope.css",
+  styles: "/components/isotope/isotope.css",
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/isotope/isotope.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/isotope/isotope.min.js",
   ],
   init: function (nodes) {
     function setFilterActive(filterGroup, activeItem) {
@@ -461,11 +461,11 @@ components.isotope = {
 
 components.lightgallery = {
   selector: "[data-lightgallery]",
-  styles: "./components/lightgallery/lightgallery.css",
+  styles: "/components/lightgallery/lightgallery.css",
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/lightgallery/lightgallery.min.js",
-    "./components/util/util.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/lightgallery/lightgallery.min.js",
+    "/components/util/util.min.js",
   ],
   init: function (nodes) {
     if (!window.xMode) {
@@ -496,8 +496,8 @@ components.lightgallery = {
 
 components.mailchimp = {
   selector: ".mailchimp-mailform",
-  styles: "./components/rd-mailform/rd-mailform.css",
-  script: "./components/jquery/jquery.min.js",
+  styles: "/components/rd-mailform/rd-mailform.css",
+  script: "/components/jquery/jquery.min.js",
   init: function (nodes) {
     let $nodes = $(nodes);
 
@@ -606,10 +606,10 @@ components.mailchimp = {
 
 components.multiswitch = {
   selector: "[data-multi-switch]",
-  styles: "./components/multiswitch/multiswitch.css",
+  styles: "/components/multiswitch/multiswitch.css",
   script: [
-    "./components/current-device/current-device.min.js",
-    "./components/multiswitch/multiswitch.min.js",
+    "/components/current-device/current-device.min.js",
+    "/components/multiswitch/multiswitch.min.js",
   ],
   dependencies: "rdNavbar",
   init: function (nodes) {
@@ -637,11 +637,11 @@ components.multiswitch = {
 
 components.nav = {
   selector: ".nav",
-  styles: "./components/nav/nav.css",
+  styles: "/components/nav/nav.css",
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/bootstrap/js/popper.js",
-    "./components/bootstrap/js/bootstrap.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/bootstrap/js/popper.js",
+    "/components/bootstrap/js/bootstrap.min.js",
   ],
   init: function (nodes) {
     nodes.forEach(function (node) {
@@ -656,10 +656,10 @@ components.nav = {
 
 components.regula = {
   selector: "[data-constraints]",
-  styles: "./components/regula/regula.css",
+  styles: "/components/regula/regula.css",
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/regula/regula.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/regula/regula.min.js",
   ],
   init: function (nodes) {
     let elements = $(nodes);
@@ -744,12 +744,12 @@ components.regula = {
 components.rdMailform = {
   selector: ".rd-mailform",
   styles: [
-    "./components/rd-mailform/rd-mailform.css",
-    "./components/font-awesome/font-awesome.css",
+    "/components/rd-mailform/rd-mailform.css",
+    "/components/font-awesome/font-awesome.css",
   ],
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/rd-mailform/rd-mailform.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/rd-mailform/rd-mailform.min.js",
   ],
   init: function (nodes) {
     let i,
@@ -1047,12 +1047,12 @@ components.rdMailform = {
 
 components.rdNavbar = {
   selector: ".rd-navbar",
-  styles: ["./components/rd-navbar/rd-navbar.css", "./components/mdi/mdi.css"],
+  styles: ["/components/rd-navbar/rd-navbar.css", "/components/mdi/mdi.css"],
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/util/util.min.js",
-    "./components/current-device/current-device.min.js",
-    "./components/rd-navbar/rd-navbar.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/util/util.min.js",
+    "/components/current-device/current-device.min.js",
+    "/components/rd-navbar/rd-navbar.min.js",
   ],
   dependencies: "currentDevice",
   init: function (nodes) {
@@ -1150,11 +1150,11 @@ components.rdNavbar = {
 
 components.tooltip = {
   selector: "[data-tooltip]",
-  styles: "./components/tooltip/tooltip.css",
+  styles: "/components/tooltip/tooltip.css",
   script: [
-    "./components/jquery/jquery.min.js",
-    "./components/bootstrap/js/popper.js",
-    "./components/bootstrap/js/bootstrap.min.js",
+    "/components/jquery/jquery.min.js",
+    "/components/bootstrap/js/popper.js",
+    "/components/bootstrap/js/bootstrap.min.js",
   ],
   init: function (nodes) {
     nodes.forEach(function (node) {
@@ -1167,10 +1167,10 @@ components.tooltip = {
 components.toTop = {
   selector: "html",
   styles: [
-    "./components/to-top/to-top.css",
-    "./components/font-awesome/font-awesome.css",
+    "/components/to-top/to-top.css",
+    "/components/font-awesome/font-awesome.css",
   ],
-  script: "./components/jquery/jquery.min.js",
+  script: "/components/jquery/jquery.min.js",
   init: function () {
     if (!window.xMode) {
       let node = document.createElement("div");
