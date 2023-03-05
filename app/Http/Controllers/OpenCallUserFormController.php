@@ -32,7 +32,8 @@ class OpenCallUserFormController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->getRulesArray($request->open_call_id));
+        $forms = $request->validate($this->getRulesArray($request->open_call_id));
+        dd($forms);
     }
 
     /**
@@ -116,6 +117,18 @@ class OpenCallUserFormController extends Controller
                 break;
 
             case 'file':
+                $rule = "";
+                if ($field->field_is_required === 1)
+                    $rule .= '|required';
+                break;
+
+            case 'select':
+                $rule = "";
+                if ($field->field_is_required === 1)
+                    $rule .= '|required';
+                break;
+
+            case 'multiselect':
                 $rule = "";
                 if ($field->field_is_required === 1)
                     $rule .= '|required';

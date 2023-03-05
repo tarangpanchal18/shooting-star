@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('field_label');
             $table->string('field_name')->unique();
             $table->string('field_type');
+            $table->string('field_multi_value')->nullable();
             $table->string('field_description')->nullable();
             $table->boolean('field_is_required')->default(1);
             $table->enum('status', ['Active', 'InActive'])->default('InActive');

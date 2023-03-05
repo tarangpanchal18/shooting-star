@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\TagsValidation;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -30,6 +31,12 @@ class CreateOpenCallForm extends FormRequest
             'field_name' => 'required|min:3|max:20|unique:App\Models\OpenCallFormField,field_name',
             'field_description' => 'min:3|max:70',
             'field_is_required' => 'required|boolean',
+            'field_multi_value' => [
+                'nullable',
+                'requiredIf:field_type,==,select',
+                'requiredIf:field_type,==,multiselect',
+                new TagsValidation,
+            ],
             'status' => 'required',
         ];
 

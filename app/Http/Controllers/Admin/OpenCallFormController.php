@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class OpenCallFormController extends Controller
 {
-    protected $fieldType = ['text', 'number', 'email', 'password', 'textarea', 'image', 'file'];
+    protected $fieldType = ['text', 'number', 'email', 'password', 'textarea', 'select', 'multiselect', 'image', 'file'];
 
     /**
      * Display a listing of the resource.

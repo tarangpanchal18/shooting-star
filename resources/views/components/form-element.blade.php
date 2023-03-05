@@ -28,6 +28,23 @@
             $extraLabel = "Max File Size: 10 MB";
             break;
 
+        case 'select':
+            $input = '<select class="form-control" name="'.$name.'" '.$required.'>';
+            foreach (explode(',', $options) as $o) {
+                $input.= '<option value="'.$o.'">'.$o.'</option>';
+            }
+            $input.= '</select>';
+            $extraLabel = "Can select more than one";
+            break;
+
+        case 'multiselect':
+            $input = '<select class="form-control" multiple name="'.$name.'" '.$required.'>';
+            foreach (explode(',', $options) as $o) {
+                $input.= '<option value="'.$o.'">'.$o.'</option>';
+            }
+            $input.= '</select>';
+            break;
+
         default:
             abort(500, 'Form Error');
             break;

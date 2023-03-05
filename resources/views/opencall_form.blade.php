@@ -17,6 +17,21 @@
     font-size: 16px;
     margin: 0px;
 }
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 12px 13px;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.36;
+    color: #000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(171, 171, 171, 0.5);
+    appearance: none;
+    border-radius: 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 @endsection
 
 @section('content')
@@ -101,6 +116,7 @@
                                 label="{{$input->field_label}}"
                                 type="{{$input->field_type}}"
                                 name="{{$input->field_name}}"
+                                options="{{$input->field_multi_value}}"
                                 required="{{ ($input->field_is_required === 1) ? 'required' : '' }}"
                             ></x-form-element>
                         @endforeach
