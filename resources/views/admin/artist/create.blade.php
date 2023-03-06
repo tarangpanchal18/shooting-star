@@ -54,7 +54,7 @@
                     @error('artist_description')<p class="text-danger">Please Add Desciption</p>@enderror
                 </div>
                 <div class="form-group">
-                    <label>Artist Status</label>
+                    <label>Status</label>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" value="Active"

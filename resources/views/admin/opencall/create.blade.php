@@ -53,7 +53,7 @@
                         value="{{ old('end_date', $data['opencall']['end_date']) }}" required>
                 </div>
                 <div class="form-group">
-                    <label>Page Status</label>
+                    <label>Status</label>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" value="Active"

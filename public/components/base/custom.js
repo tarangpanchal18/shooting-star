@@ -1,7 +1,6 @@
 /* Custom JS */
 
 $(document).ready(function () {
-  console.log("Load demo");
   $(".exhibutionImages").slick({
     arrows: true,
     centerPadding: "0px",

@@ -138,8 +138,10 @@
 	font-size: 38px;
 	line-height: 1;
 	border: none;
-	background: none;
-	color: #142656;
+	/* background: none;
+	color: #142656; */
+    background: #0b2753;
+    color: white;
 	transition: .2s ease-in-out;
 }
 
