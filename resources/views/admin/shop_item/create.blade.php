@@ -17,6 +17,14 @@
             <div class="card-body">
                 @include('admin.component.alert_msg')
                 @csrf
+                 <div class="form-group">
+                    <label>Select Artist</label>
+                    <select class="form-control" name="artist_id">
+                    @foreach ($artistList as $artist)
+                        <option {{($shop['item_title'] == $artist->artist_id) ? 'selected' : ''}} value="{{ $artist->id }}">{{ $artist->artist_name }}</option>
+                    @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label>Item Title</label>
                     <input type="text" name="item_title" class="form-control" placeholder="Enter Shop Title" value="{{ old('item_title', $shop['item_title']) }}" required>

@@ -27,4 +27,8 @@ class Artist extends Model
     public function images() {
         return $this->hasMany(ArtistImage::class);
     }
+
+    public function shopItem() {
+        return $this->hasMany(ArtistImage::class);
+    }
 }

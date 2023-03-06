@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateShopItems;
+use App\Models\Artist;
 use App\Models\Shop;
 use App\Repositories\UploadFileRepository;
-use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
@@ -42,6 +42,7 @@ class ShopController extends Controller
         return view('admin.shop_item.create', [
             'action' => "Add",
             'method' => "POST",
+            'artistList' => Artist::where('status', 'Active')->get(),
             'formUrl' => route('admin.shop.store'),
         ]);
     }
@@ -76,6 +77,7 @@ class ShopController extends Controller
             'action' => "Edit",
             'method' => "PUT",
             'shop' => $shop,
+            'artistList' => Artist::where('status', 'Active')->get(),
             'formUrl' => route('admin.shop.update', $shop['id'])
         ]);
     }

@@ -20,6 +20,7 @@ class Shop extends Model
      * @var array
      */
     protected $fillable = [
+        'artist_id',
         'item_title',
         'item_short_description',
         'item_description',
@@ -27,4 +28,8 @@ class Shop extends Model
         'item_price',
         'status',
     ];
+
+    public function artist() {
+        return $this->belongsTo(Artist::class);
+    }
 }
