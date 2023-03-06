@@ -33,7 +33,7 @@ class CreateArtist extends FormRequest
             'status' => 'required',
         ];
 
-        if($this->method() != 'POST') {
+        if ($this->routeIs('admin.artist.update')) {
             $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif';
         }
 

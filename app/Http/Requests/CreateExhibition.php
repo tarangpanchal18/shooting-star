@@ -34,7 +34,7 @@ class CreateExhibition extends FormRequest
             'status' => 'required',
         ];
 
-        if($this->method() != 'POST') {
+        if ($this->routeIs('admin.exhibition.update')) {
             $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif';
         }
 

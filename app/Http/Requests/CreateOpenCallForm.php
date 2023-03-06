@@ -40,7 +40,7 @@ class CreateOpenCallForm extends FormRequest
             'status' => 'required',
         ];
 
-        if ($this->method() != "POST") {
+        if ($this->routeIs('admin.opencall.opencall-form.update')) {
             $rules['field_name'] = [
                 'required',
                 'min:3',

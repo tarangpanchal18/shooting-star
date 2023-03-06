@@ -33,7 +33,7 @@ class CreateOpenCall extends FormRequest
             'status' => 'required',
         ];
 
-        if($this->method() != 'POST') {
+        if ($this->routeIs('admin.opencall.update')) {
             $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif';
         }
 

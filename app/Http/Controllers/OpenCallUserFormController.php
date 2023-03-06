@@ -71,7 +71,7 @@ class OpenCallUserFormController extends Controller
                 $customRules[$field->field_name] = $this->getRuleBasedOnFieldType($field);
             }
 
-            $rules = array_merge($rules, $customRules);
+            $rules = [...$rules, ...$customRules];
         }
 
         return $rules;
