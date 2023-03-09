@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\OpenCall;
 use App\Models\OpenCallResponse;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CreateOpenCallUserForm;
+use App\Mail\OpenCallFormFilledMail;
 
 class OpenCallUserFormController extends Controller
 {
@@ -43,6 +45,9 @@ class OpenCallUserFormController extends Controller
 
         $response['other_field'] = json_encode($newData, TRUE);
         OpenCallResponse::create($response);
+
+        //sending an email
+        Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail($response));
 
         return redirect(route('opencall.thanks'));
     }
