@@ -46,6 +46,21 @@
                 <p class="opencall-p">This exhibition aims to discover and promote the experimental contemporary art, which reflects society, culture and
                 environment, invokes the dialogues and discussions, nurture the innovation and technology along with diversity in
                 different mediums to empower the art economy in the modern world.</p>
+
+                @if ($errors->any())
+                <table style="border:1px solid #b9b7b7;width:100%;">
+                    <thead>
+                        <tr><th style="text-align:left;color:red;padding: 0.75em;">Form Has Following Errors</th></tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($errors->all() as $error)
+                    <tr>
+                        <td style="font-size:13px;text-align:left;padding-left: 0.8em;">- {{ $error }}</td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                @endif
                 <form class="" method="post" action="/opencall/apply" enctype="multipart/form-data">
                     @csrf
                     <div class="row row-gutters-20 row-20 align-items-center">
@@ -89,7 +104,7 @@
                             col="12"
                             label="Website Link"
                             type="text"
-                            name="website"
+                            name="website_link"
                             required=""
                         ></x-form-element>
 
@@ -97,7 +112,7 @@
                             col="12"
                             label="Instagram Handle"
                             type="text"
-                            name="instagram"
+                            name="instagram_link"
                             required="required"
                         ></x-form-element>
 
@@ -115,7 +130,7 @@
                                 col="12"
                                 label="{{$input->field_label}}"
                                 type="{{$input->field_type}}"
-                                name="{{$input->field_name}}"
+                                name="custom_{{$input->field_name}}"
                                 options="{{$input->field_multi_value}}"
                                 required="{{ ($input->field_is_required === 1) ? 'required' : '' }}"
                             ></x-form-element>

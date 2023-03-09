@@ -3,23 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\OpenCall;
-use Illuminate\Http\Request;
+use App\Models\OpenCallResponse;
+use App\Http\Requests\CreateOpenCallUserForm;
 
 class OpenCallUserFormController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a form page for opencall.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(OpenCall $opencall)
     {
-        $openCallList = OpenCall::where('end_date', '>=', date('Y-m-d'))->where('status', 'Active')->get();
-
         return view('opencall_form', [
             'pageName' => $opencall->title,
             'opencall' => $opencall,
-            'opencallList' => $openCallList,
+            'opencallList' => OpenCall::where('end_date', '>=', date('Y-m-d'))->where('status', 'Active')->get(),
             'customField' => $opencall->formfield->where('status', 'Active'),
         ]);
     }
@@ -27,13 +26,25 @@ class OpenCallUserFormController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  app\Http\Request\CreateOpenCallUserForm  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateOpenCallUserForm $request)
     {
-        $forms = $request->validate($this->getRulesArray($request->open_call_id));
-        dd($forms);
+        $response = $request->validated();
+
+        $customItems = array_filter($response, function($key) {
+            return strpos($key, 'custom_') === 0;
+        }, ARRAY_FILTER_USE_KEY);
+
+        foreach ($customItems as $key => $val) {
+            $newData[] = [str_replace("custom_", "", $key) => $val];
+        }
+
+        $response['other_field'] = json_encode($newData, TRUE);
+        OpenCallResponse::create($response);
+
+        return redirect(route('opencall.thanks'));
     }
 
     /**
@@ -42,103 +53,9 @@ class OpenCallUserFormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('opencall_form_thank_you');
     }
 
-    /**
-     * Returns the rules for opencall form validation.
-     *
-     * @param  integer  $id
-     * @return array
-     */
-    public function getRulesArray($opencallId) : array
-    {
-        $rules = [
-            'open_call_id' => 'required|integer',
-            'name' => 'required|min:3|max:50',
-            'email' => 'required|email:rfc',
-            'phone' => 'required|integer|integer|min_digits:9|max_digits:12',
-            'website' => 'required|url',
-            'instagram' => 'required|url',
-            'comment' => '',
-        ];
-
-        $openCall = OpenCall::findOrFail($opencallId);
-        if($openCall->formField->count()) {
-            foreach ($openCall->formField as $field) {
-                $customRules[$field->field_name] = $this->getRuleBasedOnFieldType($field);
-            }
-
-            $rules = [...$rules, ...$customRules];
-        }
-
-        return $rules;
-    }
-
-    public function getRuleBasedOnFieldType($field)
-    {
-        switch ($field->field_type) {
-            case 'text':
-                $rule = "min:1|max:1000";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'number':
-                $rule = "integer";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'email':
-                $rule = "email:rfc|min:3|max:1000";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'password':
-                $rule = "min:1|max:50";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'textarea':
-                $rule = "min:1|max:5000";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'image':
-                $rule = "mimes:jpg,jpeg,png,gif";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'file':
-                $rule = "";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'select':
-                $rule = "";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            case 'multiselect':
-                $rule = "";
-                if ($field->field_is_required === 1)
-                    $rule .= '|required';
-                break;
-
-            default:
-                # code...
-                break;
-        }
-
-        return $rule;
-    }
 }

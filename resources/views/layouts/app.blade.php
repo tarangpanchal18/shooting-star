@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('components/base/base.css')}}">
     <link rel="stylesheet" href="{{asset('components/base/custom.css')}}">
     <link rel="stylesheet" href="{{asset('components/slick/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('components/table/table.css')}}">
     <script type="text/javascript" src="{{asset('components/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('components/base/core.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('components/base/script.js')}}"></script>

@@ -15,7 +15,7 @@
             break;
 
         case 'textarea':
-            $input = '<textarea class="form-control" name="'.$name.'" placeholder="'.ucfirst($label).'" '.$required.'></textarea>';
+            $input = '<textarea class="form-control" name="'.$name.'" placeholder="'.ucfirst($label).'" '.$required.'>'.old($name).'</textarea>';
             break;
 
         case 'image':
@@ -34,15 +34,15 @@
                 $input.= '<option value="'.$o.'">'.$o.'</option>';
             }
             $input.= '</select>';
-            $extraLabel = "Can select more than one";
             break;
 
         case 'multiselect':
-            $input = '<select class="form-control" multiple name="'.$name.'" '.$required.'>';
+            $input = '<select class="form-control" multiple name="'.$name.'[]" '.$required.'>';
             foreach (explode(',', $options) as $o) {
                 $input.= '<option value="'.$o.'">'.$o.'</option>';
             }
             $input.= '</select>';
+            $extraLabel = "Note : You can select more than one";
             break;
 
         default:
@@ -56,7 +56,7 @@
         {!! $input !!}
         @if($extraLabel)
         <p style="margin:0;padding:0;">
-            <small style="font-size:11px;margin:0;padding:0;">{{$extraLabel}}</small>
+            <small style="font-size:11px;margin:0;padding:0;">{!! $extraLabel !!}</small>
         </p>
         @endif
         @error($name)
