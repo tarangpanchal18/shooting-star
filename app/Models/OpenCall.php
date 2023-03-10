@@ -19,6 +19,7 @@ class OpenCall extends Model
         'cover_image',
         'start_date',
         'end_date',
+        'is_show_artwork',
         'status',
     ];
 

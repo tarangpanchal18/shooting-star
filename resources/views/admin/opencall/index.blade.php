@@ -42,7 +42,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $page['title'] }}</td>
-                            <td>{{ $page['short_description'] }}</td>
+                            <td>{{ strlen($page['short_description']) > 60 ? substr($page['short_description'], 0, 60)."..." : $page['short_description'] }}</td>
                             <td>{{date('d M', strtotime($page->start_date))}} - {{date('d M (Y)', strtotime($page->end_date))}}</td>
                             <td>
                                 <span class="badge badge-{{($page['status'] == "Active") ? 'success' : 'danger' }}"> {{ $page['status'] }} </span>

@@ -26,9 +26,9 @@ class CreateOpenCallForm extends FormRequest
     public function rules()
     {
         $rules =  [
-            'field_label' => 'required|min:3|max:20',
+            'field_label' => 'required|min:3|max:100',
             'field_type' => 'required',
-            'field_name' => 'required|min:3|max:20|unique:App\Models\OpenCallFormField,field_name',
+            'field_name' => 'required|min:3|max:50|unique:App\Models\OpenCallFormField,field_name',
             'field_description' => 'min:3|max:70',
             'field_is_required' => 'required|boolean',
             'field_multi_value' => [
@@ -44,7 +44,7 @@ class CreateOpenCallForm extends FormRequest
             $rules['field_name'] = [
                 'required',
                 'min:3',
-                'max:20',
+                'max:50',
                 Rule::unique('open_call_form_fields', 'field_name')->ignore($this->route('opencall_form'))
             ];
         }

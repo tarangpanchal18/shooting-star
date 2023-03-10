@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('cover_image')->nullable();
             $table->date('start_date');
             $table->date('end_date');
+            $table->enum('is_show_artwork', ['Yes', 'No'])->default('No');
             $table->enum('status', ['Active', 'InActive'])->default('InActive');
             $table->softDeletes();
             $table->timestamps();

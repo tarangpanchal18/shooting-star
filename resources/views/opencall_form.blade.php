@@ -64,8 +64,8 @@
                     <div class="row row-gutters-20 row-20 align-items-center">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Select Open call</label>
-                                <select class="form-control" name="open_call_id" required>
+                                <label>Open call Selected</label>
+                                <select class="form-control" name="open_call_id" readonly>
                                     <option value="">--Select--</option>
                                     @foreach ($opencallList as $call)
                                     <option {{($opencall->id == $call->id) ? 'selected' : ''}} value="{{ $call->id }}">{{ $call->title }}</option>
@@ -73,6 +73,7 @@
                                 </select>
                             </div>
                         </div>
+                        <input type="hidden" name="open_call_id" value="{{$opencall->id}}">
 
                         <x-form-element
                             col="6"
@@ -122,6 +123,7 @@
                             required=""
                         ></x-form-element>
 
+                        @if($opencall->is_show_artwork == "Yes")
                         <p class="col-md-12 text-start" style="margin-bottom:0px; padding-bottom:0px;">Upload Artwork</p>
                         <div class="artwork-fields row" style="margin-top:0px; padding-top:0px;">
                             <x-form-element
@@ -161,6 +163,7 @@
                                 <span role="button" class="btn btn-sm float-end addMoreArtWork">+ Add More</span>
                             </div>
                         </div>
+                        @endif
 
                         @if($customField)
                         @foreach ($customField as $input)
