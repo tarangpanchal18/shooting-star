@@ -11,8 +11,16 @@
     <link rel="icon" href="/site_data/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('components/base/base.css')}}">
     <link rel="stylesheet" href="{{asset('components/base/custom.css')}}">
-    <script src="{{asset('components/base/core.min.js')}}"></script>
-    <script src="{{asset('components/base/script.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('components/slick/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('components/table/table.css')}}">
+    <script type="text/javascript" src="{{asset('components/jquery/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('components/base/core.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('components/base/script.js')}}"></script>
+    <script type="text/javascript" src="{{asset('components/slick/slick.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('components/base/custom.js')}}"></script>
+    <style>
+    @yield('internalcss')
+    </style>
 </head>
 
 <body>

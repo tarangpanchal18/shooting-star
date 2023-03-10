@@ -22,9 +22,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Field Name</th>
+                            <th>Field Label</th>
                             <th>Field Type</th>
-                            <th>Field Description</th>
+                            <th>Required</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -33,9 +33,9 @@
                         @forelse($data['fields'] as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row['field_name'] }}</td>
+                            <td>{{ $row['field_label'] }}</td>
                             <td>{{ $row['field_type'] }}</td>
-                            <td>{{ $row['field_description'] }}</td>
+                            <td>{{ (($row['field_is_required'] === 1) ? 'Yes' : 'No') }}</td>
                             <td>
                                 <span class="badge badge-{{($row['status'] == "Active") ? 'success' : 'danger' }}"> {{
                                     $row['status'] }} </span>

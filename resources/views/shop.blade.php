@@ -10,22 +10,29 @@
             <div class="col-md-10 col-lg-8">
                 <form action="">
                 <div class="row row-30">
-                    {{-- <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="form-group">
                             <div class="form-control-wrap">
-                                <select class="form-control form-control-last-child" name="cars">
-                                    <option value="">- Browse by Artist -</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
+                                <select class="form-control form-control-last-child" name="artist">
+                                    <option value="">- Filter by Artist -</option>
+                                    @foreach ($artistData as $artist)
+                                    <option {{($search['artistId'] == $artist->id) ? 'selected' : ''}} value="{{$artist->id}}">{{$artist->artist_name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-                    </div> --}}
-                    <div class="col-md-11">
+                    </div>
+                    <div class="col-md-5">
                         <div class="form-group">
                             <div class="form-control-wrap">
-                                <input name="search" class="form-control form-control-last-child" type="text" name="Search" value="{{$search}}" placeholder="Search in shop">
+                                <input name="search" class="form-control form-control-last-child" type="text" name="Search" value="{{$search['keyword']}}" placeholder="Search in shop">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <div class="form-control-wrap">
+                                <input style="text-align: center;border: 1px solid transparent;font-weight: 500;text-transform: capitalize;color: #fff;background: #000;" type="submit" value="Search" />
                             </div>
                         </div>
                     </div>

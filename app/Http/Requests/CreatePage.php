@@ -28,7 +28,7 @@ class CreatePage extends FormRequest
             'description' => 'required|min:10|max:5000',
             'seo_description' => 'required|min:3|max:1000',
             'seo_keywords' => 'required|min:3|max:500',
-            'page_image' => 'image',
+            'page_image' => 'mimes:jpg,png,jpeg,gif|max:10240',
             'status' => 'required',
         ];
     }

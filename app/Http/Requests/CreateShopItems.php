@@ -24,16 +24,17 @@ class CreateShopItems extends FormRequest
     public function rules()
     {
         $rules =  [
+            'artist_id' => 'required|integer',
             'item_title' => 'required|min:3|max:50',
             'item_short_description' => 'min:10|max:50',
             'item_description' => 'required|min:10|max:100',
-            'item_filename' => 'required|mimes:jpg,png,jpeg,gif',
+            'item_filename' => 'required|mimes:jpg,png,jpeg,gif|max:10240',
             'item_price' => 'required|int',
             'status' => 'required',
         ];
 
-        if($this->method() != 'POST') {
-            $rules['item_filename'] = 'mimes:jpg,png,jpeg,gif';
+        if ($this->routeIs('admin.shop.update')) {
+            $rules['item_filename'] = 'mimes:jpg,png,jpeg,gif|max:10240';
         }
 
         return $rules;

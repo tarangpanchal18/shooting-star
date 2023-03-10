@@ -31,7 +31,7 @@
                         </a>
                         <p class="subtitle">{{$call->short_description}}</p>
                         <p class="subtitle">{{date('d M', strtotime($call->start_date))}} - {{date('d M Y', strtotime($call->end_date))}}</p>
-                        <a class="btn btn-outline mt-3 p-2" href="#">Apply Now</a>
+                        <a class="btn btn-outline mt-3 p-2" href="{{ route('opencall.apply', $call->id) }}">Apply Now</a>
                     </div>
                 </div>
                 @empty

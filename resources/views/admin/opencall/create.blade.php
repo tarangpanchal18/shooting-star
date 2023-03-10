@@ -53,7 +53,22 @@
                         value="{{ old('end_date', $data['opencall']['end_date']) }}" required>
                 </div>
                 <div class="form-group">
-                    <label>Page Status</label>
+                    <label>Do you want to show artwork upload in form ?</label>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="is_show_artwork" value="Yes"
+                                {{($data['opencall']['is_show_artwork']=='Yes' ) ? "checked" : "" }} id="is_show_y_artwork">
+                            <label class="form-check-label" for="is_show_y_artwork">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="is_show_artwork" value="No"
+                                {{($data['opencall']['is_show_artwork']=='No' ) ? "checked" : "" }} id="is_show_n_artwork">
+                            <label class="form-check-label" for="is_show_n_artwork">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" value="Active"

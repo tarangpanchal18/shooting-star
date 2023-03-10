@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ExhibitionController;
 use App\Http\Controllers\Admin\OpenCallController;
 use App\Http\Controllers\Admin\OpenCallFormController;
 use App\Http\Controllers\Admin\ShopController;
+use App\Http\Controllers\OpenCallUserFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::get('exhibition/{exhibition}', [HomeController::class, 'exhibition_detail
 Route::get('shop', [HomeController::class, 'shop'])->name('shop');
 Route::get('opencall', [HomeController::class, 'opencall'])->name('opencall');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('opencall/apply/{opencall?}', [OpenCallUserFormController::class, 'index'])->name('opencall.apply');
+Route::get('opencall/thanks', [OpenCallUserFormController::class, 'show'])->name('opencall.thanks');
+Route::post('opencall/apply', [OpenCallUserFormController::class, 'store']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

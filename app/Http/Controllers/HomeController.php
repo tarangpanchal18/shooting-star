@@ -73,12 +73,19 @@ class HomeController extends Controller
         if ($request->search) {
             $shopData->where('item_title', 'LIKE', '%'. $request->search .'%');
         }
+        if ($request->artist) {
+            $shopData->where('artist_id', $request->artist);
+        }
         $shopData = $shopData->get();
 
         return view('shop', [
             'pageName' => 'Shop',
+            'artistData' => Artist::where('status', 'Active')->get(),
             'pageData' => $shopData,
-            'search' => $request->search,
+            'search' => [
+                'keyword' => $request->search,
+                'artistId' => $request->artist,
+            ],
         ]);
     }
 

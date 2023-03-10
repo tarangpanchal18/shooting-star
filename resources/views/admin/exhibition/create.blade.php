@@ -57,7 +57,7 @@
                     <input type="text" name="end_date" autocomplete="off" class="form-control datepicker" placeholder="Enter End Date" value="{{ old('end_date', $data['exhibition']['end_date']) }}" required>
                 </div>
                 <div class="form-group">
-                    <label>Page Status</label>
+                    <label>Status</label>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" value="Active" {{($data['exhibition']['status'] == 'Active') ? "checked" : ""}} id="status_active">
