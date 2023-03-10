@@ -9,6 +9,8 @@ class OpenCallResponse extends Model
 {
     use HasFactory;
 
+    const UPLOAD_ART_DATA_PATH = 'images/opencall_form/';
+
     protected $fillable = [
         'open_call_id',
         'name',

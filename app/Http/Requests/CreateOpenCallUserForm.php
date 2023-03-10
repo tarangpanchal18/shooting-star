@@ -32,6 +32,10 @@ class CreateOpenCallUserForm extends FormRequest
             'website_link' => 'required|url',
             'instagram_link' => 'required|url',
             'comment' => '',
+            'art_work_title.*' => 'nullable|min:3|max:50',
+            'art_work_size.*' => 'nullable|min:3|max:50',
+            'art_work_medium.*' => 'nullable|min:3|max:50',
+            'art_work_image.*' => 'nullable|mimes:jpg,png,jpeg,gif|max:10240',
         ];
 
         $oc = request()->all('open_call_id');

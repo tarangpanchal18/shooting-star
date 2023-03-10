@@ -30,12 +30,12 @@ class CreateExhibition extends FormRequest
             'description' => 'required|min:10|max:10000',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'cover_image' => 'required|mimes:jpg,png,jpeg,gif',
+            'cover_image' => 'required|mimes:jpg,png,jpeg,gif|max:10240',
             'status' => 'required',
         ];
 
         if ($this->routeIs('admin.exhibition.update')) {
-            $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif';
+            $rules['cover_image'] = 'mimes:jpg,png,jpeg,gif|max:10240';
         }
 
         return $rules;

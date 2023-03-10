@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\OpenCall;
+use Illuminate\Support\Str;
 use App\Models\OpenCallResponse;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CreateOpenCallUserForm;
 use App\Mail\OpenCallFormFilledMail;
+use App\Repositories\UploadFileRepository;
 
 class OpenCallUserFormController extends Controller
 {
+
+    public function __construct(public UploadFileRepository $uploadFileRepository) {
+        $this->uploadFileRepository = $uploadFileRepository;
+    }
     /**
      * Display a form page for opencall.
      *
@@ -43,12 +49,24 @@ class OpenCallUserFormController extends Controller
             $newData[] = [str_replace("custom_", "", $key) => $val];
         }
 
+        //Art Work Image Upload
+        if ($request->file('art_work_image')) {
+            foreach ($request->file('art_work_image') as $file) {
+                $artwork[] = $this->uploadFileRepository->uploadFile('front_opencall', $file, $response['open_call_id'].'/'.Str::slug($response['name']));
+            }
+
+            $response['art_work_title'] = json_encode($response['art_work_title']);
+            $response['art_work_size'] = json_encode($response['art_work_size']);
+            $response['art_work_medium'] = json_encode($response['art_work_medium']);
+            $response['art_work_image'] = json_encode($artwork);
+        }
+
         $response['other_field'] = json_encode($newData, TRUE);
         OpenCallResponse::create($response);
 
         //sending an email
-        Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail('Admin', $response));
-        Mail::to($response['email'])->send(new OpenCallFormFilledMail('User', $response));
+        // Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail('Admin', $response));
+        // Mail::to($response['email'])->send(new OpenCallFormFilledMail('User', $response));
 
         return redirect(route('opencall.thanks'));
     }

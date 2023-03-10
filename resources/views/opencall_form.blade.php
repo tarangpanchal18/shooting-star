@@ -124,6 +124,46 @@
                             required=""
                         ></x-form-element>
 
+                        <p class="col-md-12 text-start" style="margin-bottom:0px; padding-bottom:0px;">Upload Artwork</p>
+                        <div class="artwork-fields row" style="margin-top:0px; padding-top:0px;">
+                            <x-form-element
+                                col="3"
+                                label="Title"
+                                type="text"
+                                name="art_work_title[]"
+                                required="required"
+                            ></x-form-element>
+                            <x-form-element
+                                col="3"
+                                label="Size"
+                                type="text"
+                                name="art_work_size[]"
+                                required="required"
+                            ></x-form-element>
+                            <x-form-element
+                                col="3"
+                                label="Medium"
+                                type="text"
+                                name="art_work_medium[]"
+                                required="required"
+                            ></x-form-element>
+                            <x-form-element
+                                col="3"
+                                label="Art Work"
+                                type="file"
+                                name="art_work_image[]"
+                                required="required"
+                            ></x-form-element>
+                        </div>
+                        <div class="more-artworks row" style="margin-top:0px; padding-top:0px;">
+                            <!-- Artwork HTML will append here -->
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <span role="button" class="btn btn-sm float-end addMoreArtWork">+ Add More</span>
+                            </div>
+                        </div>
+
                         @if($customField)
                         @foreach ($customField as $input)
                             <x-form-element
@@ -147,4 +187,13 @@
     </div>
 </section>
 
+
+<script>
+$(document).ready(function() {
+    $(".addMoreArtWork").click(function() {
+        var html = $(".artwork-fields").html();
+        $(".more-artworks").append(html);
+    });
+});
+</script>
 @endsection

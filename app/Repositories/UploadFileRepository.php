@@ -6,6 +6,7 @@ use App\Models\Shop;
 use App\Models\Artist;
 use App\Models\Exhibition;
 use App\Models\OpenCall;
+use App\Models\OpenCallResponse;
 
 class UploadFileRepository
 {
@@ -29,15 +30,16 @@ class UploadFileRepository
             'artist' => 'aritst',
             'artist_cover' => 'artist_cover',
             'opencall' => 'opencall',
+            'front_opencall' => 'opencallform',
         };
 
-        if ($extraParmeter) {
+        if ($extraParmeter && $module != 'front_opencall') {
             $fileName = $fileName.'_'. $extraParmeter;
         }
 
         $fileName = $fileName.'_'.rand(1000,9999);
         $fileName = $fileName.'_'.time();
-        $fileName = $fileName.'.'.$fileExtension;
+        $fileName = str_replace('/', '_', $fileName.'.'.$fileExtension);
 
         return $fileName;
     }
@@ -58,13 +60,13 @@ class UploadFileRepository
             'artist' => ($parentId) ? public_path(Artist::UPLOAD_PATH.$parentId) : public_path(Artist::UPLOAD_PATH),
             'artist_cover' => public_path(Artist::UPLOAD_COVER_PATH),
             'opencall' => ($parentId) ? public_path(OpenCall::UPLOAD_PATH.$parentId) : public_path(OpenCall::UPLOAD_PATH),
+            'front_opencall' => ($parentId) ? public_path(OpenCallResponse::UPLOAD_ART_DATA_PATH.$parentId) : public_path(OpenCallResponse::UPLOAD_ART_DATA_PATH),
         };
     }
 
-    public function uploadFile($module, $file, $parentId = null)
+    public function uploadFile($module, $image, $parentId = null)
     {
-        $image = $file;
-        $imageName  = $this->getFileName($module, $file, $parentId);
+        $imageName  = $this->getFileName($module, $image, $parentId);
         $uploadPath = $this->getUploadPath($module, $parentId);
         $image->move($uploadPath, $imageName);
 
