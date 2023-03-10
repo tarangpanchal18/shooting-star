@@ -46,6 +46,11 @@ class OpenCallUserFormController extends Controller
         }, ARRAY_FILTER_USE_KEY);
 
         foreach ($customItems as $key => $val) {
+
+            if (is_object($val)) {
+                $val = $this->uploadFileRepository->uploadFile('front_opencall', $val, $response['open_call_id'].'/'.Str::slug($response['name']));
+            }
+
             $newData[] = [str_replace("custom_", "", $key) => $val];
         }
 
@@ -64,9 +69,8 @@ class OpenCallUserFormController extends Controller
         $response['other_field'] = json_encode($newData, TRUE);
         OpenCallResponse::create($response);
 
-        //sending an email
-        // Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail('Admin', $response));
-        // Mail::to($response['email'])->send(new OpenCallFormFilledMail('User', $response));
+        Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail('Admin', $response));
+        Mail::to($response['email'])->send(new OpenCallFormFilledMail('User', $response));
 
         return redirect(route('opencall.thanks'));
     }
