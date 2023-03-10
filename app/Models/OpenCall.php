@@ -26,4 +26,8 @@ class OpenCall extends Model
     public function formfield() {
         return $this->hasMany(OpenCallFormField::class);
     }
+
+    public function opencallResponse() {
+        return $this->belongsTo(OpenCallResponse::class);
+    }
 }

@@ -390,7 +390,7 @@ return [
         [
             'text'    => 'Open Call Responses',
             'icon'    => 'far fa-fw fa-file',
-            'url'         => Admin::PATH . '/opencall',
+            'url'         => Admin::PATH . '/open-call-response',
         ],
     ],
 
