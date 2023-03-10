@@ -40,12 +40,10 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
-                <h4 class="text-uppercase">OPEN CALL VIRTUAL ART EXHIBITION - JAN 2023</h4>
-                <p class="opencall-p">Shooting Star Studios is an art entity based in London, UK. It aims to represent creative ideas through the diverse
-                mediums of artworks. Its mission is to develop the sustainable and affordable art eco-system for the artists around the world.</p>
-                <p class="opencall-p">This exhibition aims to discover and promote the experimental contemporary art, which reflects society, culture and
-                environment, invokes the dialogues and discussions, nurture the innovation and technology along with diversity in
-                different mediums to empower the art economy in the modern world.</p>
+                <h4 class="text-uppercase">{{$opencall->title}} . ({{date('d M', strtotime($opencall->start_date))}} - {{date('d M', strtotime($opencall->end_date))}})</h4>
+                <div class="opencall-description">
+                    {!! $opencall->description !!}
+                </div>
 
                 @if ($errors->any())
                 <table style="border:1px solid #b9b7b7;width:100%;">
