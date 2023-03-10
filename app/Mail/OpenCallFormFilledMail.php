@@ -16,10 +16,12 @@ class OpenCallFormFilledMail extends Mailable
     /**
      * Create a new message instance.
      *
+     * @param string $sendTo (Admin|User)
      * @param array $formData
      * @return void
      */
     public function __construct(
+        public string $sendTo,
         public array $formData
     ) {}
 
@@ -42,9 +44,10 @@ class OpenCallFormFilledMail extends Mailable
      */
     public function content()
     {
-        return new Content(
-            view: 'email.opencall_form_fill',
-        );
+        if ($this->sendTo == "Admin")
+            return new Content(view: 'email.opencall_form_fill_to_admin');
+        else
+            return new Content(view: 'email.opencall_form_fill_to_user');
     }
 
     /**

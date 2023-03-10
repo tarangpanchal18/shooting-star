@@ -47,7 +47,8 @@ class OpenCallUserFormController extends Controller
         OpenCallResponse::create($response);
 
         //sending an email
-        Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail($response));
+        Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail('Admin', $response));
+        Mail::to($response['email'])->send(new OpenCallFormFilledMail('User', $response));
 
         return redirect(route('opencall.thanks'));
     }
