@@ -85,7 +85,16 @@
                       <tr>
                         <th>{{ $key }}</th>
                         <td colspan="3">
-                            {{ (! is_array($value)) ? $value : implode(', ', $value) }}
+                            @if($fieldType[$i] == "image")
+                            <img class="img-thumbnail" style="height: 120px;" src="{{ $imagepath .'/'. $value }}"
+                                alt="Artwork Image">
+                            @elseif($fieldType[$i] == "file")
+                            <a href="{{ $imagepath .'/'. $value }}" download="">Download File</a>
+                            @elseif($fieldType[$i] == "multiselect")
+                            {{ implode(', ', $value) }}
+                            @else
+                            {{ $value }}
+                            @endif
                         </td>
                       </tr>
                       @endforeach

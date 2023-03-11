@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Str;
 use App\Models\OpenCallResponse;
 use App\Http\Controllers\Controller;
+use App\Models\OpenCallFormField;
 
 class OpenCallFormResponse extends Controller
 {
@@ -37,11 +38,19 @@ class OpenCallFormResponse extends Controller
             ];
         }
 
+        if ($openCallResponse->other_field) {
+            $otherFielData = json_decode($openCallResponse->other_field, TRUE);
+            foreach ($otherFielData as $key => $value) {
+                $fieldType[] = OpenCallFormField::where('field_name', key($value))->pluck('field_type')->first();
+            }
+        }
+
         return view('admin.opencall.response.show', [
             'opencallResponse' => $openCallResponse,
             'imagepath' => asset('images/opencall_form/'. $openCallResponse->opencall->id.'/'.Str::slug($openCallResponse->name)),
-            'otherFieldData' => ($openCallResponse->other_field) ? json_decode($openCallResponse->other_field, TRUE) : '',
+            'otherFieldData' => $otherFielData,
             'artworkData' => $artworkData,
+            'fieldType' => $fieldType,
         ]);
     }
 }
