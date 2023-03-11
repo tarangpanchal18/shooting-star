@@ -28,6 +28,6 @@ class OpenCall extends Model
     }
 
     public function opencallResponse() {
-        return $this->belongsTo(OpenCallResponse::class);
+        return $this->hasMany(OpenCallResponse::class);
     }
 }

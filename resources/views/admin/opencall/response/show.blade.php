@@ -46,7 +46,9 @@
                     </tr>
                     <tr>
                         <th>Phone</th>
-                        <td colspan="3">{{ $opencallResponse->phone }}</td>
+                        <td>{{ $opencallResponse->phone }}</td>
+                        <th>Filled On</th>
+                        <td>{{ date('d M Y (h:i a)', strtotime($opencallResponse->created_at)) }}</td>
                     </tr>
                     <tr>
                         <th>Additional Comment</th>
@@ -54,32 +56,32 @@
                     </tr>
 
                     <!-- Art Work Images -->
-                    @if($opencallResponse->opencall->is_show_artwork == "Yes" && count($opencallResponse->art_work_title))
+                    @if($artworkData)
                     <tr class="text-info"><th colspan="4">Artwork Details</th></tr>
-                    @for ($i = 0; $i < count($opencallResponse->art_work_title); $i++)
+                    @for ($i = 0; $i < count($artworkData['art_work_title']); $i++)
                     <tr class="text-red"><th colspan="4">Artwork {{$i+1}}</th></tr>
                     <tr>
                         <th>Art Work Title</th>
-                        <td>{{ $opencallResponse->art_work_title[$i] }}</td>
+                        <td>{{ $opencallResponse['art_work_title'][$i] }}</td>
                         <th>Art Work Size</th>
-                        <td>{{ $opencallResponse->art_work_size[$i] }}</td>
+                        <td>{{ $opencallResponse['art_work_size'][$i] }}</td>
                     </tr>
                     <tr>
                         <th>Art Work Medium</th>
-                        <td>{{ $opencallResponse->art_work_medium[$i] }}</td>
+                        <td>{{ $opencallResponse['art_work_medium'][$i] }}</td>
                         <th>Art Work(s)</th>
                         <td>
-                            <img class="img-thumbnail" style="height: 120px;" src="{{ asset('images/opencall_form/'.$opencallResponse->opencall->id.'/'.Str::slug($opencallResponse->name).'/'.$opencallResponse->art_work_image[$i]) }}" alt="Artwork Image">
+                            <img class="img-thumbnail" style="height: 120px;" src="{{ $imagepath . $opencallResponse['art_work_image'][$i] }}" alt="Artwork Image">
                         </td>
                     </tr>
                     @endfor
                     @endif
 
                     <!-- Other Fields -->
-                    @if(count($opencallResponse->other_field))
+                    @if($otherFieldData)
                      <tr class="text-info"><th colspan="4">Custom Form Details</th></tr>
-                     @for ($i = 0; $i < count($opencallResponse->other_field); $i++)
-                      @foreach($opencallResponse->other_field[$i] as $key => $value)
+                     @for ($i = 0; $i < count($opencallResponse['other_field']); $i++)
+                      @foreach($opencallResponse['other_field'][$i] as $key => $value)
                       <tr>
                         <th>{{$key}}</th>
                         <td colspan="3">{{ $value }}</td>

@@ -40,6 +40,6 @@ class OpenCallResponse extends Model
     ];
 
     public function opencall() {
-        return $this->hasOne(OpenCall::class, 'id');
+        return $this->belongsTo(OpenCall::class, 'open_call_id', 'id');
     }
 }

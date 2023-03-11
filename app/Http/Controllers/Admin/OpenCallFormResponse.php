@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use App\Models\OpenCallResponse;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OpenCallFormResponse extends Controller
 {
@@ -21,27 +21,6 @@ class OpenCallFormResponse extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Models\OpenCallResponse  $openCallResponse
@@ -49,42 +28,20 @@ class OpenCallFormResponse extends Controller
      */
     public function show(OpenCallResponse $openCallResponse)
     {
+        if ($openCallResponse->art_work_title) {
+            $artworkData = [
+                'art_work_title' => $openCallResponse->art_work_title,
+                'art_work_size' => $openCallResponse->art_work_size,
+                'art_work_medium' => $openCallResponse->art_work_medium,
+                'art_work_image' => $openCallResponse->art_work_image,
+            ];
+        }
+
         return view('admin.opencall.response.show', [
             'opencallResponse' => $openCallResponse,
+            'imagepath' => asset('images/opencall_form/'. $openCallResponse->opencall->id.'/'.Str::slug($openCallResponse->name).'/'),
+            'otherFieldData' => ($openCallResponse->other_field) ? $openCallResponse->other_field : '',
+            'artworkData' => $artworkData,
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\OpenCallResponse  $openCallResponse
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(OpenCallResponse $openCallResponse)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\OpenCallResponse  $openCallResponse
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, OpenCallResponse $openCallResponse)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\OpenCallResponse  $openCallResponse
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(OpenCallResponse $openCallResponse)
-    {
-        //
     }
 }
