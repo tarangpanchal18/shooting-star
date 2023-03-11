@@ -30,17 +30,17 @@ class OpenCallFormResponse extends Controller
     {
         if ($openCallResponse->art_work_title) {
             $artworkData = [
-                'art_work_title' => $openCallResponse->art_work_title,
-                'art_work_size' => $openCallResponse->art_work_size,
-                'art_work_medium' => $openCallResponse->art_work_medium,
-                'art_work_image' => $openCallResponse->art_work_image,
+                'art_work_title' => json_decode($openCallResponse->art_work_title),
+                'art_work_size' => json_decode($openCallResponse->art_work_size),
+                'art_work_medium' => json_decode($openCallResponse->art_work_medium),
+                'art_work_image' => json_decode($openCallResponse->art_work_image),
             ];
         }
 
         return view('admin.opencall.response.show', [
             'opencallResponse' => $openCallResponse,
-            'imagepath' => asset('images/opencall_form/'. $openCallResponse->opencall->id.'/'.Str::slug($openCallResponse->name).'/'),
-            'otherFieldData' => ($openCallResponse->other_field) ? $openCallResponse->other_field : '',
+            'imagepath' => asset('images/opencall_form/'. $openCallResponse->opencall->id.'/'.Str::slug($openCallResponse->name)),
+            'otherFieldData' => ($openCallResponse->other_field) ? json_decode($openCallResponse->other_field, TRUE) : '',
             'artworkData' => $artworkData,
         ]);
     }

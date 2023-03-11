@@ -25,7 +25,7 @@ class TagsValidation implements Rule
      */
     public function passes($attribute, $value)
     {
-        return count(explode(',', $value)) > 2;
+        return count(explode(',', $value)) >= 2;
     }
 
     /**

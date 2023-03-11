@@ -62,16 +62,16 @@
                     <tr class="text-red"><th colspan="4">Artwork {{$i+1}}</th></tr>
                     <tr>
                         <th>Art Work Title</th>
-                        <td>{{ $opencallResponse['art_work_title'][$i] }}</td>
+                        <td>{{ $artworkData['art_work_title'][$i] }}</td>
                         <th>Art Work Size</th>
-                        <td>{{ $opencallResponse['art_work_size'][$i] }}</td>
+                        <td>{{ $artworkData['art_work_size'][$i] }}</td>
                     </tr>
                     <tr>
                         <th>Art Work Medium</th>
-                        <td>{{ $opencallResponse['art_work_medium'][$i] }}</td>
+                        <td>{{ $artworkData['art_work_medium'][$i] }}</td>
                         <th>Art Work(s)</th>
                         <td>
-                            <img class="img-thumbnail" style="height: 120px;" src="{{ $imagepath . $opencallResponse['art_work_image'][$i] }}" alt="Artwork Image">
+                            <img class="img-thumbnail" style="height: 120px;" src="{{ $imagepath .'/'. $artworkData['art_work_image'][$i] }}" alt="Artwork Image">
                         </td>
                     </tr>
                     @endfor
@@ -80,11 +80,13 @@
                     <!-- Other Fields -->
                     @if($otherFieldData)
                      <tr class="text-info"><th colspan="4">Custom Form Details</th></tr>
-                     @for ($i = 0; $i < count($opencallResponse['other_field']); $i++)
-                      @foreach($opencallResponse['other_field'][$i] as $key => $value)
+                     @for ($i=0; $i<count($otherFieldData); $i++)
+                      @foreach($otherFieldData[$i] as $key => $value)
                       <tr>
-                        <th>{{$key}}</th>
-                        <td colspan="3">{{ $value }}</td>
+                        <th>{{ $key }}</th>
+                        <td colspan="3">
+                            {{ (! is_array($value)) ? $value : implode(', ', $value) }}
+                        </td>
                       </tr>
                       @endforeach
                     @endfor

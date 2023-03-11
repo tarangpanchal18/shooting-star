@@ -66,7 +66,7 @@ class OpenCallUserFormController extends Controller
             $response['art_work_image'] = json_encode($artwork);
         }
 
-        $response['other_field'] = json_encode($newData, TRUE);
+        $response['other_field'] = json_encode($newData);
         OpenCallResponse::create($response);
 
         Mail::to(config('mail.from.address'))->send(new OpenCallFormFilledMail('Admin', $response));
