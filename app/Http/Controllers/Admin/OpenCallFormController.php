@@ -63,7 +63,7 @@ class OpenCallFormController extends Controller
         $data['field_name'] = Str::slug($data['field_name']);
         OpenCallFormField::create($data);
 
-        return redirect()->route('admin.opencall.opencall-form.index', $openCallId)
+        return to_route('admin.opencall.opencall-form.index', $openCallId)
             ->with('success', 'Data Added Successfully !');
     }
 
@@ -106,7 +106,7 @@ class OpenCallFormController extends Controller
         $data['field_name'] = Str::slug($data['field_name']);
         $opencallFormField->update($data);
 
-        return redirect()->route('admin.opencall.opencall-form.index', $id)
+        return to_route('admin.opencall.opencall-form.index', $id)
             ->with('success', 'Data Updated Successfully !');
     }
 
@@ -121,7 +121,7 @@ class OpenCallFormController extends Controller
         $opencallFormField = OpenCallFormField::findOrFail($openCallFormId);
         $opencallFormField->delete();
 
-        return redirect()->route('admin.opencall.opencall-form.index', $id)
+        return to_route('admin.opencall.opencall-form.index', $id)
             ->with('success', 'Data Updated Successfully !');
     }
 }

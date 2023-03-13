@@ -63,7 +63,7 @@ class ExhibitionController extends Controller
         }
         Exhibition::create($data);
 
-        return redirect()->route('admin.exhibition.index')
+        return to_route('admin.exhibition.index')
             ->with('success', 'Data Added Successfully !');
     }
 
@@ -111,7 +111,7 @@ class ExhibitionController extends Controller
         }
         $exhibition->update($data);
 
-        return redirect()->route('admin.exhibition.index')
+        return to_route('admin.exhibition.index')
             ->with('success', 'Data Updated Successfully !');
     }
 
@@ -127,7 +127,7 @@ class ExhibitionController extends Controller
         unlink($path.'/'.$exhibition->cover_image);
         $exhibition->delete();
 
-        return redirect()->route('admin.exhibition.index')
+        return to_route('admin.exhibition.index')
             ->with('success', 'Data Updated Successfully !');
     }
 

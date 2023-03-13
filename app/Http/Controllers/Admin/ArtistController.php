@@ -62,7 +62,7 @@ class ArtistController extends Controller
         }
         Artist::create($data);
 
-        return redirect()->route('admin.artist.index')
+        return to_route('admin.artist.index')
             ->with('success', 'Data Added Successfully !');
     }
 
@@ -98,7 +98,7 @@ class ArtistController extends Controller
         }
         $artist->update($data);
 
-        return redirect()->route('admin.artist.index')
+        return to_route('admin.artist.index')
             ->with('success', 'Data Updated Successfully !');
     }
 
@@ -114,7 +114,7 @@ class ArtistController extends Controller
         unlink($path.'/'.$artist->artist_cover_image);
         $artist->delete();
 
-        return redirect()->route('admin.artist.index')
+        return to_route('admin.artist.index')
             ->with('success', 'Data Updated Successfully !');
     }
 

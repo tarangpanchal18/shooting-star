@@ -61,7 +61,7 @@ class ShopController extends Controller
         }
         Shop::create($data);
 
-        return redirect()->route('admin.shop.index')
+        return to_route('admin.shop.index')
             ->with('success', 'Data Added Successfully !');
     }
 
@@ -98,7 +98,7 @@ class ShopController extends Controller
         }
         $shop->update($data);
 
-        return redirect()->route('admin.shop.index')
+        return to_route('admin.shop.index')
             ->with('success', 'Data Updated Successfully !');
     }
 
@@ -114,7 +114,7 @@ class ShopController extends Controller
         unlink($path.'/'.$shop->item_filename);
         $shop->delete();
 
-        return redirect()->route('admin.shop_item.index')
+        return to_route('admin.shop_item.index')
             ->with('success', 'Data Updated Successfully !');
     }
 }

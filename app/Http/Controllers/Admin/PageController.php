@@ -42,7 +42,7 @@ class PageController extends Controller
     public function store(CreatePage $request)
     {
         Page::create($request->validated());
-        return redirect()->route('admin.pages.index')->with('success', 'Data Added Successfully !');
+        return to_route('admin.pages.index')->with('success', 'Data Added Successfully !');
     }
 
     /**
@@ -81,7 +81,7 @@ class PageController extends Controller
     public function update(CreatePage $request, Page $page)
     {
         $page->update($request->validated());
-        return redirect()->route('admin.pages.index')->with('success', 'Data Updated Successfully !');
+        return to_route('admin.pages.index')->with('success', 'Data Updated Successfully !');
     }
 
     /**
@@ -93,6 +93,6 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
-        return redirect()->route('admin.pages.index')->with('success', 'Data Updated Successfully !');
+        return to_route('admin.pages.index')->with('success', 'Data Updated Successfully !');
     }
 }

@@ -58,7 +58,7 @@ class OpenCallController extends Controller
         }
         OpenCall::create($data);
 
-        return redirect()->route('admin.opencall.index')
+        return to_route('admin.opencall.index')
             ->with('success', 'Data Added Successfully !');
     }
 
@@ -105,7 +105,7 @@ class OpenCallController extends Controller
         }
         $opencall->update($data);
 
-        return redirect()->route('admin.opencall.index')
+        return to_route('admin.opencall.index')
             ->with('success', 'Data Updated Successfully !');
     }
 
@@ -121,6 +121,6 @@ class OpenCallController extends Controller
         unlink($path.'/'.$opencall->cover_image);
         $opencall->delete();
 
-        return redirect()->route('admin.opencall.index')->with('success', 'Data Updated Successfully !');
+        return to_route('admin.opencall.index')->with('success', 'Data Updated Successfully !');
     }
 }
