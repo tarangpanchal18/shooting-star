@@ -17,7 +17,7 @@
                         <h4 class="text-uppercase">{{$activeExhibition->title}}</h4>
                     </a>
                     <div class="subtitle">{{$activeExhibition->category->name}}</div>
-                    <div class="date">{{date('d M Y', strtotime($activeExhibition->start_date))}} - {{date('d M Y', strtotime($activeExhibition->end_date))}}</div>
+                    <div class="date">{{ $activeExhibition->start_date }} - {{ $activeExhibition->end_date }}</div>
                     <p class="description mt-2 fs-6">{{$activeExhibition->short_description}}</p>
                     <a class="btn btn-outline mt-3 p-3" href="{{route('exhibition.detail', $activeExhibition->id)}}">
                         <span>View More</span>
@@ -51,7 +51,7 @@
                             <b>{{$exhibition->title}}</b>
                         </a>
                         <p class="subtitle">{{$exhibition->short_description}}</p>
-                        <p class="date">{{date('d M', strtotime($exhibition->start_date))}} - {{date('d-M', strtotime($exhibition->end_date))}}</p>
+                        <p class="date">{{ $activeExhibition->start_date }} - {{ $activeExhibition->end_date }}</p>
                     </div>
                 </div>
                 @empty
