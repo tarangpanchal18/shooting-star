@@ -74,6 +74,6 @@ class ShopController extends Controller
         $this->uploadFileRepository->removeFile($path, $shop->item_filename, true);
         $shop->delete();
 
-        return to_route('admin.shop_item.index')->with('success', 'Data Updated Successfully !');
+        return to_route('admin.shop.index')->with('success', 'Data Updated Successfully !');
     }
 }

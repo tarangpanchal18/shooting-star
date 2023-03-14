@@ -44,7 +44,7 @@
                 <div class="col-12 col-md-4 mb-4 card animated fadeIn"
                     data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title" href="{{route('exhibition.detail', $exhibition->id)}}">
-                        <img style="{{($exhibition->isExpired ? 'opacity:0.2' : '')}}" class="card-img-top" src="{{asset('images/exhibition/'.$exhibition->id.'/'.$exhibition->images[0]->filename)}}" alt="{{$exhibition->title}}" />
+                        <img style="{{($exhibition->isExpired ? 'opacity:0.2' : '')}}" class="card-img-top" src="{{asset('images/exhibition/cover_images/'.$exhibition->cover_image)}}" alt="{{$exhibition->title}}" />
                     </a>
                     <div class="card-body">
                         <a class="card-title" href="{{route('exhibition.detail', $exhibition->id)}}">
