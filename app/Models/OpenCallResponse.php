@@ -25,4 +25,21 @@ class OpenCallResponse extends Model
         'art_work_image',
         'other_field',
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'art_work_title' => 'array',
+        'art_work_size' => 'array',
+        'art_work_medium' => 'array',
+        'art_work_image' => 'array',
+        'other_field' => 'array',
+    ];
+
+    public function opencall() {
+        return $this->belongsTo(OpenCall::class, 'open_call_id', 'id');
+    }
 }

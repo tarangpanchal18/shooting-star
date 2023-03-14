@@ -24,7 +24,7 @@ class CreateOpenCall extends FormRequest
     public function rules()
     {
         $rules =  [
-            'title' => 'required|min:3|max:50',
+            'title' => 'required|min:3|max:300',
             'short_description' => 'required|min:3|max:500',
             'description' => 'required|min:10|max:10000',
             'start_date' => 'required|date',

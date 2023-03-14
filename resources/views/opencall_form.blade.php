@@ -109,7 +109,7 @@
 
                         <x-form-element
                             col="12"
-                            label="Instagram Handle"
+                            label="Instagram Link"
                             type="text"
                             name="instagram_link"
                             required="required"

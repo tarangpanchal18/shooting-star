@@ -34,6 +34,7 @@
                             <th>Open Call Date</th>
                             <th>Status</th>
                             <th>Custom Fields</th>
+                            <th>Is Artwork Enable ?</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -48,6 +49,7 @@
                                 <span class="badge badge-{{($page['status'] == "Active") ? 'success' : 'danger' }}"> {{ $page['status'] }} </span>
                             </td>
                             <td>{{ $page->formfield->count() }}</td>
+                            <td>{{ $page->is_show_artwork }}</td>
                             <td>
                                 <a href="{{ route('admin.opencall.opencall-form.index', $page['id']) }}" class="btn btn-sm btn-default">Add Form Fields</a>
                                 <a href="{{ route('admin.opencall.show', $page['id']) }}" class="btn btn-sm btn-default">View</a>

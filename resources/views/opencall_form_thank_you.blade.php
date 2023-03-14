@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $pageName)
+@section('title', 'Thank You')
 @section('class', 'openCallPage')
 
 @section('content')
