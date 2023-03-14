@@ -62,7 +62,7 @@ class OpenCallController extends Controller
     {
         $data = $request->validated();
         if ($file = $request->file('cover_image')) {
-            unlink(Opencall::UPLOAD_PATH.$opencall->cover_image);
+            $this->uploadFileRepository->removeFile(Opencall::UPLOAD_PATH, $opencall->cover_image);
             $data['cover_image'] = $this->uploadFileRepository->uploadFile('opencall', $file);
         }
         $opencall->update($data);
@@ -73,7 +73,7 @@ class OpenCallController extends Controller
     public function destroy(OpenCall $opencall): RedirectResponse
     {
         $path = public_path(OpenCall::UPLOAD_PATH);
-        unlink($path.'/'.$opencall->cover_image);
+        $this->uploadFileRepository->removeFile($path, $opencall->cover_image, true);
         $opencall->delete();
 
         return to_route('admin.opencall.index')->with('success', 'Data Updated Successfully !');

@@ -69,7 +69,7 @@ class ExhibitionController extends Controller
     {
         $data = $request->validated();
         if ($file = $request->file('cover_image')) {
-            unlink(Exhibition::UPLOAD_COVER_PATH.$exhibition->cover_image);
+            $this->uploadFileRepository->removeFile(Exhibition::UPLOAD_COVER_PATH, $exhibition->cover_image);
             $data['cover_image'] = $this->uploadFileRepository->uploadFile('exhibition_cover', $file);
         }
         $exhibition->update($data);
@@ -81,7 +81,7 @@ class ExhibitionController extends Controller
     public function destroy(Exhibition $exhibition): RedirectResponse
     {
         $path = public_path(Exhibition::UPLOAD_COVER_PATH);
-        unlink($path.'/'.$exhibition->cover_image);
+        $this->uploadFileRepository->removeFile($path, $exhibition->cover_image, true);
         $exhibition->delete();
 
         return to_route('admin.exhibition.index')->with('success', 'Data Updated Successfully !');
@@ -122,7 +122,7 @@ class ExhibitionController extends Controller
     public function removeUpload(Request $request, Exhibition $exhibition): JsonResponse
     {
         $path = public_path(Exhibition::UPLOAD_PATH.$exhibition->id);
-        unlink($path.'/'.$request->file_name);
+        $this->uploadFileRepository->removeFile($path, $request->file_name, true);
         $data = ExhibitionImage::where('filename', $request->file_name);
         $data->delete();
 

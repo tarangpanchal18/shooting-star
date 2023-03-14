@@ -60,7 +60,7 @@ class ShopController extends Controller
     {
         $data = $request->validated();
         if ($file = $request->file('item_filename')) {
-            unlink(Shop::UPLOAD_PATH.$shop->item_filename);
+            $this->uploadFileRepository->removeFile(Shop::UPLOAD_PATH, $shop->item_filename);
             $data['item_filename'] = $this->uploadFileRepository->uploadFile('shop', $file);
         }
         $shop->update($data);
@@ -71,7 +71,7 @@ class ShopController extends Controller
     public function destroy(Shop $shop): RedirectResponse
     {
         $path = public_path(Shop::UPLOAD_PATH);
-        unlink($path.'/'.$shop->item_filename);
+        $this->uploadFileRepository->removeFile($path, $shop->item_filename, true);
         $shop->delete();
 
         return to_route('admin.shop_item.index')->with('success', 'Data Updated Successfully !');

@@ -61,7 +61,7 @@ class ArtistController extends Controller
     {
         $data = $request->validated();
         if ($file = $request->file('cover_image')) {
-            unlink(Artist::UPLOAD_COVER_PATH.$artist->artist_cover_image);
+            $this->uploadFileRepository->removeFile(Artist::UPLOAD_COVER_PATH, $artist->artist_cover_image);
             $data['artist_cover_image'] = $this->uploadFileRepository->uploadFile('artist_cover', $file);
         }
         $artist->update($data);
@@ -72,7 +72,7 @@ class ArtistController extends Controller
     public function destroy(Artist $artist): RedirectResponse
     {
         $path = public_path(Artist::UPLOAD_COVER_PATH);
-        unlink($path.'/'.$artist->artist_cover_image);
+        $this->uploadFileRepository->removeFile($path, $artist->artist_cover_image, true);
         $artist->delete();
 
         return to_route('admin.artist.index')->with('success', 'Data Updated Successfully !');
@@ -109,7 +109,7 @@ class ArtistController extends Controller
     public function removeUpload(Request $request, Artist $artist): JsonResponse
     {
         $path = public_path(Artist::UPLOAD_PATH.$artist->id);
-        unlink($path.'/'.$request->file_name);
+        $this->uploadFileRepository->removeFile($path, $request->file_name, true);
         $data = ArtistImage::where('filename', $request->file_name);
         $data->delete();
 
