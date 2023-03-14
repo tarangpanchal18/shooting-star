@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\OpenCall;
+use Illuminate\View\View;
 use App\Http\Requests\CreateOpenCallUserForm;
 use App\Services\OpenCallFormService;
+use Illuminate\Http\RedirectResponse;
 
 class OpenCallUserFormController extends Controller
 {
@@ -13,12 +15,7 @@ class OpenCallUserFormController extends Controller
         $this->openCallUserFormService = $openCallUserFormService;
     }
 
-    /**
-     * Display a form page for opencall.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(OpenCall $opencall)
+    public function index(OpenCall $opencall): View
     {
         return view('opencall_form', [
             'pageName' => $opencall->title,
@@ -28,25 +25,13 @@ class OpenCallUserFormController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  app\Http\Request\CreateOpenCallUserForm  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CreateOpenCallUserForm $request)
+    public function store(CreateOpenCallUserForm $request): RedirectResponse
     {
         $this->openCallUserFormService->store($request->validated(), $request->file('art_work_image'));
         return redirect(route('opencall.thanks'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
+    public function show(): View
     {
         return view('opencall_form_thank_you');
     }
