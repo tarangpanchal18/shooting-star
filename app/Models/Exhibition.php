@@ -34,13 +34,13 @@ class Exhibition extends Model
         return $this->hasMany(ExhibitionImage::class);
     }
 
-    protected function start_date(): Attribute {
+    protected function startDate(): Attribute {
         return Attribute::make(
             get: fn (string $value) => date('d M Y', strtotime($value)),
         );
     }
 
-    protected function end_date(): Attribute {
+    protected function endDate(): Attribute {
         return Attribute::make(
             get: fn (string $value) => date('d M Y', strtotime($value)),
         );
