@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\OpenCallController;
 use App\Http\Controllers\Admin\OpenCallFormController;
 use App\Http\Controllers\Admin\OpenCallFormResponse;
 use App\Http\Controllers\Admin\ShopController;
+use App\Http\Controllers\Admin\SubscriptionController;
 use App\Http\Controllers\OpenCallUserFormController;
 
 /*
@@ -37,7 +38,8 @@ Route::get('opencall', [HomeController::class, 'opencall'])->name('opencall');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('opencall/apply/{opencall?}', [OpenCallUserFormController::class, 'index'])->name('opencall.apply');
 Route::get('opencall/thanks', [OpenCallUserFormController::class, 'show'])->name('opencall.thanks');
-Route::post('opencall/apply', [OpenCallUserFormController::class, 'store']);
+Route::post( 'opencall/apply', [OpenCallUserFormController::class, 'store']);
+Route::post('subscribe', [HomeController::class, 'subscribe'])->name('subscribe');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -63,6 +65,7 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::resource('opencall', OpenCallController::class);
     Route::resource('opencall.opencall-form', OpenCallFormController::class);
     Route::resource('shop', ShopController::class);
+    Route::resource('subscription', SubscriptionController::class);
     Route::resource('open-call-response', OpenCallFormResponse::class);
 });
 

@@ -388,6 +388,11 @@ return [
             ],
         ],
         [
+            'text'    => 'Subscription',
+            'icon'    => 'far fa-fw fa-envelope',
+            'url'         => Admin::PATH . '/subscription',
+        ],
+        [
             'text'    => 'Open Call Responses',
             'icon'    => 'far fa-fw fa-file',
             'url'         => Admin::PATH . '/open-call-response',

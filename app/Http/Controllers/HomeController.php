@@ -7,7 +7,9 @@ use App\Models\Exhibition;
 use App\Models\OpenCall;
 use App\Models\Page;
 use App\Models\Shop;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -106,6 +108,19 @@ class HomeController extends Controller
             'pageName' => 'Contact',
             'pageData' => Page::findOrFail(2),
         ]);
+    }
+
+    public function subscribe(Request $request)
+    {
+        Subscription::updateOrCreate([
+                'email' => $request->email,
+            ],
+            [
+            'email' => $request->email,
+            'ip_address' => $request->ip(),
+        ]);
+
+        return Redirect::back()->with('success', 'Successfully subscribed');
     }
 
 }
