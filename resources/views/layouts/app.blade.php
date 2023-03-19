@@ -112,10 +112,10 @@
                         </p>
                     </div>
                     <div class="col-lg-6 col-xs-12 links">
-                        <form class="rd-form rd-form-inline rd-mailform" data-form-output="newsletter-sample"
-                            data-form-type="subscribe" method="post" action="/components/rd-mailform/rd-mailform.php">
+                        <form class="rd-form-inline" method="post" action="<?=route('subscribe')?>">
+                            @csrf
                             <div class="form-group">
-                                <input class="form-control" type="email" name="email" placeholder="E-mail">
+                                <input class="form-control" type="email" minlength="4" maxlength="50" name="email" placeholder="Enter Your E-mail" required>
                             </div>
                             <button class="btn" type="submit">Subscribe</button>
                         </form>
@@ -146,6 +146,12 @@
             <div class="preloader-item"></div>
         </div>
     </div>
+
+<script>
+    @if (session('success'))
+    alert('{{ session('success') }}');
+    @endif
+</script>
 </body>
 
 </html>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Page extends Model
 {
@@ -24,24 +25,18 @@ class Page extends Model
         'status',
     ];
 
-    /**
-     * Format the CreatedAt Date
-     *
-     * @return date
-     */
-    public function getCreatedAtAttribute($value)
+    protected function createdAt(): Attribute
     {
-        return date('d-m-Y', strtotime($value));
+        return Attribute::make(
+            get: fn (string $value) => date('d M Y', strtotime($value)),
+        );
     }
 
-    /**
-     * Format the UpdatedAt Date
-     *
-     * @return date
-     */
-    public function getUpdatedAtAttribute($value)
+    protected function updatedAt(): Attribute
     {
-        return date('d-m-Y', strtotime($value));
+        return Attribute::make(
+            get: fn (string $value) => date('d M Y', strtotime($value)),
+        );
     }
 
 }

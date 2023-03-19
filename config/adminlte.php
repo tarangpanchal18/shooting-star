@@ -303,10 +303,10 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -386,6 +386,11 @@ return [
                     'url'     => Admin::PATH . '/artist',
                 ],
             ],
+        ],
+        [
+            'text'    => 'Subscription',
+            'icon'    => 'far fa-fw fa-envelope',
+            'url'         => Admin::PATH . '/subscription',
         ],
         [
             'text'    => 'Open Call Responses',
