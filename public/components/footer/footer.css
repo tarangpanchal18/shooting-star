@@ -1,0 +1,134 @@
+.footer {
+  padding: 2rem 0rem;
+}
+
+.footer .list-inline {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+}
+
+.footer * + .footer-tel {
+  margin-top: 1rem;
+}
+
+.footer * + .footer-address {
+  margin-top: 1rem;
+}
+
+.footer * + .footer-mail {
+  margin-top: 1rem;
+}
+
+.footer * + .logo {
+  margin-top: 2rem;
+}
+
+.footer * + .list-inline {
+  margin-top: 1rem;
+}
+
+.footer * + .rights {
+  margin-top: 1rem;
+}
+
+.footer-tel {
+  font-weight: 300;
+}
+
+/* Footer */
+.footer {
+  background: #152f4f;
+  color: white;
+}
+.footer h4 {
+  color: #fff;
+  font-size: 24px;
+}
+.footer .links ul {
+  list-style-type: none;
+}
+.footer .links li a {
+  color: white;
+  transition: color 0.2s;
+}
+.footer .links li a:hover {
+  text-decoration: none;
+  color: #4180cb;
+}
+.footer .about-company i {
+  font-size: 25px;
+}
+.footer .about-company a {
+  color: white;
+  transition: color 0.2s;
+  margin-right: 10px;
+}
+.footer .about-company a:hover {
+  color: #4180cb;
+}
+.footer .location i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.footer .copyright p {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991px) {
+  footer.footer .row {
+    text-align: center;
+  }
+}
+@media (max-width: 575.98px) {
+  footer .links,
+  footer .location {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .footer {
+    padding: 3rem 0rem 2rem;
+  }
+  .footer * + .footer-tel {
+    margin-top: 1rem;
+  }
+  .footer * + .footer-mail {
+    margin-top: 1rem;
+  }
+  .footer * + .logo {
+    margin-top: 3rem;
+  }
+  .footer * + .list-inline {
+    margin-top: 1rem;
+  }
+  .footer * + .rights {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .footer {
+    padding: 4rem 0rem;
+  }
+  .footer * + .footer-tel {
+    margin-top: 1rem;
+  }
+  .footer * + .footer-address {
+    margin-top: 1rem;
+  }
+  .footer * + .footer-mail {
+    margin-top: 2rem;
+  }
+  .footer * + .logo {
+    margin-top: 2rem;
+  }
+  .footer * + .list-inline {
+    margin-top: 2rem;
+  }
+  .footer * + .rights {
+    margin-top: 1rem;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,4 +1,5 @@
 <?php
+use App\Models\Admin;
 
 return [
 
@@ -14,7 +15,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Shootin Star',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +64,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Shooting</b> star',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Shooting star',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +108,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
             'alt' => 'AdminLTE Preloader Image',
@@ -254,7 +255,7 @@ return [
 
     'use_route_url' => false,
     'dashboard_url' => 'home',
-    'logout_url' => 'logout',
+    'logout_url' => Admin::PATH .'/logout',
     'login_url' => 'login',
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
@@ -294,94 +295,107 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Dashboard',
+            'url'         => Admin::PATH,
+            'icon'        => 'fas fa-fw fa-cogs',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Admin Module'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'Content Pages',
+            'icon'    => 'fas fa-fw fa-file',
+            'url'     => Admin::PATH . '/pages',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Exhibition',
+            'icon'    => 'fas fa-fw fa-inbox',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Exhibiton',
+                    'url'  => Admin::PATH . '/exhibition/create',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Exhibiton',
+                    'url'     => Admin::PATH . '/exhibition',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'    => 'Open Calls',
+            'icon'    => 'fas fa-fw fa-user-tie',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Open Calls',
+                    'url'  => Admin::PATH . '/opencall/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Open Calls',
+                    'url'     => Admin::PATH . '/opencall',
+                ],
+            ],
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'    => 'Shop Items',
+            'icon'    => 'fas fa-fw fa-shopping-cart',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Shop Items',
+                    'url'  => Admin::PATH . '/shop/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Shop Items',
+                    'url'     => Admin::PATH . '/shop',
+                ],
+            ],
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'    => 'Artist',
+            'icon'    => 'fas fa-fw fa-brush',
+            'submenu' => [
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text' => 'Add Artist',
+                    'url'  => Admin::PATH . '/artist/create',
+                ],
+                [
+                    'icon'    => 'fas fa-fw fa-arrow-right',
+                    'text'    => 'View Artist',
+                    'url'     => Admin::PATH . '/artist',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Subscription',
+            'icon'    => 'far fa-fw fa-envelope',
+            'url'         => Admin::PATH . '/subscription',
+        ],
+        [
+            'text'    => 'Open Call Responses',
+            'icon'    => 'far fa-fw fa-file',
+            'url'         => Admin::PATH . '/open-call-response',
         ],
     ],
 

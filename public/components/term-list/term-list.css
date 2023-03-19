@@ -1,0 +1,4 @@
+/**
+ * Term list
+ */dt {	color: #171724;}* + dd {	margin-top: 0.59375rem;}dl + dl {	margin-top: 1.59375rem;}h4 + dl {	margin-top: 1.5rem;}* + .term-list {	margin-top: 1.8125rem;}@media (min-width: 1600px) {	* + dd {		margin-top: 0.83125rem;	}	dl + dl {		margin-top: 2.23125rem;	}	h4 + dl {		margin-top: 2.1rem;	}	* + .term-list {		margin-top: 2.5375rem;	}}@media (min-width: 1600px) {	* + dd {		margin-top: 1.1875rem;	}	dl + dl {		margin-top: 3.1875rem;	}	h4 + dl {		margin-top: 3rem;	}	* + .term-list {		margin-top: 3.625rem;	}}
+/*# sourceMappingURL=term-list.css.map */

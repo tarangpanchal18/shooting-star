@@ -1,0 +1,22 @@
+// Tab vertical
+section.section.section-md.bg-transparent
+	.container
+		h4.text-uppercase.text-center Tabs vertical
+		.tab.tab-vertical
+			ul.tab-embed.nav.nav-line-vertical( role='tablist' )
+				li.nav-item: a.nav-link.title-1.active( data-bs-toggle='tab', href='#navLine2-1', role='tab', aria-selected='true' ) Tab 1
+				li.nav-item: a.nav-link.title-1( data-bs-toggle='tab', href='#navLine2-2', role='tab', aria-selected='false' ) Tab 2
+				li.nav-item: a.nav-link.title-1( data-bs-toggle='tab', href='#navLine2-3', role='tab', aria-selected='false' ) Tab 3
+				li.nav-item: a.nav-link.title-1( data-bs-toggle='tab', href='#navLine2-4', role='tab', aria-selected='false' ) Tab 4
+			.tab-content
+				#navLine2-1.tab-pane.fade.show.active( role='tabpanel' )
+					include ../tab/_tab-content-1
+
+				#navLine2-2.tab-pane.fade( role='tabpanel' )
+					include ../tab/_tab-content-2
+
+				#navLine2-3.tab-pane.fade( role='tabpanel' )
+					include ../tab/_tab-content-3
+
+				#navLine2-4.tab-pane.fade( role='tabpanel' )
+					include ../tab/_tab-content-4

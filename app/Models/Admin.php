@@ -3,21 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Admin extends Model
+class Admin extends Authenticatable
 {
     use HasFactory;
 
-    const ADMIN_PATH = 'webadmin';
+    const PATH = 'webadmin';
 
     protected $fillable = [
-        'name',
-        'email',
-        'phonecode',
-        'phone',
-        'password',
-        'logo',
-        'status',
+        'title' => 'required',
+        'description' => 'required',
+        'seo_description' => 'required',
+        'seo_keywords' => 'required',
+        'page_image' => 'image',
+        'status' => 'required',
     ];
 }

@@ -1,0 +1,12 @@
+// Newsletter
+section.section.section-md.bg-transparent
+	.container.text-center
+		.row.justify-content-center
+			.col-md-9.col-lg-8.col-xxl-7
+				h4.text-uppercase Subscribe to Our Newsletter
+				p Sign up to our newsletter and be the first to know about the latest company news, special offers, events, and discounts.
+				form.rd-form.rd-form-inline.rd-mailform( data-form-output='newsletter-sample', data-form-type='subscribe', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.form-group
+						input.form-control( type='email', name='email', placeholder='E-mail', data-constraints='@Email @Required' )
+					button.btn( type='submit' ) Subscribe
+				#newsletter-sample.form-output.snackbar.snackbar-primary

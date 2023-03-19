@@ -1,0 +1,23 @@
+// Contact form
+section.section.section-md.bg-transparent
+	.container.text-center
+		.row.justify-content-center
+			.col-md-8.col-lg-7
+				h4.text-uppercase Contact Form
+				form.rd-form.rd-mailform( data-form-output='contact-form', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.row.row-gutters-20.row-20.align-items-center
+						.col-md-6
+							.form-group
+								input.form-control( type='text', name='name', placeholder='Your name', data-constraints='@Required' )
+						.col-md-6
+							.form-group
+								input.form-control( type='email', name='email', placeholder='E-mail', data-constraints='@Email @Required' )
+						.col-12
+							.form-group
+								input.form-control( type='text', name='phone', placeholder='Phone', data-constraints='@Numeric @Required' )
+						.col-12
+							.form-group
+								textarea.form-control( name='textarea', placeholder='Message', data-constraints='@Required' )
+					.rd-form-btn.text-start
+						button.btn( type='submit' ) Send Message
+				#contact-form.form-output.snackbar.snackbar-primary

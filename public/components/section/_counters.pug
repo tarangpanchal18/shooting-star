@@ -1,0 +1,23 @@
+include ../counter/_counter
+
+// Counters
+section.section.section-md.bg-transparent.text-center.text-sm-start
+	.container
+		.row.row-40.align-items-center
+			.col-xs-6.col-xl-5.offset-xl-1
+				.image-responsive
+					+img( 'image-08-470x660' ).image
+
+			.col-xs-6.col-md-5.col-xl-4.offset-md-1
+				+counter-simple({
+					value: 178,
+					title: 'Pieces of Equipment'
+				})
+				+counter-simple({
+					value: 647,
+					title: 'Finished Photoshoots'
+				})
+				+counter-simple({
+					value: 773,
+					title: 'Satisfied Clients'
+				})

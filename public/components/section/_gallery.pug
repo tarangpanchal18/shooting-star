@@ -1,0 +1,37 @@
+include ../thumbnail/_thumbnail
+
+// Gallery
+section.section.section-md.bg-transparent.text-center.text-md-start
+	.container
+		.text-block.text-block-1.text-center
+			h4.text-uppercase Portfolio
+			p Et lacinia nisi tortor ultricies mollis gravida interdum vitae aenean. Nam faucibus nullam sit egestas. Sem enim ut imperdiet sollicitudin nisl neque. Auctor ultricies at purus nunc enim.
+
+		.isotope-wrap.isotope-line
+			.isotope-filters
+				.isotope-filter.active( data-isotope-filter="*" ) All
+				.isotope-filter( data-isotope-filter=".filter-1" ) Arts & Culture
+				.isotope-filter( data-isotope-filter=".filter-2" ) Fashion
+				.isotope-filter( data-isotope-filter=".filter-3" ) Food & Drink
+				.isotope-filter( data-isotope-filter=".filter-4" ) People
+			.isotope.row.row-30.row-lg-60.row-xl-100( data-lightgallery )
+				.col-xs-6.col-xl-4.offset-xl-1.isotope-item.filter-1.custom-col-offset
+					+thumbnail({
+						img: 'image-13-370x520',
+						imgOriginal: 'image-13-800x1200'
+					})
+				.col-xs-6.col-xl-5.isotope-item.filter-2
+					+thumbnail({
+						img: 'image-14-470x380',
+						imgOriginal: 'image-14-1200x800'
+					})
+				.col-xs-6.col-xl-4.offset-xl-1.isotope-item.filter-4
+					+thumbnail({
+						img: 'image-16-370x520',
+						imgOriginal: 'image-16-800x1200'
+					})
+				.col-xs-6.col-xl-4.offset-xl-2.isotope-item.filter-3
+					+thumbnail({
+						img: 'image-15-370x455',
+						imgOriginal: 'image-15-800x1200'
+					})

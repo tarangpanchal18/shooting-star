@@ -1,0 +1,2 @@
+* + .widget-body {	margin-top: 0.5625rem;}.widget + .widget {	margin-top: 1.5rem;}@media (min-width: 992px) {	* + .widget-body {		margin-top: 0.7875rem;	}	.widget + .widget {		margin-top: 2.1rem;	}}@media (min-width: 1600px) {	* + .widget-body {		margin-top: 1.125rem;	}	.widget + .widget {		margin-top: 3rem;	}}.widget-list-link {	margin-right: 0.5rem;}
+/*# sourceMappingURL=widget.css.map */

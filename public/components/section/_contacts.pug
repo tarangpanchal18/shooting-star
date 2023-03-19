@@ -1,0 +1,29 @@
+include ../person/_person
+include ../comment/_comment
+
+// Single post
+section.section.section-md.bg-transparent.text-center
+	.container
+		.row.row-50.justify-content-center
+			.col-md-10.col-lg-8
+				h4.text-uppercase Contacts
+				p.offset-custom-2 Et lacinia nisi tortor ultricies mollis gravida interdum vitae aenean. Nam faucibus nullam sit egestas. Sem enim ut imperdiet sollicitudin nisl neque. Auctor ultricies at purus nunc enim.
+				form.rd-form.rd-mailform.text-start( data-form-output='contact-form', data-form-type='contact', method='post', action='components/rd-mailform/rd-mailform.php' )
+					.row.row-30
+						.col-12
+							.form-group
+								.form-control-wrap
+									textarea.form-control( name='textarea', placeholder='Your comment', data-constraints='@Required' )
+						.col-md-6
+							.form-group
+								.form-control-wrap
+									input.form-control( type='text', name='name', placeholder='Your name*', data-constraints='@Required' )
+						.col-md-6
+							.form-group
+								.form-control-wrap
+									input.form-control( type='email', name='email', placeholder='Your email*', data-constraints='@Email @Required' )
+					.rd-form-btn
+						button.btn.btn-outline( type='submit' )
+							span Send message
+							span.btn-icon.mdi-arrow-right
+				#contact-form.form-output.snackbar.snackbar-primary
