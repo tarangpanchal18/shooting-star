@@ -73,6 +73,7 @@ class ArtistController extends Controller
     {
         $path = public_path(Artist::UPLOAD_COVER_PATH);
         $this->uploadFileRepository->removeFile($path, $artist->artist_cover_image, true);
+        $this->removeArtWorkImages($artist->images, $artist->id);
         $artist->delete();
 
         return to_route('admin.artist.index')->with('success', 'Data Updated Successfully !');
@@ -116,5 +117,24 @@ class ArtistController extends Controller
         return response()->json([
             'success' => $request->file_name
         ]);
+    }
+
+    /**
+     * Delete Uploaded images.
+     * @param object $exhibitionImages (Object)
+     * @param int $exhibitionId (Artist::id)
+     *
+     */
+    public function removeArtWorkImages(Object $artistImages, int $artistId): void
+    {
+        if ($artistImages->count()) {
+            foreach ($artistImages as $image) {
+                $this->uploadFileRepository->removeFile(
+                    public_path(Artist::UPLOAD_PATH . $artistId),
+                    $image->filename,
+                    true
+                );
+            }
+        }
     }
 }
