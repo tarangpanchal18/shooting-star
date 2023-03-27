@@ -82,6 +82,7 @@ class ExhibitionController extends Controller
     {
         $this->uploadFileRepository->removeFile(public_path(Exhibition::UPLOAD_COVER_PATH), $exhibition->cover_image);
         $this->removeArtworkImages($exhibition->images, $exhibition->id);
+        $this->uploadFileRepository->removeFile(public_path(Exhibition::UPLOAD_COVER_PATH), $exhibition->cover_image, true);
         $exhibition->delete();
 
         return to_route('admin.exhibition.index')->with('success', 'Data Updated Successfully !');
@@ -113,6 +114,12 @@ class ExhibitionController extends Controller
         ]);
     }
 
+
+    /**
+     * Delete Upload images.
+     * @param App\Models\Exhibition $exhibition
+     * 
+     */
     public function removeUpload(Request $request, Exhibition $exhibition): JsonResponse
     {
         $path = public_path(Exhibition::UPLOAD_PATH.$exhibition->id);
@@ -124,6 +131,7 @@ class ExhibitionController extends Controller
             'success' => $request->file_name
         ]);
     }
+
 
     /**
      * Delete Uploaded images.
