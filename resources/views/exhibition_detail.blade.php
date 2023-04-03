@@ -41,8 +41,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="exhibutionGallery" role="tabpanel">
-                    <div class="isotope row row-30 row-lg-60 row-xl-100" data-lightgallery="">
-
+                    <div class="isotope row row-30 row-lg-60 row-xl-100" data-lightgallery="" style="margin-bottom: 20px;">
                         @forelse($exhibition->images as $gallery)
                         <div class="col-xs-6 isotope-item filter-1">
                             <!-- Thumbnail-->
