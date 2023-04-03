@@ -131,7 +131,12 @@ section.hero_slider .prevArrow.slick-arrow {
 }
 
 .artistsPage .artistsArt .listItem .imageBlock {
-  overflow: hidden;
+    overflow: hidden;
+}
+
+.artistsPage .artistsArt .listItem .imageBlock img {
+    height: 185px;
+    width: 310px;
 }
 
 .artistsPage .artistsArt .listItem img:hover {
@@ -161,10 +166,16 @@ section.hero_slider .prevArrow.slick-arrow {
 }
 
 .works .card-title {
-  font-size: 22px;
+  font-size: 18px;
+  text-align: center;
   letter-spacing: 0;
-  text-transform: capitalize;
   display: block;
+}
+
+.works .card-title img {
+    cursor: pointer;
+    height: 185px;
+    width: 310px;
 }
 
 .works .subtitle {
@@ -359,4 +370,9 @@ section.hero_slider .prevArrow.slick-arrow {
   height: 350px;
   width: 100%;
   object-fit: cover;
+}
+
+.thumbnail-img{
+    height: 280px;
+    width: 320px;
 }

@@ -30,7 +30,7 @@
 
                 @if($pageData->artist_video_url)
                 <div class="widget">
-                    <video width="320" height="240" controls>
+                    <video width="100%" height="240" controls>
                         <source src="{{$pageData->artist_video_url}}" type="video/mp4">
                         <source src="{{$pageData->artist_video_url}}" type="video/ogg">
                         Your browser does not support the video tag.
@@ -54,8 +54,8 @@
                     <img src="{{asset('images/artist/'.$pageData->id.'/'.$artistWork->filename)}}" class="card-img-top" alt="{{$pageData->artist_name}} Artwork">
                 </a>
                 <div class="card-body py-2 px-2">
-                    <a class="card-title">
-                    <b>{{$artistWork->title}}</b>
+                    <a class="card-title" href="{{route('admin.shop.index')}}">
+                    <b>By {{$artistWork->artist->artist_name}}</b>
                     </a>
                     {{-- <p class="subtitle">Rosemary Cullum: The Dark Side</p>
                     <p class="date">Oil on canvas <br> 90cm x 105cm </p> --}}
