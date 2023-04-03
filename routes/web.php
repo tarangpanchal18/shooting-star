@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExhibitionController;
+use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\Admin\OpenCallController;
 use App\Http\Controllers\Admin\OpenCallFormController;
 use App\Http\Controllers\Admin\OpenCallFormResponse;
@@ -67,6 +68,8 @@ Route::middleware('auth:admin')->prefix(Admin::PATH)->name('admin.')->group(func
     Route::resource('shop', ShopController::class);
     Route::resource('subscription', SubscriptionController::class);
     Route::resource('open-call-response', OpenCallFormResponse::class);
+
+    Route::post('export/{exportType}', [ExportController::class, 'index']);
 });
 
 require __DIR__.'/auth.php';
