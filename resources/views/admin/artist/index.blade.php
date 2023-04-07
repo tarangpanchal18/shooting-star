@@ -47,9 +47,8 @@
                             <td>
                                 <span class="badge badge-{{($row['status'] == "Active") ? 'success' : 'danger' }}"> {{ $row['status'] }} </span>
                             </td>
-                            <td>{{ $row->images->count() }}</td>
+                            <td><a href="{{route('admin.shop.index')}}">{{ $row->shop->count() }}</a></td>
                             <td>
-                                <a href="{{ route('admin.artist.gallery', $row['id']) }}" class="btn btn-sm btn-default">Add Artwork</a>
                                 <a href="{{ route('admin.artist.edit', $row['id']) }}" class="btn btn-sm btn-default">Edit</a>
                                 <a href="{{ route('admin.artist.destroy', $row['id']) }}" onclick="event.preventDefault();"  class="btn btn-sm btn-default delete-item" data-id="{{ $row['id'] }}">Delete</a>
                                 <!-- Form For Delete -->
