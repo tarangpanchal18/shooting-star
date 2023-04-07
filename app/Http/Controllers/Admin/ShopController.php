@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateShopItems;
-use App\Models\Artist;
 use App\Models\Shop;
-use App\Repositories\UploadFileRepository;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Artist;
 use Illuminate\View\View;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\CreateShopItems;
+use App\Repositories\UploadFileRepository;
 
 class ShopController extends Controller
 {
@@ -20,7 +20,7 @@ class ShopController extends Controller
     public function index(): View
     {
         return view('admin.shop_item.index', [
-            'shop_items' => Shop::orderBy('id', 'DESC')->paginate(10),
+            'shop_items' => Shop::with('artist')->orderBy('id', 'DESC')->paginate(10),
         ]);
     }
 
@@ -50,7 +50,7 @@ class ShopController extends Controller
         return view('admin.shop_item.create', [
             'action' => "Edit",
             'method' => "PUT",
-            'shop' => $shop,
+            'shop' => Shop::with('artist')->where('id', $shop->id)->first(),
             'artistList' => Artist::where('status', 'Active')->get(),
             'formUrl' => route('admin.shop.update', $shop['id'])
         ]);

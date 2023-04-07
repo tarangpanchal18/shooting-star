@@ -58,7 +58,8 @@
                             <b>{{$item->item_title}}</b>
                         </a>
                         <p class="subtitle">{{$item->item_description}}</p>
-                        <p class="date">£{{number_format($item->item_price, 2)}}</p>
+                        <p class="subtitle">By {{ $item->artist->artist_name }}</p>
+                        <p class="date">£ {{number_format($item->item_price, 2)}}</p>
                         <p onclick="alert('Coming soon')" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">Buy Now</p>
                     </div>
                 </div>

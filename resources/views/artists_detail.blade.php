@@ -48,18 +48,18 @@
           <div class="row justify-content-center mt-3">
             <div class="row col-12 col-md-10 mt-3">
 
-                @forelse($pageData->images as $artistWork)
+                @forelse($pageData->shop as $artistWork)
                 <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                <a class="card-title">
-                    <img src="{{asset('images/artist/'.$pageData->id.'/'.$artistWork->filename)}}" class="card-img-top" alt="{{$pageData->artist_name}} Artwork">
-                </a>
-                <div class="card-body py-2 px-2">
-                    <a class="card-title" href="{{route('admin.shop.index')}}">
-                    <b>By {{$artistWork->artist->artist_name}}</b>
+                    <a class="card-title">
+                        <img src="{{asset('images/shop_item/'.$artistWork->item_filename)}}" class="card-img-top" alt="{{$pageData->artist_name}} Artwork">
                     </a>
-                    {{-- <p class="subtitle">Rosemary Cullum: The Dark Side</p>
-                    <p class="date">Oil on canvas <br> 90cm x 105cm </p> --}}
-                </div>
+                    <div class="card-body py-2 px-2">
+                        <a class="card-title" href="{{route('admin.shop.index')}}">
+                        <b>{{$artistWork->item_title}}</b>
+                        </a>
+                        <p class="subtitle">By {{$pageData->artist_name}}</p>
+                        <p class="date">Item Price : £ {{number_format($artistWork->item_price, 2) }} </p>
+                    </div>
                 </div>
                 @empty
                 <div style="text-align: center;color: #839799;margin-bottom: 5em;">
