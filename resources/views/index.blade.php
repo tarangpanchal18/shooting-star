@@ -65,47 +65,16 @@
         <div class="container">
             <h4 class="text-uppercase text-center">Artists</h4>
             <div class="row justify-content-center">
-                <div class="col-xs-4 mb-3 text-center">
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
+                <div class="col-md-12 mb-3 text-center row">
+                    @forelse ($artistData as $item)
+                    <h6 class="col-md-4 text-uppercase">
+                        <a href="{{route('artist')}}">{{ $item->artist_name }}</a>
                     </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
+                    @empty
+                    <h6 class="col-md-12 text-uppercase" style="text-align: center">
+                        <a href="javascript:void(0)">No Artist Data Available At moment !</a>
                     </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                </div>
-                <div class="col-xs-4 col-lg-4 mb-3 text-center">
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                </div>
-                <div class="col-xs-4 col-lg-4 mb-3 text-center">
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
-                    <h6 class="text-uppercase">
-                        <a href="javascript:void(0)">Artists Name</a>
-                    </h6>
+                    @endforelse
                 </div>
             </div>
         </div>
