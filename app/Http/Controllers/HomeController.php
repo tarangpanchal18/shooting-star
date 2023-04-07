@@ -16,7 +16,10 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        return view('index', ['pageName' => 'Home',]);
+        return view('index', [
+            'pageName' => 'Home',
+            'artistData' => Artist::where('status', 'active')->limit(12)->get(),
+        ]);
     }
 
     public function about(): View
