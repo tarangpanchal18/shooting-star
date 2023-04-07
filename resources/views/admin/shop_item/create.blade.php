@@ -20,8 +20,9 @@
                  <div class="form-group">
                     <label>Select Artist</label>
                     <select class="form-control" name="artist_id">
+                    <option value="">Select Artist</option>
                     @foreach ($artistList as $artist)
-                        <option {{($shop['item_title'] == $artist->artist_id) ? 'selected' : ''}} value="{{ $artist->id }}">{{ $artist->artist_name }}</option>
+                        <option {{($shop['artist_id'] == $artist->id) ? 'selected' : ''}} value="{{ $artist->id }}">{{ $artist->artist_name }}</option>
                     @endforeach
                     </select>
                 </div>

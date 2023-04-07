@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Image</th>
+                            <th>Artist Name</th>
                             <th>Shop Item Title</th>
                             <th>Shop Item Description</th>
                             <th>Shop Item Price</th>
@@ -41,7 +41,7 @@
                         @forelse($shop_items as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $row->artist->artist_name }}</td>
                             <td>{{ $row['item_title'] }}</td>
                             <td>{{ $row['item_description'] }}</td>
                             <td>{{ number_format($row['item_price'],2) }}</td>
@@ -49,7 +49,6 @@
                                 <span class="badge badge-{{$row['status'] == "Active" ? 'success' : 'danger'}}">{{ $row['status'] }}</span>
                             </td>
                             <td>
-                                <a href="{{ route('admin.shop.show', $row['id']) }}" class="btn btn-sm btn-default">View</a>
                                 <a href="{{ route('admin.shop.edit', $row['id']) }}" class="btn btn-sm btn-default">Edit</a>
                                 <a href="{{ route('admin.shop.destroy', $row['id']) }}" onclick="event.preventDefault();" class="btn btn-sm btn-default delete-item" data-id="{{ $row['id'] }}">Delete</a>
                                  <!-- Form For Delete -->
