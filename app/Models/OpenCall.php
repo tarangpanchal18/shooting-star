@@ -31,16 +31,4 @@ class OpenCall extends Model
     public function opencallResponse() {
         return $this->hasMany(OpenCallResponse::class);
     }
-
-    protected function startDate(): Attribute {
-        return Attribute::make(
-            get: fn (string $value) => date('d M Y', strtotime($value)),
-        );
-    }
-
-    protected function endDate(): Attribute {
-        return Attribute::make(
-            get: fn (string $value) => date('d M Y', strtotime($value)),
-        );
-    }
 }
