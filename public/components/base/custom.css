@@ -376,3 +376,19 @@ section.hero_slider .prevArrow.slick-arrow {
     height: 280px;
     width: 320px;
 }
+
+.page-content{
+    text-align: justify;
+}
+
+.blog-post-item {
+    text-align: justify;
+}
+
+.opencall-description{
+    text-align: justify;
+}
+
+.simple-text-block{
+    text-align: justify;
+}

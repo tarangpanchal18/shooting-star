@@ -33,7 +33,7 @@
                                 <img alt="{{$exhibition->title}}" src="{{asset('images/exhibition/cover_images/'.$exhibition->cover_image)}}" alt="" width="570" height="625">
                             </div>
 
-                            <div class="content" style="margin-top:2em">
+                            <div class="content" style="margin-top:2em;text-align: justify;">
                                 {!! $exhibition->description !!}
                             </div>
 
