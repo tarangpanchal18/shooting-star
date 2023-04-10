@@ -51,7 +51,7 @@
                             <b>{{$exhibition->title}}</b>
                         </a>
                         <p class="subtitle">{{$exhibition->short_description}}</p>
-                        <p class="date">{{ $activeExhibition->start_date }} - {{ $activeExhibition->end_date }}</p>
+                        <p class="date">{{ $exhibition->start_date }} - {{ $exhibition->end_date }}</p>
                     </div>
                 </div>
                 @empty
