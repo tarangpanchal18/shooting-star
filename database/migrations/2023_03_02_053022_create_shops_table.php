@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('shop_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('artist_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('artist_id')->constrained()->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->text('item_title');
             $table->text('item_short_description')->nullable();
             $table->text('item_description');
