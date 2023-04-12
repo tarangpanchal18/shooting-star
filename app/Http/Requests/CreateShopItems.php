@@ -24,7 +24,6 @@ class CreateShopItems extends FormRequest
     public function rules()
     {
         $rules =  [
-            'artist_id' => 'required|integer',
             'item_title' => 'required|min:3|max:50',
             'item_short_description' => 'min:10|max:50',
             'item_description' => 'required|min:10|max:100',

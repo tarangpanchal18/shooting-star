@@ -706,6 +706,7 @@
 .rd-navbar-fullwidth.navbar-centered.rd-navbar--is-stuck .navbar-section {
 	height: auto;
 	padding: 20px 0;
+    box-shadow: 0 4px 20px #00000017;
 }
 
 

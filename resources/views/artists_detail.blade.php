@@ -54,7 +54,7 @@
                         <img src="{{asset('images/shop_item/'.$artistWork->item_filename)}}" class="card-img-top" alt="{{$pageData->artist_name}} Artwork">
                     </a>
                     <div class="card-body py-2 px-2">
-                        <a class="card-title" href="{{route('admin.shop.index')}}">
+                        <a class="card-title" href="{{route('shop')}}?artist={{$pageData->id}}">
                         <b>{{$artistWork->item_title}}</b>
                         </a>
                         <p class="subtitle">By {{$pageData->artist_name}}</p>

@@ -3,6 +3,12 @@
 @section('title', $pageName)
 @section('class', 'indexpage')
 
+@section('internalcss')
+.electricblaze-yxyKslpMBkjKVPcsWvD4 {
+    display: none!important;
+}
+@endsection
+
 @section('content')
     <section class="hero_slider">
         <div class="exhibutionImages">
@@ -60,7 +66,8 @@
             <hr>
         </div>
     </section>
-    <!-- Artists List -->
+
+    <!-- Artists List
     <section class="bg-transparent my-5 section text-center text-xs-start">
         <div class="container">
             <h4 class="text-uppercase text-center">Artists</h4>
@@ -75,6 +82,20 @@
                         <a href="javascript:void(0)">No Artist Data Available At moment !</a>
                     </h6>
                     @endforelse
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>-->
+
+    <!-- Instagram Section -->
+    <section class="bg-transparent my-5 section text-center text-xs-start">
+        <div class="container">
+            <h4 class="text-uppercase text-center">Instagram</h4>
+            <div class="row justify-content-center">
+                <div class="col-md-12 mb-3 text-center row">
+                    <script src="https://s.electricblaze.com/widget.js" defer></script>
+                    <div class="electricblaze-id-2Uhx8cJ"></div>
                 </div>
             </div>
         </div>
