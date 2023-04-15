@@ -32,7 +32,7 @@
                     </tr>
                     <tr>
                         <th>Page Description</th>
-                        <td>{{ $page['description'] }}</td>
+                        <td>{!! $page['description'] !!}</td>
                     </tr>
                     <tr>
                         <th>Created On</th>
