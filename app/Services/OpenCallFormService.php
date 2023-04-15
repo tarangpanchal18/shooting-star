@@ -14,7 +14,7 @@ class OpenCallFormService {
         $this->uploadFileRepository = $uploadFileRepository;
     }
 
-    public function store(array $response, object $artWorkImage)
+    public function store(array $response, object|array $artWorkImage)
     {
         $customItems = array_filter($response, function($key) {
             return strpos($key, 'custom_') === 0;
