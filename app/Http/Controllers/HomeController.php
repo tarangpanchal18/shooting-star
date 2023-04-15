@@ -18,6 +18,7 @@ class HomeController extends Controller
     {
         return view('index', [
             'pageName' => 'Home',
+            'pageData' => Page::findOrFail(3),
             'artistData' => Artist::where('status', 'active')->limit(12)->get(),
         ]);
     }

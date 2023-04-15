@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Page;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PageSeeder extends Seeder
@@ -15,7 +14,7 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        $staticPage = ['about-us', 'contact'];
+        $staticPage = ['about-us', 'contact', 'homepage'];
 
         foreach ($staticPage as $page) {
 
