@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="{{asset('components/base/custom.css')}}">
     <link rel="stylesheet" href="{{asset('components/slick/slick.css')}}">
     <link rel="stylesheet" href="{{asset('components/table/table.css')}}">
+    <link rel="stylesheet" href="{{asset('site_data/lite-master/css/lc_lightbox.min.css')}}">
     <script type="text/javascript" src="{{asset('components/jquery/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('components/base/core.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('components/base/script.js')}}"></script>
     <script type="text/javascript" src="{{asset('components/slick/slick.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('site_data/lite-master/js/lc_lightbox.lite.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('components/base/custom.js')}}"></script>
     <style>
     @yield('internalcss')
@@ -151,6 +153,8 @@
     @if (session('success'))
     alert('{{ session('success') }}');
     @endif
+
+    @yield('js')
 </script>
 </body>
 

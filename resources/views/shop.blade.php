@@ -4,7 +4,7 @@
 @section('class', 'artistsDetailsPage')
 
 @section('content')
-<section class="bg-transparent section text-center" style="margin-top:1.5em">
+<section class="bg-transparent section text-center" style="margin-top:1em">
     <div class="container">
         <div class="justify-content-center row">
             <div class="col-md-10 col-lg-8">
@@ -46,24 +46,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="row col-12 col-md-10">
-
                 @forelse($pageData as $item)
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn"
+                <div class="col-12 col-md-6 mb-4 card animated fadeIn"
                     data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
+                    <a class="card-title shooting-star-gallery"
+                        href="{{asset('images/shop_item/'.$item->item_filename)}}"
+                        title="{{$item->item_title}}"
+                        data-lcl-txt="{{$item->item_description}}"
+                        data-lcl-author="{{$item->artist->artist_name}}"
+                        data-lcl-thumb="{{asset('images/shop_item/'.$item->item_filename)}}"
+                    >
                         <img src="{{asset('images/shop_item/'.$item->item_filename)}}" class="card-img-top" alt="{{$item->item_title}}">
                     </a>
                     <div class="card-body py-2 px-2">
                         <a class="card-title" href="#">
                             <b>{{$item->item_title}}</b>
                         </a>
-                        <p class="subtitle">{{$item->item_description}}</p>
-                        @if ($item->artist->artist_name)
-                        <p class="subtitle">By {{ $item->artist->artist_name }}</p>
-                        @else
-                        <p class="subtitle">&nbsp;</p>
-                        @endif
-                        <p class="date">£ {{number_format($item->item_price, 2)}}</p>
+                        <div class="subtitle">{!! $item->item_description !!}</div>
+                        <p class="date"><strong>£ {{number_format($item->item_price, 2)}}</strong></p>
                         <p onclick="alert('Coming soon')" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">Buy Now</p>
                     </div>
                 </div>
@@ -72,9 +72,18 @@
                     <h4>No Data Found !</h4>
                 </div>
                 @endforelse
-
             </div>
         </div>
     </div>
 </section>
+@endsection
+
+@section('js')
+    lc_lightbox('.shooting-star-gallery', {
+        wrap_class: 'lcl_fade_oc',
+        gallery : true,
+        thumb_attr: 'data-lcl-thumb',
+        skin: 'dark',
+        // more options here
+    });
 @endsection

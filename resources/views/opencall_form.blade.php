@@ -94,9 +94,11 @@
                         <x-form-element
                             col="12"
                             label="Contact Number"
-                            type="number"
+                            type="text"
                             name="phone"
                             required="required"
+                            value="+44 123456789"
+                            extraLabel="Please add number with country code <b>(e.g UK +44123456789, USA +1987654231, India +91987654321)</b>"
                         ></x-form-element>
 
                         <x-form-element

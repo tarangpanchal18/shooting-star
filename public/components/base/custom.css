@@ -6,7 +6,7 @@
   color: #142656;
 }
 
-.title_style::before {
+/* .title_style::before {
   content: "";
   position: absolute;
   left: 0;
@@ -28,7 +28,7 @@
   width: 30%;
   height: 2px;
   background-color: #142656cc;
-}
+} */
 
 /* ----------- Header Designe ----------- */
 .rd-navbar-wrap .navbar-logo {
@@ -135,8 +135,8 @@ section.hero_slider .prevArrow.slick-arrow {
 }
 
 .artistsPage .artistsArt .listItem .imageBlock img {
-    height: 185px;
-    width: 310px;
+    height: 340px;
+    width: 100%;
 }
 
 .artistsPage .artistsArt .listItem img:hover {
@@ -173,8 +173,8 @@ section.hero_slider .prevArrow.slick-arrow {
 
 .works .card-title img {
     cursor: pointer;
-    height: 185px;
-    width: 310px;
+    height: 300px;
+    width: 100%;
 }
 
 .works .subtitle {
@@ -238,6 +238,12 @@ section.hero_slider .prevArrow.slick-arrow {
 }
 
 @media (max-width: 767.98px) {
+    .works .card-title img {
+        cursor: pointer;
+        height: 110px;
+        width: 100%;
+    }
+
   .exhibutionDetailes .nav.nav-line-vertical {
     flex-wrap: wrap;
   }
