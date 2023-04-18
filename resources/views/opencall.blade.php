@@ -21,17 +21,17 @@
             <div class="row col-12 col-md-10">
 
                 @forelse($pageData as $call)
-                <div class="col-12 col-md-4 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
-                    <a class="card-title" href="#">
+                <div class="col-6 col-md-6 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
+                    <a class="card-title" href="{{ route('opencall.apply', $call->id) }}">
                         <img src="{{asset('images/opencall/'.$call->cover_image)}}" class="card-img-top" alt="{{$call->title}}">
                     </a>
                     <div class="card-body py-2 px-2">
-                        <a class="card-title" href="#">
+                        <a class="card-title" href="{{ route('opencall.apply', $call->id) }}">
                             <b>{{$call->title}}</b>
                         </a>
                         <p class="subtitle">{{$call->short_description}}</p>
                         <p class="subtitle">{{ $opencall->start_date }} - {{ $opencall->end_date }}</p>
-                        <a class="btn btn-outline mt-3 p-2" href="{{ route('opencall.apply', $call->id) }}">Apply Now</a>
+                        <a class="btn btn-outline mt-3 p-2">Apply Now</a>
                     </div>
                 </div>
                 @empty

@@ -36,11 +36,13 @@
                 </div> --}}
                 <div class="form-group">
                     <label>Item Description</label>
-                    <input type="text" name="item_description" class="form-control" placeholder="Enter Item Description" value="{{ old('item_description', $shop['item_description']) }}" required>
+                    <textarea name="item_description" class="form-control" placeholder="Enter Item Description">{{ old('item_description', $shop['item_description']) }}</textarea>
+                    <small class="text-info"><strong>Note:</strong>: Please add <strong>&lt;br&gt;</strong> if you want to add new line in page</small>
                 </div>
                 <div class="form-group">
-                    <label>Item Price (<small>e.g 87.10</small>)</label>
+                    <label>Item Price</label>
                     <input type="number" name="item_price" class="form-control" placeholder="Enter Item Price" value="{{ old('item_price', $shop['item_price']) }}" required>
+                    <small class="text-info"><strong>Note:</strong> All price are in £</small>
                 </div>
                 @if($shop['item_filename'])
                 <div class="form-group">

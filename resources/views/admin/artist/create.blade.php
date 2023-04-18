@@ -34,13 +34,20 @@
                     <input type="file" name="artist_cover_image" class="form-control">
                 </div> --}}
                 <div class="form-group">
-                    <label>Artist Video Url</label>
+                    <label>Artist Video Google Drive Id</label>
                     <input type="text" name="artist_video_url" class="form-control" placeholder="Enter Artist video url" value="{{ old('artist_video_url', $artist['artist_video_url']) }}">
+                    <small class="text-info"><strong>Note: </strong>Paste Google Drive Video ID here <code>(e.g 1XJIZGXQIrPDHUfwZOqxm_CpCQzwF5j7)</code></small>
+                    <ul style="padding: 17px;">
+                        <li><b class="text-info">Steps to get Google Drive ID</b></li>
+                        <li>Step 1 : Go to google drive and copy link of video</li>
+                        <li>Step 2 : In that link you'll find above example like id</li>
+                        <li>Step 3 : Paste that id here</li>
+                    </ul>
                 </div>
                 @if($artist['artist_cover_image'])
                 <div class="form-group">
                     <label>Preview Image</label>
-                    <p><img style="height:100px;width:100px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image'])}}"></p>
+                    <p><img style="height:130px;width:120px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image'])}}"></p>
                 </div>
                 @endif
                 <div class="form-group">
