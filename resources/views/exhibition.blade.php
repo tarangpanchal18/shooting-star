@@ -11,7 +11,9 @@
         @if($activeExhibition)
         <div class="row justify-content-center mt-3 mb-3">
             <div class="col-12 col-md-10 m-0">
+                <a href="{{route('exhibition.detail', $activeExhibition->id)}}">
                 <img class="image mb-4 mx-auto" src="{{asset('images/exhibition/cover_images/'.$activeExhibition->cover_image)}}" alt="{{$activeExhibition->title}}">
+                </a>
                 <div class="px-3">
                     <a href="{{route('exhibition.detail', $activeExhibition->id)}}">
                         <h4 class="text-uppercase">{{$activeExhibition->title}}</h4>

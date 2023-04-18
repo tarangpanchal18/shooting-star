@@ -10,7 +10,7 @@
                         name="'.$name.'"
                         placeholder="'.ucfirst($label).'"
                         '.$required.'
-                        value="'.old($name).'"
+                        value="'.old($name, $value).'"
                     >';
             break;
 
@@ -56,7 +56,7 @@
         {!! $input !!}
         @if($extraLabel)
         <p style="margin:0;padding:0;">
-            <small style="font-size:11px;margin:0;padding:0;">{!! $extraLabel !!}</small>
+            <small style="font-size:13px;margin:0;padding:0;">{!! $extraLabel !!}</small>
         </p>
         @endif
         @error($name)

@@ -14,8 +14,11 @@
                     <h1>{{$pageData->artist_name}}</h1>
                     <p>{{$pageData->artist_title}}</p>
                     <p style="margin:2px 0 2em 0;">{{$pageData->artist_location}}</p>
-                    <div>
+                    <div class="artist-content">
                         {!! $pageData->artist_description !!}
+                    </div>
+                    <div class="artist-redirect" style="margin-top:2em;">
+                        <a href="{{ route('shop') }}?artist={{$pageData->id}}" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">View Artist Work in shop</a>
                     </div>
                   </div>
                 </div>
@@ -30,10 +33,8 @@
 
                 @if($pageData->artist_video_url)
                 <div class="widget">
-                    <video width="100%" height="240" controls>
-                        <source src="{{$pageData->artist_video_url}}" type="video/mp4">
-                        <source src="{{$pageData->artist_video_url}}" type="video/ogg">
-                        Your browser does not support the video tag.
+                   <video width="100%" height="240" controls>
+                        <source src="https://drive.google.com/uc?export=download&id={{$pageData->artist_video_url}}" type='video/mp4'>
                     </video>
                 </div>
                 @endif
@@ -42,7 +43,7 @@
           </div>
         </div>
     </section>
-    <section class="works text-center text-md-start mt-5">
+    {{-- <section class="works text-center text-md-start mt-5">
         <div class="container">
           <h6 class="text-uppercase fs-4 text-center title_style mb-4">Available works</h6>
           <div class="row justify-content-center mt-3">
@@ -57,7 +58,6 @@
                         <a class="card-title" href="{{route('shop')}}?artist={{$pageData->id}}">
                         <b>{{$artistWork->item_title}}</b>
                         </a>
-                        <p class="subtitle">By {{$pageData->artist_name}}</p>
                         <p class="date">Item Price : £ {{number_format($artistWork->item_price, 2) }} </p>
                     </div>
                 </div>
@@ -70,5 +70,5 @@
             </div>
           </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
