@@ -40,7 +40,9 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
-                <h4 class="text-uppercase">{{$opencall->title}} . ({{ $opencall->start_date }} - {{ $opencall->end_date }})</h4>
+                <h3 style="margin:0px;" class="text-uppercase">{{$opencall->title}} </h3>
+                <h4 style="margin:0 0 2em 0;">({{ $opencall->start_date }} {{ $opencall->end_date }})</h4>
+
                 <div class="opencall-description">
                     {!! $opencall->description !!}
                 </div>
@@ -64,13 +66,13 @@
                     <div class="row row-gutters-20 row-20 align-items-center">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Open call Selected</label>
-                                <select class="form-control" name="open_call_id" readonly>
+                                <input type="hidden" value="{{ $opencall->id }}">
+                                {{-- <select class="form-control" name="open_call_id" readonly>
                                     <option value="">--Select--</option>
                                     @foreach ($opencallList as $call)
                                     <option {{($opencall->id == $call->id) ? 'selected' : ''}} value="{{ $call->id }}">{{ $call->title }}</option>
                                     @endforeach
-                                </select>
+                                </select> --}}
                             </div>
                         </div>
                         <input type="hidden" name="open_call_id" value="{{$opencall->id}}">
