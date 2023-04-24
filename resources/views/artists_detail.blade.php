@@ -38,6 +38,21 @@
                     </video>
                 </div>
                 @endif
+
+                @if($pageData->artist_cover_image_2)
+                <div class="widget">
+                    <img class="image mb-4" src="{{asset('images/artist/cover_images/'.$pageData->artist_cover_image_2)}}"
+                        alt="{{$artist->artist_name}}" />
+                </div>
+                @endif
+
+                @if($pageData->artist_cover_image_3)
+                <div class="widget">
+                    <img class="image mb-4" src="{{asset('images/artist/cover_images/'.$pageData->artist_cover_image_3)}}"
+                        alt="{{$artist->artist_name}}" />
+                </div>
+                @endif
+
               </div>
             </div>
           </div>

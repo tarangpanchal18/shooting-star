@@ -21,6 +21,8 @@ class Artist extends Model
         'artist_location',
         'artist_description',
         'artist_cover_image',
+        'artist_cover_image_2',
+        'artist_cover_image_3',
         'artist_video_url',
         'status',
     ];

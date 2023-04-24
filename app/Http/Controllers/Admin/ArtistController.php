@@ -42,6 +42,12 @@ class ArtistController extends Controller
         if ($file = $request->file('cover_image')) {
             $data['artist_cover_image'] = $this->uploadFileRepository->uploadFile('artist_cover', $file, );
         }
+        if ($file = $request->file('artist_cover_image_2')) {
+            $data['artist_cover_image_2'] = $this->uploadFileRepository->uploadFile('artist_cover', $file,);
+        }
+        if ($file = $request->file('artist_cover_image_3')) {
+            $data['artist_cover_image_3'] = $this->uploadFileRepository->uploadFile('artist_cover', $file,);
+        }
         Artist::create($data);
 
         return to_route('admin.artist.index')->with('success', 'Data Added Successfully !');
@@ -64,6 +70,14 @@ class ArtistController extends Controller
             $this->uploadFileRepository->removeFile(Artist::UPLOAD_COVER_PATH, $artist->artist_cover_image);
             $data['artist_cover_image'] = $this->uploadFileRepository->uploadFile('artist_cover', $file);
         }
+        if ($file = $request->file('artist_cover_image_2')) {
+            $this->uploadFileRepository->removeFile(Artist::UPLOAD_COVER_PATH, $artist->artist_cover_image_2);
+            $data['artist_cover_image_2'] = $this->uploadFileRepository->uploadFile('artist_cover', $file);
+        }
+        if ($file = $request->file('artist_cover_image_3')) {
+            $this->uploadFileRepository->removeFile(Artist::UPLOAD_COVER_PATH, $artist->artist_cover_image_3);
+            $data['artist_cover_image_3'] = $this->uploadFileRepository->uploadFile('artist_cover', $file);
+        }
         $artist->update($data);
 
         return to_route('admin.artist.index')->with('success', 'Data Updated Successfully !');
@@ -73,6 +87,8 @@ class ArtistController extends Controller
     {
         $path = public_path(Artist::UPLOAD_COVER_PATH);
         $this->uploadFileRepository->removeFile($path, $artist->artist_cover_image, true);
+        $this->uploadFileRepository->removeFile($path, $artist->artist_cover_image_2, true);
+        $this->uploadFileRepository->removeFile($path, $artist->artist_cover_image_3, true);
         $this->removeArtWorkImages($artist->images, $artist->id);
         $artist->delete();
 
