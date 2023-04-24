@@ -47,13 +47,36 @@
                 @if($artist['artist_cover_image'])
                 <div class="form-group">
                     <label>Preview Image</label>
-                    <p><img style="height:130px;width:120px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image'])}}"></p>
+                    <p><img style="height:170px;width:130px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image'])}}"></p>
                 </div>
                 @endif
                 <div class="form-group">
                     <label>Cover Image</label>
                     <input type="file" name="cover_image" class="form-control">
                 </div>
+
+                @if($artist['artist_cover_image_2'])
+                <div class="form-group">
+                    <label>Preview Image - 2</label>
+                    <p><img style="height:170px;width:130px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image_2'])}}"></p>
+                </div>
+                @endif
+                <div class="form-group">
+                    <label>Cover Image - 2</label>
+                    <input type="file" name="artist_cover_image_2" class="form-control">
+                </div>
+
+                @if($artist['artist_cover_image_3'])
+                <div class="form-group">
+                    <label>Preview Image - 3</label>
+                    <p><img style="height:170px;width:130px;" class="img-thumbnail" src="{{asset('images/artist/cover_images/'. $artist['artist_cover_image_3'])}}"></p>
+                </div>
+                @endif
+                <div class="form-group">
+                    <label>Cover Image- 3</label>
+                    <input type="file" name="artist_cover_image_3" class="form-control">
+                </div>
+
                 <div class="form-group">
                     <label>Artist Desciption</label>
                     <textarea name="artist_description" id="editor" cols="30" rows="10" class="form-control"
