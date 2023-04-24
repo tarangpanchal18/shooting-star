@@ -58,6 +58,7 @@
                                 width="161" height="63" />
                         </a>
                     </div>
+                    <h3 style="text-align:center;margin:0 0 10px 0;">SHOOTING STAR</h3>
                     <div class="navbar-container">
                         <div class="navbar-cell navbar-sidebar">
                             <ul class="navbar-navigation rd-navbar-nav">
@@ -68,7 +69,7 @@
                                     <a class="navbar-navigation-root-link" href="{{ route('about') }}">About</a>
                                 </li>
                                 <li class="navbar-navigation-root-item">
-                                    <a class="navbar-navigation-root-link" href="{{ route('artist') }}">Artists</a>
+                                    <a class="navbar-navigation-root-link" href="{{ route('artist') }}">Artist</a>
                                 </li>
                                 <li class="navbar-navigation-root-item">
                                     <a class="navbar-navigation-root-link" href="{{ route('exhibition') }}">Exhibition</a>
@@ -101,6 +102,7 @@
                                 <img class="logo-image-default" src="/site_data/Logo_White.png" alt="Pixel" width="100"
                                     height="auto">
                             </a>
+                            <h4 style="color:white;">Shooting Star</h4>
                         </div>
                         <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
                             ante mollis quam tristique convallis </p>
@@ -119,7 +121,7 @@
                             <div class="form-group">
                                 <input class="form-control" type="email" minlength="4" maxlength="50" name="email" placeholder="Enter Your E-mail" required>
                             </div>
-                            <button class="btn" type="submit">Subscribe</button>
+                            <button style="margin-top: 1em;min-width: 100px" class="btn" type="submit">Subscribe</button>
                         </form>
                     </div>
                 </div>
