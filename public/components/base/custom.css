@@ -240,7 +240,7 @@ section.hero_slider .prevArrow.slick-arrow {
 @media (max-width: 767.98px) {
     .works .card-title img {
         cursor: pointer;
-        height: 110px;
+        height: 210px;
         width: 100%;
     }
 
