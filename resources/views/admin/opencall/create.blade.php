@@ -98,7 +98,7 @@
 @stop
 
 @section('js')
-<script src="http://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.4.2/tinymce.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
     $('.datepicker').datepicker({
@@ -106,9 +106,8 @@
         autoclose: true,
     });
 
-    ClassicEditor.create( document.querySelector( '#editor' ) )
-    .catch( error => {
-        console.error( error );
+    tinymce.init({
+        selector: "#editor"
     });
 </script>
 @stop
