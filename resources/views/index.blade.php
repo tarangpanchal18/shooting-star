@@ -82,7 +82,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 mb-3 text-center row">
                     <script src="https://s.electricblaze.com/widget.js" defer></script>
-                    <div class="electricblaze-id-2Uhx8cJ"></div>
+                    <div class="electricblaze-id-2Uhx96y"></div>
                 </div>
             </div>
         </div>

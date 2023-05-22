@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.19/css/froala_editor.min.css">
 <div class="col-md-12">
     <div class="card card-default">
         <div class="card-header">
@@ -84,7 +85,7 @@
 @stop
 
 @section('js')
-<script src="http://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.4.2/tinymce.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
     $('.datepicker').datepicker({
@@ -92,9 +93,8 @@
         autoclose: true,
     });
 
-    ClassicEditor.create( document.querySelector( '#editor' ) )
-    .catch( error => {
-        console.error( error );
+    tinymce.init({
+        selector: "#editor"
     });
 </script>
 @stop

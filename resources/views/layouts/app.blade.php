@@ -31,18 +31,18 @@
         <header class="section rd-navbar-wrap"
             data-preset='{"title":"Navbar Default","category":"header","reload":true,"id":"navbar-default"}'>
             <nav class="rd-navbar navbar-centered" data-rd-navbar='{"responsive":{"1200":{"stickUpOffset":"200px"}}}'>
-                <div class="navbar-section navbar-non-stuck py-4 nav_1">
+                <div class="navbar-section navbar-non-stuck py-4 nav_1" style="margin:0px; padding:0px;">
                     <div class="navbar-container">
                         <div class="navbar-cell">
-                            <div class="navbar-panel">
+                            <div class="navbar-panel" style="margin-left: 120px;">
                                 <button class="navbar-switch mdi-menu novi-icon"
                                     data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
                                 <div class="navbar-logo">
                                     <a class="navbar-logo-link" href="{{ route('home') }}">
                                         <img class="navbar-logo-default" src="/site_data/Logo_Blue.png" alt="Pixel"
-                                            width="161" height="63" />
+                                            width="100" height="auto" />
                                         <img class="navbar-logo-inverse" src="/site_data/logo-inverse-322x127.png"
-                                            alt="Pixel" width="161" height="63" />
+                                            alt="Pixel" width="100" height="auto" />
                                     </a>
                                 </div>
                             </div>
@@ -51,14 +51,8 @@
                 </div>
                 <div class="navbar-section nav_2">
                     <div class="navbar-logo">
-                        <a class="navbar-logo-link" href="{{ route('home') }}">
-                            <img class="navbar-logo-default" src="/site_data/Logo_Blue.png" alt="Pixel" width="161"
-                                height="63" />
-                            <img class="navbar-logo-inverse" src="/site_data/logo-inverse-322x127.png" alt="Pixel"
-                                width="161" height="63" />
-                        </a>
                     </div>
-                    <h3 style="text-align:center;margin:0 0 10px 0;">SHOOTING STAR</h3>
+                    <h3 style="text-align:center;margin:0 0 5px 0;font-size: 30px;">SHOOTING STAR</h3>
                     <div class="navbar-container">
                         <div class="navbar-cell navbar-sidebar">
                             <ul class="navbar-navigation rd-navbar-nav">
@@ -99,10 +93,10 @@
                     <div class="col-lg-5 col-xs-12 about-company">
                         <div class="logo">
                             <a class="logo-link" href="{{ route('home') }}">
-                                <img class="logo-image-default" src="/site_data/Logo_White.png" alt="Pixel" width="100"
+                                <img class="logo-image-default" src="/site_data/Logo_White.png" alt="Pixel" width="70"
                                     height="auto">
                             </a>
-                            <h4 style="color:white;">Shooting Star</h4>
+                            <h3 style="color:white;margin: 0px;">Shooting Star</h3>
                         </div>
                         <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
                             ante mollis quam tristique convallis </p>
