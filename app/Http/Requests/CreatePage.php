@@ -25,7 +25,7 @@ class CreatePage extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:50',
-            'description' => 'required|min:10|max:5000',
+            'description' => 'required|min:10',
             'seo_description' => 'required|min:3|max:1000',
             'seo_keywords' => 'required|min:3|max:500',
             'page_image' => 'mimes:jpg,png,jpeg,gif|max:10240',
