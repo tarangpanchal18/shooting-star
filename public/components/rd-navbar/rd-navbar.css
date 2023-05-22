@@ -67,9 +67,9 @@
 	display: block;
 }
 
-.navbar-logo-default,
+
 .navbar-logo-inverse {
-	margin: 0;
+	margin: 0 0 0 38px;
 }
 
 .navbar-logo-inverse {
@@ -421,12 +421,13 @@
 .rd-navbar-fullwidth .navbar-navigation-root-item {
 	display: flex;
 	align-items: center;
-	padding: 0 15px;
+	padding: 0 12px;
 }
 
 .rd-navbar-fullwidth .navbar-navigation-root-link {
 	position: relative;
 	display: block;
+    font-size: 16px;
 	line-height: 1;
 	color: #999;
 }

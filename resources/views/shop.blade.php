@@ -47,7 +47,25 @@
         <div class="row justify-content-center">
             <div class="row col-12 col-md-10">
                 @forelse($pageData as $item)
-                <div class="col-12 col-md-6 mb-4 card animated fadeIn"
+                <div class="panel panel-default col-12 col-md-6 mb-4 card animated fadeIn">
+                    <div class="panel-body">
+                        <div style="background: #f9f9f9; padding:30px;height: 300px;" align="center">
+                            <b>{{$item->item_title}}</b>
+                            <a style="height:100%;" class="card-title shooting-star-gallery" href="{{asset('images/shop_item/'.$item->item_filename)}}"
+                                title="{{$item->item_title}}" data-lcl-txt="{{$item->item_description}}"
+                                data-lcl-author="{{$item->artist->artist_name}}"
+                                data-lcl-thumb="{{asset('images/shop_item/'.$item->item_filename)}}">
+                                <img style="height:100%;" src="{{asset('images/shop_item/'.$item->item_filename)}}" class="card-img-top" alt="{{$item->item_title}}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="padding: 0 5px">
+                        <div class="subtitle">{!! $item->item_description !!}</div>
+                        <p class="date"><strong>£ {{number_format($item->item_price, 2)}}</strong></p>
+                        <p onclick="alert('Coming soon')" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">Buy Now</p>
+                    </div>
+                </div>
+                {{-- <div class="col-12 col-md-6 mb-4 card animated fadeIn"
                     data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title shooting-star-gallery"
                         href="{{asset('images/shop_item/'.$item->item_filename)}}"
@@ -66,7 +84,7 @@
                         <p class="date"><strong>£ {{number_format($item->item_price, 2)}}</strong></p>
                         <p onclick="alert('Coming soon')" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">Buy Now</p>
                     </div>
-                </div>
+                </div> --}}
                 @empty
                 <div style="text-align: center;color: #839799;margin-bottom: 5em;">
                     <h4>No Data Found !</h4>

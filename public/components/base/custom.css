@@ -33,7 +33,7 @@
 /* ----------- Header Designe ----------- */
 .rd-navbar-wrap .navbar-logo {
   max-width: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 header .navbar-section.nav_2 .navbar-logo {
@@ -42,7 +42,7 @@ header .navbar-section.nav_2 .navbar-logo {
 
 header nav.rd-navbar.rd-navbar--is-stuck .navbar-section.nav_2 .navbar-logo {
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 0;
 }
 
 /* ----------- Home Page ----------- */
@@ -173,8 +173,8 @@ section.hero_slider .prevArrow.slick-arrow {
 
 .works .card-title img {
     cursor: pointer;
-    height: 300px;
-    width: 100%;
+    height: auto;
+    width: auto;
 }
 
 .works .subtitle {
