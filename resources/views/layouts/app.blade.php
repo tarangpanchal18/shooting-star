@@ -34,7 +34,7 @@
                 <div class="navbar-section navbar-non-stuck py-4 nav_1" style="margin:0px; padding:0px;">
                     <div class="navbar-container">
                         <div class="navbar-cell">
-                            <div class="navbar-panel" style="margin-left: 120px;">
+                            <div class="navbar-panel">
                                 <button class="navbar-switch mdi-menu novi-icon"
                                     data-multi-switch='{"targets":".rd-navbar","scope":".rd-navbar","isolate":"[data-multi-switch]"}'></button>
                                 <div class="navbar-logo">
@@ -101,10 +101,10 @@
                         <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
                             ante mollis quam tristique convallis </p>
                         <p>
-                            <a href="#">
+                            <a href="#" style="margin: 0;">
                                 <i class="fa fa-facebook-square mr-1"></i>
                             </a>
-                            <a href="#">
+                            <a href="#" style="margin: 0;">
                                 <i class="fa fa-linkedin-square"></i>
                             </a>
                         </p>
