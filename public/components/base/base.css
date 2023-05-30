@@ -3380,7 +3380,7 @@ progress {
 
 @media (min-width: 992px) {
     .navbar-logo-default {
-        margin-left: 52px;
+        margin-left: 0px;
     }
 	.float-lg-start {
 		float: left !important;
@@ -3879,6 +3879,9 @@ progress {
 }
 
 @media (min-width: 1200px) {
+    .navbar-logo-default {
+        margin-left: 55px;
+    }
 	.float-xl-start {
 		float: left !important;
 	}
