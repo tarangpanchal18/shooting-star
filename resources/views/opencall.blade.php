@@ -21,7 +21,7 @@
             <div class="row col-12 col-md-10">
 
                 @forelse($pageData as $call)
-                <div class="col-6 col-md-6 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
+                <div class="col-md-6 col-sm-12 mb-4 card animated fadeIn" data-animate="{&quot;class&quot;:&quot;fadeIn&quot;}">
                     <a class="card-title" href="{{ route('opencall.apply', $call->id) }}">
                         <img src="{{asset('images/opencall/'.$call->cover_image)}}" class="card-img-top" alt="{{$call->title}}">
                     </a>

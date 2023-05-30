@@ -101,10 +101,10 @@
                         <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
                             ante mollis quam tristique convallis </p>
                         <p>
-                            <a href="#">
+                            <a href="#" style="margin: 0;">
                                 <i class="fa fa-facebook-square mr-1"></i>
                             </a>
-                            <a href="#">
+                            <a href="#" style="margin: 0;">
                                 <i class="fa fa-linkedin-square"></i>
                             </a>
                         </p>

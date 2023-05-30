@@ -71,6 +71,9 @@ h2, .h2 {
 }
 
 @media (min-width: 1200px) {
+    .rd-navbar-fixed .navbar-panel {
+        margin-left: 120px;
+    }
 	h2, .h2 {
 		font-size: 3rem;
 	}
@@ -2876,6 +2879,9 @@ progress {
 }
 
 @media (min-width: 768px) {
+    .navbar-logo-default {
+        margin-left: 52px;
+    }
 	.float-md-start {
 		float: left !important;
 	}
@@ -3373,6 +3379,9 @@ progress {
 }
 
 @media (min-width: 992px) {
+    .navbar-logo-default {
+        margin-left: 52px;
+    }
 	.float-lg-start {
 		float: left !important;
 	}

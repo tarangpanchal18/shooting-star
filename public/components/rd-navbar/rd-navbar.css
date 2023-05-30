@@ -730,13 +730,25 @@
 	color: #000;
 }
 
+@media (min-width: 768px) {
+    .rd-navbar-fixed .navbar-panel {
+        margin-left: 120px;
+    }
+}
+
 @media (min-width: 1200px) {
+    .rd-navbar-fixed .navbar-panel {
+        margin-left: 120px;
+    }
 	.rd-navbar-fullwidth .navbar-switch {
 		display: none;
 	}
 }
 
 @media (min-width: 1600px) {
+    .rd-navbar-fixed .navbar-panel {
+        margin-left: 120px;
+    }
 	.rd-navbar-fullwidth.navbar-centered .navbar-section:first-child {
 		padding-top: 6.625rem;
 		padding-bottom: 1.9375rem;
