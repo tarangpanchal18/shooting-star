@@ -173,8 +173,8 @@ section.hero_slider .prevArrow.slick-arrow {
 
 .works .card-title img {
     cursor: pointer;
-    height: auto;
-    width: auto;
+    height: 500px;
+    width: 500px;
 }
 
 .works .subtitle {
@@ -243,7 +243,9 @@ section.hero_slider .prevArrow.slick-arrow {
         height: 210px;
         width: 100%;
     }
-
+    .shop-image-p {
+        margin-top: 30px;
+    }
   .exhibutionDetailes .nav.nav-line-vertical {
     flex-wrap: wrap;
   }
