@@ -170,11 +170,27 @@ section.hero_slider .prevArrow.slick-arrow {
   letter-spacing: 0;
   display: block;
 }
-
+.shop-item-div {
+    display: flex;
+    background: #f9f9f9;
+    margin-bottom: 25px;
+    height: 430px;
+    position: relative;
+    justify-content: center;
+    align-items: center
+}
+.shop-item-div a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer
+}
 .works .card-title img {
     cursor: pointer;
-    height: 500px;
-    width: 500px;
+    display: block;
+    max-width: 90%;
+    max-height: 364px;
+    margin: auto;
+    cursor: pointer;
 }
 
 .works .subtitle {
