@@ -35,7 +35,12 @@
 @endsection
 
 @section('content')
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+<style>
+    .iti{
+        display: block!important;
+    }
+</style>
 <section class="section section-md bg-transparent" style="background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/az_subtle.png')">
     <div class="container text-center">
         <div class="row justify-content-center">
@@ -97,10 +102,11 @@
                             col="12"
                             label="Contact Number"
                             type="text"
+                            id="mobile_code"
                             name="phone"
                             required="required"
-                            value="+44 123456789"
-                            extraLabel="Please add number with country code <b>(e.g UK +44123456789, USA +1987654231, India +91987654321)</b>"
+                            value=""
+                            extraLabel=""
                         ></x-form-element>
 
                         <x-form-element
@@ -192,12 +198,20 @@
     </div>
 </section>
 
-
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
 <script>
 $(document).ready(function() {
     $(".addMoreArtWork").click(function() {
         var html = $(".artwork-fields").html();
         $(".more-artworks").append(html);
+    });
+
+    const input = document.querySelector("#mobile_code");
+    window.intlTelInput(input);
+    $("#mobile_code").change(function() {
+        var currentNum = $(this).val();
+        var countryCode = $(".iti__selected-flag").attr("title").match(/\d+/);
+        $(this).val("+" + countryCode + " " + currentNum);
     });
 });
 </script>

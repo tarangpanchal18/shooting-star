@@ -29,7 +29,7 @@ class CreateOpenCallUserForm extends FormRequest
             'name' => 'required|min:3|max:50',
             'email' => 'required|email:rfc',
             'phone' => 'required|integer|integer|min_digits:9|max_digits:12',
-            'website_link' => 'required|url',
+            'website_link' => 'required|min:3|max:500',
             'instagram_link' => 'required|url',
             'comment' => '',
             'art_work_title.*' => 'nullable|min:3|max:50',

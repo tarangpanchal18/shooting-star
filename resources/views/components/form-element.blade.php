@@ -8,6 +8,7 @@
                         class="form-control"
                         type="'. $type .'"
                         name="'.$name.'"
+                        id="'.$id.'"
                         placeholder="'.ucfirst($label).'"
                         '.$required.'
                         value="'.old($name, $value).'"

@@ -17,9 +17,6 @@
                     <div class="artist-content">
                         {!! $pageData->artist_description !!}
                     </div>
-                    <div class="artist-redirect" style="margin-top:2em;">
-                        <a href="{{ route('shop') }}?artist={{$pageData->id}}" style="margin: 0px;cursor: pointer;" class="btn btn-sm btn-default">View Artist Work in shop</a>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -54,6 +51,13 @@
                 @endif
 
               </div>
+
+                <div class="col-md-12 col-lg-12" align="center">
+                    <div class="artist-redirect" style="margin-top:2em;">
+                    <a href="{{ route('shop') }}?artist={{$pageData->id}}" style="margin: 0px;cursor: pointer;"
+                        class="btn btn-sm btn-default">View Artist Work in shop</a>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
