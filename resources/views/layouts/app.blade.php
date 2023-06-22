@@ -98,13 +98,17 @@
                             </a>
                             <h3 style="color:white;margin: 0px;">Shooting Star</h3>
                         </div>
-                        <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-                            ante mollis quam tristique convallis </p>
+                        <p class="pr-5 text-white-50">The Art Beyond Anything</p>
                         <p>
-                            <a href="#" style="margin: 0;">
+                            <a target="_blank" href="https://www.instagram.com/art_shootingstar/" style="margin: 0;">
+                                <i class="fa fa-instagram mr-1"></i>
+                            </a>
+                            &nbsp;
+                            <a target="_blank" href="https://www.instagram.com/art_shootingstar/" style="margin: 0;">
                                 <i class="fa fa-facebook-square mr-1"></i>
                             </a>
-                            <a href="#" style="margin: 0;">
+                            &nbsp;
+                            <a target="_blank" href="https://www.instagram.com/art_shootingstar/" style="margin: 0;">
                                 <i class="fa fa-linkedin-square"></i>
                             </a>
                         </p>

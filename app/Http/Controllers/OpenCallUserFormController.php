@@ -27,7 +27,6 @@ class OpenCallUserFormController extends Controller
 
     public function store(CreateOpenCallUserForm $request): RedirectResponse
     {
-        dd($request->validated());
         $this->openCallUserFormService->store($request->validated(), $request->file('art_work_image'));
         return redirect(route('opencall.thanks'));
     }

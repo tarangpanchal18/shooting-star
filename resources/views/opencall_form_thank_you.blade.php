@@ -8,11 +8,21 @@
     <div class="container">
         <div class="row row-40">
             <div class="col-xs-12 col-xl-12">
-                <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2pvYjg0NC1lLTAwN2lfMi5wbmc.pngjpg" widh="100%" alt="Thank you" height="368">
+                <img src="{{ asset('site_data/thank_you.jpg') }}" widh="100%" alt="Thank you" height="368">
             </div>
         </div>
         <div class="text-block text-block-1 text-center">
-            <p>Et lacinia nisi tortor ultricies mollis gravida interdum vitae aenean. Nam faucibus nullam sit egestas. Sem enim ut imperdiet sollicitudin nisl neque. Auctor ultricies at purus nunc enim. Molestie porta amet posuere elementum eu nulla sapien, et.</p>
+            <p>We extend our heartfelt gratitude for your participation in our art submission. Your artistic talent and dedication
+            shine through in the artwork you submitted. We are thrilled to have your contribution as part of our collection.</p>
+
+            <p>Your artwork has left a lasting impression on us, and we genuinely appreciate the time and effort you put into creating
+            such a remarkable piece. It is artists like you who inspire us and make our platform truly special.</p>
+
+            <p>We want to assure you that your submission is valuable to us, and we will be reaching out to you soon using the contact
+            details provided. We look forward to discussing your artwork further and exploring potential opportunities for
+            collaboration.</p>
+
+            <p><strong>Once again, thank you for sharing your incredible talent with us. Stay tuned for further communication from our team.</strong></p>
         </div>
     </div>
 </section>

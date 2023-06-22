@@ -28,13 +28,13 @@ class CreateOpenCallUserForm extends FormRequest
             'open_call_id' => 'required|integer',
             'name' => 'required|min:3|max:50',
             'email' => 'required|email:rfc',
-            'phone' => 'required|min_digits:9|max_digits:15',
+            'phone' => 'required|min:11|max:20',
             'website_link' => 'required|min:3|max:500',
             'instagram_link' => 'required|url',
             'comment' => '',
-            'art_work_title.*' => 'nullable|min:3|max:50',
-            'art_work_size.*' => 'nullable|min:3|max:50',
-            'art_work_medium.*' => 'nullable|min:3|max:50',
+            'art_work_title.*' => 'nullable|min:1|max:50',
+            'art_work_size.*' => 'nullable|min:1|max:50',
+            'art_work_medium.*' => 'nullable|min:1|max:50',
             'art_work_image.*' => 'nullable|mimes:jpg,png,jpeg,gif|max:10240',
         ];
 
